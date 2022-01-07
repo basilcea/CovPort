@@ -2,12 +2,12 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ReportController : ControllerBase
+    public class ResultController : ControllerBase
     {
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
 
-        public ReportsController(IMediator mediator, IMapper mapper)
+        public ResultController(IMediator mediator, IMapper mapper)
         {
             _mapper = mapper;
             _mediator = mediator;
