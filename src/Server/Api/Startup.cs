@@ -27,7 +27,11 @@ namespace Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
+            .AddNewtonsoftJson();
+            // .AddFluentValidation(cfg =>
+            //         cfg.RegisterValidatorsFromAssemblyContaining<>()
+            //     );;
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -37,6 +41,12 @@ namespace Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
             });
+            // services.AddAutoMapper(cfg => cfg.AddProfile<>());
+            // services.AddHealthChecks()
+            // .AddCheck<>("Database");
+            
+            // services.AddInfrastructure(_configuration);
+            // services.AddApplication(_configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
