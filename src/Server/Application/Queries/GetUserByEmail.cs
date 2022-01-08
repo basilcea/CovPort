@@ -12,7 +12,7 @@ namespace Application.Queries
             Email = email;
         }
 
-        public string Email {get;set;}
+        public string Email {get;}
     }
 
     public class GetUserByEmailHandler : IRequestHandler<GetUserByEmail, User>

@@ -23,7 +23,9 @@ namespace Api.Controllers
         {
             _mediator = mediator;
         }
+        
 
+        [HttpGet("{email}")]
         public async Task<ActionResult<ApiResponse<User>>> GetUser(string email)
         {
             try
@@ -34,7 +36,7 @@ namespace Api.Controllers
                 return Ok(ApiResponse<User>.FromData(user));
 
                 }
-                return NotFound(ApiResponse<User>.WithError(Responses.UserNotFound));
+                return NotFound(ApiResponse<User>.WithError(Responses.NotFound));
 
             }
             catch (Exception ex)

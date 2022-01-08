@@ -1,9 +1,13 @@
+using System;
+using Domain.Interfaces;
+
 namespace Domain.Entities
 {
-    public class Location
+    public class Location : IEntity
     {
-        public int Id {get; set;}
+        public string Id {get; set;}
         public string Name {get; set;}
-        public string CreatedAt{get; set;}
+        public DateTime DateCreated { get; set; }
+        
     }
 }
