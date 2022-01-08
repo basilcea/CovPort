@@ -1,10 +1,14 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 using MediatR;
+using Api.Response;
+using Application.DTO;
+using Domain.ValueObjects;
+using Application.Queries;
+using Domain.Entities;
 
 namespace Api.Controllers
 {
@@ -12,17 +16,32 @@ namespace Api.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly IMapper _mapper;
+
         private readonly IMediator _mediator;
 
-        public UserController(IMediator mediator, IMapper mapper)
+        public UserController(IMediator mediator)
         {
-            _mapper = mapper;
             _mediator = mediator;
         }
 
-        public async Task<ActionResult<IEnumerable<BookingResponse>>> GetUser()
+        public async Task<ActionResult<ApiResponse<User>>> GetUser(string email)
         {
+            try
+            {
+                var user = await _mediator.Send(new GetUserByEmail(email));
+                if (user is not null)
+                {
+                return Ok(ApiResponse<User>.FromData(user));
+
+                }
+                return NotFound(ApiResponse<User>.WithError(Responses.UserNotFound));
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<User>.WithError(ex.Message));
+
+            }
 
         }
 

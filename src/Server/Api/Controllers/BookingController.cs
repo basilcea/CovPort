@@ -21,7 +21,7 @@ namespace Api.Controllers
             _mediator = mediator;
         }
 
-        public async Task<ActionResult<IEnumerable<BookingResponse>>> GetBookings(string userId)
+        public async Task<ActionResult<IEnumerable<BookingResponse>>> GetBookings()
         {
          
         }
