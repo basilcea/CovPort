@@ -30,7 +30,29 @@ namespace Api.Controllers
         {
             try
             {
-                var user = await _mediator.Send(new GetUserByEmail(email));
+                var user = await _mediator.Send(new GetEntityByFilters<User>(email));
+                if (user is not null)
+                {
+                return Ok(ApiResponse<User>.FromData(user));
+
+                }
+                return NotFound(ApiResponse<User>.WithError(Responses.NotFound));
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<User>.WithError(ex.Message));
+
+            }
+
+        }
+
+        [HttpGet("/summary")]
+        public async Task<ActionResult<ApiResponse<User>>> GetUserSummary(string email)
+        {
+            try
+            {
+                var user = await _mediator.Send(new GetUserSummary(email));
                 if (user is not null)
                 {
                 return Ok(ApiResponse<User>.FromData(user));

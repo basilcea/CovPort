@@ -22,10 +22,11 @@ namespace Api.Controllers
             _mediator = mediator;
         }
 
-        public async Task<ActionResult<IEnumerable<BookingResponse>>> GetBookings()
+        public async Task<ActionResult<IEnumerable<BookingResponse>>> GetBookings([FromQuery] string status)
         {
          
         }
+
 
         [HttpGet("{id}")]
         public async Task<ActionResult<BookingResponse>> GetBooking(string bookingId)

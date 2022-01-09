@@ -48,6 +48,28 @@ namespace Api.Controllers
         }
 
 
+[HttpGet]
+        public async Task<ActionResult<ApiResponse<Result>>> GetResults([FromQuery] string status)
+        {
+
+            try
+            {
+                var result = await _mediator.Send(new GetEntityByFilters<Result>(status));
+                if (result is not null)
+                {
+                    return Ok(ApiResponse<Result>.FromData(result));
+
+                }
+                return NotFound(ApiResponse<Result>.WithError(Responses.NotFound));
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<Result>.WithError(ex.Message));
+
+            }
+        }
+
         // [HttpPost]
         // public async Task<ActionResult<ApiResponse<Result>>> CreateResult(string testId)
         // {
