@@ -1,49 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using MediatR;
 using AutoMapper;
+using Domain.Entities;
+using Api.Extension;
+using Application.DTO;
 
 namespace Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class BookingController : ControllerBase
+    public class BookingController : ApiController<Booking>
     {
-        private readonly IMapper _mapper;
-        private readonly IMediator _mediator;
 
-        public BookingController(IMediator mediator, IMapper mapper)
+        public BookingController(IMediator mediator, IMapper mapper) : base(mediator, mapper)
         {
-            _mapper = mapper;
-            _mediator = mediator;
         }
-
-        public async Task<ActionResult<IEnumerable<BookingResponse>>> GetBookings([FromQuery] string status)
+        public Task<ActionResult<ApiResponse<IEnumerable<Booking>>>> GetBookings([FromQuery] string status)
         {
-         
+            return Get(status: status);
         }
-
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<BookingResponse>> GetBooking(string bookingId)
+        public Task<ActionResult<ApiResponse<Booking>>> GetBooking(string bookingId)
         {
-
+            return GetById(bookingId);
         }
 
         [HttpPost]
-        public async Task<ActionResult<BookingResponse>> CreateBooking(CreateBookingCommand request)
-        {
+        public Task<ActionResult<ApiResponse<Booking>>> CreateBooking(BookingRequestBody request)
+        { 
+            return Create<BookingRequestBody>(request);
         }
 
         [HttpPatch]
-        public async Task<ActionResult<BookingResponse>> CancelBooking(CancelBookingCommand request)
-        {
+      
+        public Task<ActionResult<ApiResponse<Booking>>> CancelBooking(BookingRequestBody request)
+        { 
+            return Update<BookingRequestBody>(request);
         }
-
 
     }
 

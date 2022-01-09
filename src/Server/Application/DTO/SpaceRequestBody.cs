@@ -1,6 +1,6 @@
 namespace Application.DTO
 {
-    public class UserResponse
+    public class SpaceRequestBody
     {
         
     }

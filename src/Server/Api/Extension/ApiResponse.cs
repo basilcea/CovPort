@@ -1,12 +1,10 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Api.Response
+namespace Api.Extension
 {
     public class ApiResponse<T> 
     {
-        
-
         public ApiResponse(object data)
         {
             Data = data;
