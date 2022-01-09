@@ -29,16 +29,16 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public Task<ActionResult<ApiResponse<Booking>>> CreateBooking(BookingRequestBody request)
+        public Task<ActionResult<ApiResponse<Booking>>> CreateBooking(BookingPostRequestBody request)
         { 
-            return Create<BookingRequestBody>(request);
+            return Create<BookingPostRequestBody>(request);
         }
 
         [HttpPatch]
       
-        public Task<ActionResult<ApiResponse<Booking>>> CancelBooking(BookingRequestBody request)
+        public Task<ActionResult<ApiResponse<Booking>>> CancelBooking(BookingPatchRequestBody request)
         { 
-            return Update<BookingRequestBody>(request);
+            return Update<BookingPatchRequestBody>(request);
         }
 
     }

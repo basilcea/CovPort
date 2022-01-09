@@ -26,7 +26,6 @@ namespace Application.Commands
         {
             var numOfEntries = await _entityRepo.Update(request.Entity, cancellationToken);
             return numOfEntries > 0 ? request.Entity : default;
-         
         }
     }
 }

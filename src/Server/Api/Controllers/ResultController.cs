@@ -31,15 +31,15 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public Task<ActionResult<ApiResponse<Result>>> CreateResult(ResultRequestBody request)
+        public Task<ActionResult<ApiResponse<Result>>> CreateResult(ResultPostRequestBody request)
         {
-            return Create<ResultRequestBody>(request);
+            return Create<ResultPostRequestBody>(request);
         }
 
         [HttpPatch]
-        public Task<ActionResult<ApiResponse<Result>>> UpdateResult(ResultRequestBody request)
+        public Task<ActionResult<ApiResponse<Result>>> UpdateResult(ResultPatchRequestBody request)
         {
-           return Update<ResultRequestBody>(request);
+           return Update<ResultPatchRequestBody>(request);
         }
 
         [HttpGet("/summary")]

@@ -9,6 +9,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.IO;
 using System;
+using FluentValidation.AspNetCore;
+using Api.Validations;
+using Api.Mappings;
 
 namespace Api
 {
@@ -28,10 +31,10 @@ namespace Api
         {
 
             services.AddControllersWithViews()
-            .AddNewtonsoftJson();
-            // .AddFluentValidation(cfg =>
-            //         cfg.RegisterValidatorsFromAssemblyContaining<>()
-            //     );;
+            .AddNewtonsoftJson()
+            .AddFluentValidation(cfg =>
+                    cfg.RegisterValidatorsFromAssemblyContaining<BookingPostRequestValidator>()
+                );
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -41,7 +44,7 @@ namespace Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
             });
-            // services.AddAutoMapper(cfg => cfg.AddProfile<>());
+            services.AddAutoMapper(cfg => cfg.AddProfile<RequestToCommandProfile>());
             // services.AddHealthChecks()
             // .AddCheck<>("Database");
             
