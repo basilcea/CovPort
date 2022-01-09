@@ -17,6 +17,8 @@ namespace Api.Controllers
         public BookingController(IMediator mediator, IMapper mapper) : base(mediator, mapper)
         {
         }
+        
+        [HttpGet]
         public Task<ActionResult<ApiResponse<IEnumerable<Booking>>>> GetBookings([FromQuery] string status)
         {
             return Get(status: status);
@@ -29,16 +31,16 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public Task<ActionResult<ApiResponse<Booking>>> CreateBooking(BookingRequestBody request)
+        public Task<ActionResult<ApiResponse<Booking>>> CreateBooking(BookingPostRequestBody request)
         { 
-            return Create<BookingRequestBody>(request);
+            return Create<BookingPostRequestBody>(request);
         }
 
         [HttpPatch]
       
-        public Task<ActionResult<ApiResponse<Booking>>> CancelBooking(BookingRequestBody request)
+        public Task<ActionResult<ApiResponse<Booking>>> CancelBooking(BookingPatchRequestBody request)
         { 
-            return Update<BookingRequestBody>(request);
+            return Update<BookingPatchRequestBody>(request);
         }
 
     }

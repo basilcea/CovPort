@@ -14,11 +14,11 @@ namespace Application.Commands
         public T Entity {get;}
     }
 
-    public class SaveEntityCommandHandler<T> : IRequestHandler<SaveEntity<T>, T> where T : IEntity {
+    public class SaveEntityHandler<T> : IRequestHandler<SaveEntity<T>, T> where T : IEntity {
 
         private readonly IEntityRepository<T> _entityRepo;
 
-        public SaveEntityCommandHandler(IEntityRepository<T> entityRepo)
+        public SaveEntityHandler(IEntityRepository<T> entityRepo)
         {
             _entityRepo = entityRepo;
         }

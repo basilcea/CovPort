@@ -9,6 +9,15 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.IO;
 using System;
+using FluentValidation.AspNetCore;
+using Api.Validations;
+using Api.Mappings;
+using Application;
+using Infrastructure;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
+using Api.HealthChecks;
 
 namespace Api
 {
@@ -28,10 +37,10 @@ namespace Api
         {
 
             services.AddControllersWithViews()
-            .AddNewtonsoftJson();
-            // .AddFluentValidation(cfg =>
-            //         cfg.RegisterValidatorsFromAssemblyContaining<>()
-            //     );;
+            .AddNewtonsoftJson()
+            .AddFluentValidation(cfg =>
+                    cfg.RegisterValidatorsFromAssemblyContaining<BookingPostRequestValidator>()
+                );
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -41,12 +50,11 @@ namespace Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
             });
-            // services.AddAutoMapper(cfg => cfg.AddProfile<>());
-            // services.AddHealthChecks()
-            // .AddCheck<>("Database");
+            services.AddAutoMapper(cfg => cfg.AddProfile<RequestToCommandProfile>());
+            services.AddHealthChecks().AddCheck<DbHealthCheck>("Database");
             
-            // services.AddInfrastructure(_configuration);
-            // services.AddApplication(_configuration);
+            services.AddInfrastructure();
+            services.AddApplication();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +62,7 @@ namespace Api
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                // app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api v1"));
             }
@@ -73,21 +81,34 @@ namespace Api
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
-            });
-
-            app.UseSpa(spa =>
-            {
-                spa.Options.SourcePath = "Client";
-
-                if (env.IsDevelopment())
+                endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health");
+                endpoints.MapHealthChecks("/healthz", new HealthCheckOptions { Predicate = _ => false });
+                endpoints.MapGet("/", async context =>
                 {
-                    // spa.UseReactDevelopmentServer(npmScript: "start");
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
-                }
+                    var hostUrl = $"{context.Request.Scheme}://{context.Request.Host}{context.Request.PathBase}";
+                    var info = new
+                    {
+                        name = "CovPort",
+                        version = "1.0.0",
+                        health = $"{hostUrl}/health",
+                        documentation = $"{hostUrl}/swagger"
+                    };
+                    var infoJson = JsonConvert.SerializeObject(info);
+                    await context.Response.WriteAsync(infoJson);
+                });
             });
+
+            // app.UseSpa(spa =>
+            // {
+            //     spa.Options.SourcePath = "Client";
+
+            //     if (env.IsDevelopment())
+            //     {
+            //         // spa.UseReactDevelopmentServer(npmScript: "start");
+            //         spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
+            //     }
+            // });
         }
     }
 }

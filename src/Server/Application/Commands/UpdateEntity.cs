@@ -14,11 +14,11 @@ namespace Application.Commands
         public T Entity {get;}
     }
 
-    public class UpdateEntityCommandHandler<T> : IRequestHandler<UpdateEntity<T>, T> where T : IEntity {
+    public class UpdateEntityHandler<T> : IRequestHandler<UpdateEntity<T>, T> where T : IEntity {
 
         private readonly IEntityRepository<T> _entityRepo;
 
-        public UpdateEntityCommandHandler(IEntityRepository<T> entityRepo)
+        public UpdateEntityHandler(IEntityRepository<T> entityRepo)
         {
             _entityRepo = entityRepo;
         }
@@ -26,7 +26,6 @@ namespace Application.Commands
         {
             var numOfEntries = await _entityRepo.Update(request.Entity, cancellationToken);
             return numOfEntries > 0 ? request.Entity : default;
-         
         }
     }
 }
