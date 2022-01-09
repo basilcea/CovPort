@@ -1,14 +1,9 @@
-using System;
 using System.Threading.Tasks;
 using Api.Extension;
-using Application.Queries;
-using Application.Commands;
 using AutoMapper;
 using Domain.Aggregates;
 using Domain.Entities;
-using Domain.ValueObjects;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Application.DTO;
 using System.Collections.Generic;

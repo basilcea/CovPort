@@ -18,7 +18,7 @@ namespace Api.Controllers
         public LocationController(IMediator mediator, IMapper mapper) : base(mediator, mapper)
         {
         }
-
+        
         public Task<ActionResult<ApiResponse<IEnumerable<Location>>>> GetLocations()
         {
             return Get();

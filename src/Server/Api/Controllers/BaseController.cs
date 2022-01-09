@@ -42,7 +42,6 @@ namespace Api.Controllers
             }
         }
 
-
         protected async Task<ActionResult<ApiResponse<IEnumerable<T>>>> Get([FromQuery] string status = null, string email = null)
         {
             try
@@ -61,7 +60,7 @@ namespace Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<T>.WithError(ex.Message));
             }
         }
-
+        
         public async Task<ActionResult<ApiResponse<T>>> GetSummary(string filter =null)
         {
             try
