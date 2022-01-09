@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Interfaces;
@@ -6,9 +7,9 @@ using MediatR;
 
 namespace Application.Queries
 {
-    public class GetEntityByFilters<T> : IRequest<T> where T : IEntity
+    public class GetEntity<T> : IRequest<IEnumerable<T>> where T : IEntity
     {
-     public GetEntityByFilters(string email, string status)
+     public GetEntity(string email, string status)
      {
         Email = email;
         Status = status;
@@ -17,7 +18,7 @@ namespace Application.Queries
     public string Status {get; set;}
 
     }
-    public class GetEntityHandler<T> : IRequestHandler<GetEntityByFilters<T>, T> where T : IEntity
+    public class GetEntityHandler<T> : IRequestHandler<GetEntity<T>, IEnumerable<T>> where T : IEntity
     {
         private readonly IEntityRepository<T> _entityRepository;
 
@@ -26,7 +27,7 @@ namespace Application.Queries
             _entityRepository = entityRepository;
         }
 
-        public async Task<T> Handle(GetEntityByFilters<T> request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<T>> Handle(GetEntity<T> request, CancellationToken cancellationToken)
         {
             return await _entityRepository.Get(request.Email, request.Status, cancellationToken);
         }

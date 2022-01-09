@@ -42,10 +42,10 @@ namespace Api.Controllers
            return Update<ResultPatchRequestBody>(request);
         }
 
-        [HttpGet("/summary")]
+        [HttpGet("summary")]
         public Task<ActionResult<ApiResponse<ResultSummary>>> GetSummary()
         {
-            return GetSummary();
+            return GetSummary<ResultSummary>();
         }
 
 

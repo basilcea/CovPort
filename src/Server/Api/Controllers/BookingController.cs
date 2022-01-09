@@ -17,6 +17,8 @@ namespace Api.Controllers
         public BookingController(IMediator mediator, IMapper mapper) : base(mediator, mapper)
         {
         }
+        
+        [HttpGet]
         public Task<ActionResult<ApiResponse<IEnumerable<Booking>>>> GetBookings([FromQuery] string status)
         {
             return Get(status: status);

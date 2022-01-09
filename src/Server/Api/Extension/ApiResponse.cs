@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace Api.Extension
 {
-    public class ApiResponse<T> 
+    public class ApiResponse<T>
     {
         public ApiResponse(object data)
         {
@@ -11,17 +11,22 @@ namespace Api.Extension
         }
 
         [JsonConstructor]
-        public ApiResponse( string errorMessage)
+        public ApiResponse(string errorMessage)
         {
             Success = false;
             Error = errorMessage;
         }
-
+ 
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Message { get; set; }
         public bool Success { get; set; }
-        public object Data { get; set; }
-        public string Error { get; set; }
 
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public object Data { get; set; }
+
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string Error { get; set; }
+    
         public static ApiResponse<T> FromData(object data)
         {
             return new ApiResponse<T>(data);
@@ -29,10 +34,9 @@ namespace Api.Extension
 
         public static object WithError(string errorMessage)
         {
-            
+
             return new ApiResponse<T>(errorMessage);
         }
-
 
     }
 }

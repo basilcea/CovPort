@@ -5,6 +5,7 @@ using Api.Extension;
 using Domain.Entities;
 using AutoMapper;
 using System.Collections.Generic;
+using Domain.Aggregates;
 
 namespace Api.Controllers
 {
@@ -24,10 +25,10 @@ namespace Api.Controllers
             return Get(email: email);
         }
 
-        [HttpGet("/summary")]
-        public Task<ActionResult<ApiResponse<User>>> GetUserSummary(string userId)
+        [HttpGet("summary")]
+        public Task<ActionResult<ApiResponse<UserSummary>>> GetUserSummary(string userId)
         {
-            return GetSummary(userId);
+            return GetSummary<UserSummary>(userId);
         }
 
 

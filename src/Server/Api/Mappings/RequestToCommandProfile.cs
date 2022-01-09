@@ -15,7 +15,7 @@ namespace Api.Mappings
             CreateMap<LocationRequestBody, SaveEntity<Location>>();
             CreateMap<SpaceRequestBody, SaveEntity<Space>>();
             CreateMap<ResultPatchRequestBody, SaveEntity<Result>>()
-            .ForMember(
+            .ForPath(
                 d => d.Entity.Positive, opt => opt.MapFrom(s => Boolean.Parse(s.Positive))
             );
         }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Queries;
@@ -10,6 +11,6 @@ namespace Application.Interfaces
       Task<int> Insert(T entity, CancellationToken cancellationToken);
       Task<int> Update(T entity, CancellationToken cancellationToken);
       Task<T> GetById(string id, CancellationToken cancellationToken);
-      Task<T> Get(string email, string status, CancellationToken cancellationToken); 
+      Task<IEnumerable<T>> Get(string email, string status, CancellationToken cancellationToken); 
     }
 }
