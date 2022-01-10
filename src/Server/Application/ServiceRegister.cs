@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using Application.Commands;
+using Application.DTO;
 using Application.Queries;
 using Domain.Aggregates;
 using Domain.Entities;
@@ -15,29 +16,26 @@ namespace Application
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services
-              .AddTransient<IRequestHandler<SaveEntity<Booking>, Booking>,
-                  SaveEntityHandler<Booking>>();
+              .AddTransient<IRequestHandler<SaveEntity<BookingPostRequestBody,Booking>, Booking>,
+                  SaveEntityHandler<BookingPostRequestBody,Booking>>();
             services
-              .AddTransient<IRequestHandler<SaveEntity<Location>, Location>,
-                  SaveEntityHandler<Location>>();
+                .AddTransient<IRequestHandler<SaveEntity<SpaceRequestBody,Space>, Space>,
+                    SaveEntityHandler<SpaceRequestBody,Space>>();
             services
-                .AddTransient<IRequestHandler<SaveEntity<Space>, Space>,
-                    SaveEntityHandler<Space>>();
+                .AddTransient<IRequestHandler<SaveEntity<ResultPostRequestBody,Result>, Result>,
+                    SaveEntityHandler<ResultPostRequestBody,Result>>();
             services
-                .AddTransient<IRequestHandler<SaveEntity<Result>, Result>,
-                    SaveEntityHandler<Result>>();
+                .AddTransient<IRequestHandler<UpdateEntity<BookingPatchRequestBody,Booking>, Booking>,
+                    UpdateEntityHandler<BookingPatchRequestBody,Booking>>();
             services
-                .AddTransient<IRequestHandler<UpdateEntity<Booking>, Booking>,
-                    UpdateEntityHandler<Booking>>();
+              .AddTransient<IRequestHandler<UpdateEntity<ResultPatchRequestBody,Result>, Result>,
+                  UpdateEntityHandler<ResultPatchRequestBody,Result>>();
             services
-              .AddTransient<IRequestHandler<UpdateEntity<Result>, Result>,
-                  UpdateEntityHandler<Result>>();
+                .AddTransient<IRequestHandler<GetSummary<UserSummary,User>, IEnumerable<UserSummary>>,
+                    GetSummaryHandler<UserSummary,User>>();
             services
-                .AddTransient<IRequestHandler<GetSummary<User, UserSummary>, UserSummary>,
-                    GetSummaryHandler<User, UserSummary>>();
-            services
-                .AddTransient<IRequestHandler<GetSummary<Result, ResultSummary>, ResultSummary>,
-                    GetSummaryHandler<Result,ResultSummary>>();
+                .AddTransient<IRequestHandler<GetSummary<ResultSummary,Result>, IEnumerable<ResultSummary>>,
+                    GetSummaryHandler<ResultSummary,Result>>();
             services
                 .AddTransient<IRequestHandler<GetEntity<User>, IEnumerable<User>>,
                     GetEntityHandler<User>>();
@@ -50,9 +48,6 @@ namespace Application
             services
                 .AddTransient<IRequestHandler<GetEntity<Space>, IEnumerable<Space>>,
                     GetEntityHandler<Space>>();
-            services
-                .AddTransient<IRequestHandler<GetEntity<Location>, IEnumerable<Location>>,
-                    GetEntityHandler<Location>>();
             services
                 .AddTransient<IRequestHandler<GetEntityById<Booking>, Booking>,
                     GetEntityByIdHandler<Booking>>();

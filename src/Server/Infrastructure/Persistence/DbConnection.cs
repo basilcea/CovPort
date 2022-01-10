@@ -2,9 +2,9 @@ using System.Threading.Tasks;
 using Application.DTO;
 using Application.Interfaces;
 
-namespace Infrastructure
+namespace Infrastructure.Persistence
 {
-    public class FakeDbConnection: IDbService
+    public class DbConnection: IDbService
     {
     
         public async Task<PingResult> Ping()

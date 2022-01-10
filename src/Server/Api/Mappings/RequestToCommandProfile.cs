@@ -10,14 +10,11 @@ namespace Api.Mappings
     {
         public RequestToCommandProfile()
         {
-            CreateMap<BookingPostRequestBody, SaveEntity<Booking>>();
-            CreateMap<BookingPatchRequestBody, UpdateEntity<Booking>>();
-            CreateMap<LocationRequestBody, SaveEntity<Location>>();
-            CreateMap<SpaceRequestBody, SaveEntity<Space>>();
-            CreateMap<ResultPatchRequestBody, SaveEntity<Result>>()
-            .ForPath(
-                d => d.Entity.Positive, opt => opt.MapFrom(s => Boolean.Parse(s.Positive))
-            );
+            CreateMap<BookingPostRequestBody, SaveEntity<BookingPostRequestBody, Booking>>();
+            CreateMap<BookingPatchRequestBody, UpdateEntity<BookingPatchRequestBody, Booking>>();
+            CreateMap<SpaceRequestBody, SaveEntity<SpaceRequestBody, Space>>();
+            CreateMap<ResultPostRequestBody, SaveEntity<ResultPostRequestBody, Result>>();
+            CreateMap<ResultPatchRequestBody, UpdateEntity<ResultPatchRequestBody, Result>>();
         }
     }
 }

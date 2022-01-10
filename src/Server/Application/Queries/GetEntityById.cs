@@ -15,18 +15,18 @@ namespace Application.Queries
 
         public string Id { get; }
     }
-    public class GetEntityByIdHandler<T> : IRequestHandler<GetEntityById<T>, T> where T : IEntity
+    public class GetEntityByIdHandler<T> : IRequestHandler<GetEntityById<T>, T> where T : IEntity 
     {
-        private readonly IEntityRepository<T> _entityRepository;
+        private readonly IEntityRepository<string, T> _entityRepository;
 
-        public GetEntityByIdHandler(IEntityRepository<T> entityRepository)
+        public GetEntityByIdHandler(IEntityRepository<string, T> entityRepository)
         {
             _entityRepository = entityRepository;
         }
 
         public async Task<T> Handle(GetEntityById<T> request, CancellationToken cancellationToken)
         {
-            return await _entityRepository.GetById(request.Id, cancellationToken);
+            return await _entityRepository.GetById(request.Id);
         }
     }
 }

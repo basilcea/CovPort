@@ -22,11 +22,11 @@ namespace Api.Controllers
         [HttpGet("{email}")]
         public Task<ActionResult<ApiResponse<IEnumerable<User>>>> GetUser(string email)
         {
-            return Get(email: email);
+            return Get(email);
         }
 
         [HttpGet("summary")]
-        public Task<ActionResult<ApiResponse<UserSummary>>> GetUserSummary(string userId)
+        public Task<ActionResult<ApiResponse<IEnumerable<UserSummary>>>> GetUserSummary(string userId)
         {
             return GetSummary<UserSummary>(userId);
         }

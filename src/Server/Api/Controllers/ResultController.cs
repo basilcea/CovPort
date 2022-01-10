@@ -25,9 +25,9 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public Task<ActionResult<ApiResponse<IEnumerable<Result>>>> GetResults([FromQuery] string status)
+        public Task<ActionResult<ApiResponse<IEnumerable<Result>>>> GetResults(string filter)
         {
-            return Get(status: status);
+            return Get(filter);
         }
 
         [HttpPost]
@@ -43,7 +43,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("summary")]
-        public Task<ActionResult<ApiResponse<ResultSummary>>> GetSummary()
+        public Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetSummary()
         {
             return GetSummary<ResultSummary>();
         }
