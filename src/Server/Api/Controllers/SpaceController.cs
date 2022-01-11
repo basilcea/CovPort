@@ -6,11 +6,12 @@ using AutoMapper;
 using Api.Extension;
 using Domain.Entities;
 using Application.DTO;
+using System;
 
 namespace Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class SpaceController : ApiController<Space>
     {
 

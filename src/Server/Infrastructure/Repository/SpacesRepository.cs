@@ -1,34 +1,36 @@
-using System;
-using System.Threading.Tasks;
-using Application.DTO;
-using Domain.Entities;
-using Domain.ValueObjects;
-using Infrastructure.Persistence;
+// using System;
+// using System.Threading.Tasks;
+// using Application.DTO;
+// using Domain.Entities;
+// using Domain.Interfaces;
+// using Domain.ValueObjects;
+// using Infrastructure.Persistence;
 
-namespace Infrastructure.Repository
-{
-    public class SpaceRepository : EntityRepository<SpaceRequestBody, Space>
-    {
-        public SpaceRepository(PortalDbContext dbContext) : base(dbContext)
-        {
-        }
+// namespace Infrastructure.Repository
+// {
+//     public class SpaceRepository<S,T>:  EntityRepository<S, T>, IEntityRepository<S, T>
+//      where S : class where T : class,IEntity
 
-         public override async Task<Space> Insert(Space entity, string requesterId)
-        {
+//     {         public SpaceRepository(PortalDbContext dbContext) : base(dbContext)
+//         {
+//         }
 
-            var user = await DbContext.Users.FindAsync(requesterId);
+//          public override async Task<T> Insert(T entity, string requesterId)
+//         {
 
-            if (user == null)
-            {
-                throw new Exception();
-            }
-            if (user.UserRole != Role.ADMIN.ToString())
-            {
-                throw new Exception();
-            }
-            return await InsertEntity(entity, DbContext);
+//             var user = await DbContext.Users.FindAsync(requesterId);
 
-        }
+//             if (user == null)
+//             {
+//                 throw new Exception();
+//             }
+//             if (user.UserRole != Role.ADMIN.ToString())
+//             {
+//                 throw new Exception();
+//             }
+//             return await InsertEntity(entity, DbContext);
 
-    }
-}
+//         }
+
+//     }
+// }
