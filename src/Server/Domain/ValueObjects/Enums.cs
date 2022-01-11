@@ -3,7 +3,7 @@ namespace Domain.ValueObjects
     public enum BookingStatus
     {
        PENDING,
-       FULFILLED,
+       CLOSED,
        CANCELLED
 
     }
@@ -11,7 +11,7 @@ namespace Domain.ValueObjects
     public enum TestStatus
     {
       PENDING,
-      CANCELLED
+      COMPLETED
     }
 
     public enum TestType
@@ -19,4 +19,12 @@ namespace Domain.ValueObjects
       PCR,
       RAPID
     }
+
+    public enum Role
+    {
+      USER,
+      ADMIN,
+      LABADMIN
+    }
+    
 }

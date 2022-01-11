@@ -13,8 +13,8 @@ namespace Application.DTO
 
     public class BookingPatchRequestBody
     {
-
         public string Id { get; set; }
+        public string UserId {get;set;}
         public string Status { get; set; }
 
     }

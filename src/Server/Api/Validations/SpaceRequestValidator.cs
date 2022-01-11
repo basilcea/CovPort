@@ -7,7 +7,7 @@ namespace Api.Validations
     {
          public SpaceRequestValidator()
         {
-            RuleFor(x => x.LocationId).NotEmpty();
+            RuleFor(x => x.LocationName).NotEmpty();
             RuleFor(x => x.Date).NotEmpty();
         }
     }

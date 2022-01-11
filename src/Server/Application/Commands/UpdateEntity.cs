@@ -6,26 +6,26 @@ using MediatR;
 
 namespace Application.Commands
 {
-    public class UpdateEntity<T> : IRequest<T> where T: IEntity
+    public class UpdateEntity<S, T> : IRequest<T> where S:class where T: IEntity 
     {
-        public UpdateEntity(T entity){
-            Entity = entity;
+        public UpdateEntity(S body){
+            Body = body;
         }
-        public T Entity {get;}
+        public S Body {get;}
+       
     }
 
-    public class UpdateEntityHandler<T> : IRequestHandler<UpdateEntity<T>, T> where T : IEntity {
+    public class UpdateEntityHandler<S,T> : IRequestHandler<UpdateEntity<S,T>, T>  where S: class where T : IEntity {
 
-        private readonly IEntityRepository<T> _entityRepo;
+        private readonly IEntityRepository<S,T> _entityRepo;
 
-        public UpdateEntityHandler(IEntityRepository<T> entityRepo)
+        public UpdateEntityHandler(IEntityRepository<S,T> entityRepo)
         {
             _entityRepo = entityRepo;
         }
-        public async Task<T> Handle(UpdateEntity<T> request, CancellationToken cancellationToken)
+        public async Task<T> Handle(UpdateEntity<S,T> request, CancellationToken cancellationToken)
         {
-            var numOfEntries = await _entityRepo.Update(request.Entity, cancellationToken);
-            return numOfEntries > 0 ? request.Entity : default;
+           return await _entityRepo.Update(request.Body);
         }
     }
 }

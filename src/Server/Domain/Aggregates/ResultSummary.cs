@@ -4,7 +4,7 @@ namespace Domain.Aggregates
 {
     public class ResultSummary
     {
-        public string Location {get;set;}
+        public string LocationName {get;set;}
         public string BookingCapacity {get;set;}
         public string Bookings {get;set;}
         public string Test {get;set;}

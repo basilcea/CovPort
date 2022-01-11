@@ -6,27 +6,28 @@ using MediatR;
 
 namespace Application.Commands
 {
-    public class SaveEntity<T> : IRequest<T> where T: IEntity
+    public class SaveEntity<S,T> : IRequest<T> where T: IEntity where S:class
     {
-        public SaveEntity(T entity){
-            Entity = entity;
+        public SaveEntity(T body, string userId){
+            Body = body;
+            RequesterId = userId;
         }
-        public T Entity {get;}
+        public T Body {get;}
+        public string RequesterId {get;}
     }
 
-    public class SaveEntityHandler<T> : IRequestHandler<SaveEntity<T>, T> where T : IEntity {
+    public class SaveEntityHandler<S,T> : IRequestHandler<SaveEntity<S, T>, T> where T : IEntity where S:class {
 
-        private readonly IEntityRepository<T> _entityRepo;
+        private readonly IEntityRepository<S,T> _entityRepo;
 
-        public SaveEntityHandler(IEntityRepository<T> entityRepo)
+        public SaveEntityHandler(IEntityRepository<S,T> entityRepo)
         {
             _entityRepo = entityRepo;
         }
-        public async Task<T> Handle(SaveEntity<T> request, CancellationToken cancellationToken)
+        public async Task<T> Handle(SaveEntity<S, T> request, CancellationToken cancellationToken)
         {
-            var numOfEntries = await _entityRepo.Insert(request.Entity, cancellationToken);
-            return numOfEntries > 0 ? request.Entity : default;
-         
+            return await _entityRepo.Insert(request.Body, request.RequesterId);
+        
         }
     }
 }

@@ -13,8 +13,6 @@ namespace Api.Validations
             RuleFor(x => x.BookingId).NotEmpty();
             RuleFor(x=> x.UserId).NotEmpty();
             RuleFor(x => x.TestType.ToUpper()).NotEmpty().IsEnumName(typeof(TestType));
-            RuleFor(x=> x.Status.ToUpper()).IsEnumName(typeof(TestStatus));
-            RuleFor(x => Boolean.Parse(x.Positive)).Equal(true);
         }
     }
 
@@ -22,8 +20,9 @@ namespace Api.Validations
     {
          public ResultPatchRequestValidator()
         {
+            RuleFor(x => x.Status.ToUpper()).NotEmpty().IsEnumName(typeof(TestStatus));
+            RuleFor(x => x.RequesterId).NotEmpty();
             RuleFor(x => x.Id).NotEmpty();
-            RuleFor(x=> x.Status.ToUpper()).IsEnumName(typeof(TestStatus));
             RuleFor(x => Boolean.Parse(x.Positive)).Equal(true);
         }
     }

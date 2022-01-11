@@ -21,7 +21,7 @@ namespace Api.Controllers
         [HttpGet]
         public Task<ActionResult<ApiResponse<IEnumerable<Booking>>>> GetBookings([FromQuery] string status)
         {
-            return Get(status: status);
+            return Get(status);
         }
 
         [HttpGet("{id}")]

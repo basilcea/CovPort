@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
-    [Route("[controller]")]
     public abstract class ApiController<T> : ControllerBase where T : IEntity
     {
         private readonly IMapper _mapper;
@@ -44,11 +43,11 @@ namespace Api.Controllers
         }
 
         protected async Task<ActionResult<ApiResponse<IEnumerable<T>>>> Get(
-            [FromQuery] string status = null, string email = null)
+            [FromQuery] string filter = null)
         {
             try
             {
-                var result = await _mediator.Send(new GetEntity<T>(status, email));
+                var result = await _mediator.Send(new GetEntity<T>(filter));
                 if (result is not null)
                 {
                     return Ok(ApiResponse<IEnumerable<T>>.FromData(result));
@@ -64,17 +63,17 @@ namespace Api.Controllers
             }
         }
 
-        public async Task<ActionResult<ApiResponse<S>>> GetSummary<S>(string filter = null) where S : class
+        public async Task<ActionResult<ApiResponse<IEnumerable<S>>>> GetSummary<S>(string filter = null) where S : class
         {
             try
             {
-                var user = await _mediator.Send(new GetSummary<T, S>(filter));
+                var user = await _mediator.Send(new GetSummary<S,T>(filter));
                 if (user is not null)
                 {
-                    return Ok(ApiResponse<S>.FromData(user));
+                    return Ok(ApiResponse<IEnumerable<S>>.FromData(user));
 
                 }
-                return NotFound(ApiResponse<S>.WithError(Responses.NotFound));
+                return NotFound(ApiResponse<IEnumerable<S>>.WithError(Responses.NotFound));
 
             }
             catch (Exception ex)
@@ -89,7 +88,7 @@ namespace Api.Controllers
         {
             try
             {
-                var createTest = _mapper.Map<SaveEntity<T>>(request);
+                var createTest = _mapper.Map<SaveEntity<S,T>>(request);
                 var result = await _mediator.Send(createTest);
                 if (result is not null)
                 {
@@ -110,7 +109,7 @@ namespace Api.Controllers
         {
             try
             {
-                var createTest = _mapper.Map<UpdateEntity<T>>(request);
+                var createTest = _mapper.Map<UpdateEntity<S,T>>(request);
                 var result = await _mediator.Send(createTest);
                 if (result is not null)
                 {

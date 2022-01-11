@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace Api.Extension
@@ -16,6 +17,13 @@ namespace Api.Extension
             Success = false;
             Error = errorMessage;
         }
+
+         public ApiResponse(bool success, string message, List<string> errors)
+        {
+            Message = message;
+            Success = success;
+            Errors = errors;
+        }
  
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Message { get; set; }
@@ -23,6 +31,9 @@ namespace Api.Extension
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public object Data { get; set; }
+
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public List<string> Errors { get; set; }
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Error { get; set; }
