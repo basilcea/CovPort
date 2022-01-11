@@ -22,12 +22,10 @@ namespace Infrastructure.Persistence
 
             if (!_dbContext.Users.Any())
             {
-                Console.WriteLine("it reached there");
                 _dbContext.Users.AddRange(AddUsers());
             }
             if (!_dbContext.Spaces.Any())
             {
-                Console.WriteLine("it taped there");
                 _dbContext.Spaces.AddRange(AddSpaces());
 
             }

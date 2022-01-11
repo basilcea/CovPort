@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ResultController : ApiController<Result>
     {
         public ResultController(IMediator mediator, IMapper mapper) : base(mediator, mapper)

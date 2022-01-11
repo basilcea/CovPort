@@ -10,7 +10,7 @@ using Application.DTO;
 namespace Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class BookingController : ApiController<Booking>
     {
 

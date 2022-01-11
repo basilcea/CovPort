@@ -6,11 +6,13 @@ using Domain.Entities;
 using AutoMapper;
 using System.Collections.Generic;
 using Domain.Aggregates;
+using System;
+using Application.DTO;
 
 namespace Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UserController : ApiController<User>
     {
 
@@ -19,14 +21,14 @@ namespace Api.Controllers
         }
         
 
-        [HttpGet("{email}")]
-        public Task<ActionResult<ApiResponse<IEnumerable<User>>>> GetUser(string email)
+        [HttpGet]
+        public Task<ActionResult<ApiResponse<IEnumerable<User>>>> GetUser(UserRequestBody body)
         {
-            return Get(email);
+            return Get(body.Email);
         }
 
         [HttpGet("summary")]
-        public Task<ActionResult<ApiResponse<IEnumerable<UserSummary>>>> GetUserSummary(string userId)
+        public Task<ActionResult<ApiResponse<IEnumerable<UserSummary>>>> GetUserSummary([FromQuery] string userId)
         {
             return GetSummary<UserSummary>(userId);
         }

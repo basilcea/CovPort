@@ -1,14 +1,16 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Application.Interfaces;
 using Domain.Interfaces;
 using Infrastructure.Persistence;
-using System.Data.Entity;
 using System;
+using Microsoft.EntityFrameworkCore;
+using Domain.Entities;
+using Domain.ValueObjects;
 
 namespace Infrastructure.Repository
 {
-    public class EntityRepository<S, T> : IEntityRepository<S, T>
+    public  class EntityRepository<S, T> : IEntityRepository<S,T>
+
     where S : class where T : class, IEntity
     {
 
@@ -24,9 +26,8 @@ namespace Infrastructure.Repository
         }
         public virtual async Task<T> GetById(string id)
         {
-           
-        return await DbContext.Set<T>().FindAsync(id);
-            
+
+            return await DbContext.Set<T>().FindAsync(id);
         }
         public async virtual Task<T> Insert(T entity, string requesterId = null)
         {
@@ -45,7 +46,8 @@ namespace Infrastructure.Repository
         {
             throw new System.NotImplementedException();
         }
-        public static async Task<T> InsertEntity(T entity, PortalDbContext dbContext){
+        public static async Task<T> InsertEntity(T entity, PortalDbContext dbContext)
+        {
             var now = DateTime.Now;
             entity.DateCreated = now;
             entity.DateUpdated = now;
@@ -54,7 +56,8 @@ namespace Infrastructure.Repository
             return savedEntity;
         }
 
-        public static async Task<T> UpdateEntity(T entity, PortalDbContext dbContext){
+        public static async Task<T> UpdateEntity(T entity, PortalDbContext dbContext)
+        {
             entity.DateUpdated = DateTime.Now;
             await dbContext.SaveChangesAsync();
             return entity;

@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
-    public abstract class ApiController<T> : ControllerBase where T : IEntity
+    public class ApiController<T> : ControllerBase where T : IEntity
     {
         private readonly IMapper _mapper;
         public IMediator _mediator { get; }

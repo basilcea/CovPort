@@ -14,13 +14,11 @@ using Api.Validations;
 using Api.Mappings;
 using Application;
 using Infrastructure;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 using Api.HealthChecks;
 using Api.Filters;
 using Microsoft.AspNetCore.Mvc;
-using Infrastructure.Persistence;
 using Serilog;
 
 namespace Api
@@ -40,7 +38,7 @@ namespace Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllersWithViews(options =>
+            services.AddControllers(options =>
                 {
                     options.Filters.Add<ValidationFilterAttribute>();
                     options.Filters.Add<UnhandledExceptionFilterAttribute>();
@@ -51,10 +49,10 @@ namespace Api
                     cfg.RegisterValidatorsFromAssemblyContaining<BookingPostRequestValidator>()
                 );
             // In production, the React files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = $"{Directory.GetParent(ParentDirectory.FullName)}/Client/build";
-            });
+            // services.AddSpaStaticFiles(configuration =>
+            // {
+            //     configuration.RootPath = $"{Directory.GetParent(ParentDirectory.FullName)}/Client/build";
+            // });
             services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
             services.AddSwaggerGen(c =>
             {
@@ -90,7 +88,7 @@ namespace Api
             }
     
             app.UseStaticFiles();
-            app.UseSpaStaticFiles();
+            // app.UseSpaStaticFiles();
 
             app.UseRouting();
 
@@ -113,16 +111,16 @@ namespace Api
                 });
             });
 
-            app.UseSpa(spa =>
-            {
-                spa.Options.SourcePath = $"{Directory.GetParent(ParentDirectory.FullName)}/Client";
+            // app.UseSpa(spa =>
+            // {
+            //     spa.Options.SourcePath = $"{Directory.GetParent(ParentDirectory.FullName)}/Client";
 
-                if (env.IsDevelopment())
-                {
-                    spa.UseReactDevelopmentServer(npmScript: "start");
-                    // spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
-                }
-            });
+            //     if (env.IsDevelopment())
+            //     {
+            //         // spa.UseReactDevelopmentServer(npmScript: "start");
+            //         spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
+            //     }
+            // });
         }
     }
 }
