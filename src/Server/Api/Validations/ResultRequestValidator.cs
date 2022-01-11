@@ -21,6 +21,7 @@ namespace Api.Validations
          public ResultPatchRequestValidator()
         {
             RuleFor(x => x.Status.ToUpper()).NotEmpty().IsEnumName(typeof(TestStatus));
+            RuleFor(x => x.RequesterId).NotEmpty();
             RuleFor(x => x.Id).NotEmpty();
             RuleFor(x => Boolean.Parse(x.Positive)).Equal(true);
         }

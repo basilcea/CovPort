@@ -18,6 +18,10 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 using Api.HealthChecks;
+using Api.Filters;
+using Microsoft.AspNetCore.Mvc;
+using Infrastructure.Persistence;
+using Serilog;
 
 namespace Api
 {
@@ -30,13 +34,18 @@ namespace Api
         }
 
         public IConfiguration Configuration { get; }
-        public DirectoryInfo ParentDirectory {get;set;}
+        public DirectoryInfo ParentDirectory { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllersWithViews()
+            services.AddControllersWithViews(options =>
+                {
+                    options.Filters.Add<ValidationFilterAttribute>();
+                    options.Filters.Add<UnhandledExceptionFilterAttribute>();
+                }
+            )
             .AddNewtonsoftJson()
             .AddFluentValidation(cfg =>
                     cfg.RegisterValidatorsFromAssemblyContaining<BookingPostRequestValidator>()
@@ -46,34 +55,40 @@ namespace Api
             {
                 configuration.RootPath = $"{Directory.GetParent(ParentDirectory.FullName)}/Client/build";
             });
-             services.AddSwaggerGen(c =>
+            services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
+            services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
             });
             services.AddAutoMapper(cfg => cfg.AddProfile<RequestToCommandProfile>());
             services.AddHealthChecks().AddCheck<DbHealthCheck>("Database");
-            
-            services.AddInfrastructure();
+
+            services.AddInfrastructure(Configuration);
             services.AddApplication();
+    
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void  Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api v1"));
+
             }
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
             }
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "Api v1"));
+            // app.UseSerilogRequestLogging();
 
-            app.UseHttpsRedirection();
+            if (!env.IsDevelopment())
+            {
+                app.UseHttpsRedirection();
+            }
+    
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
@@ -83,7 +98,6 @@ namespace Api
             {
                 endpoints.MapControllers();
                 endpoints.MapHealthChecks("/health");
-                endpoints.MapHealthChecks("/healthz", new HealthCheckOptions { Predicate = _ => false });
                 endpoints.MapGet("/", async context =>
                 {
                     var hostUrl = $"{context.Request.Scheme}://{context.Request.Host}{context.Request.PathBase}";
@@ -99,16 +113,16 @@ namespace Api
                 });
             });
 
-            // app.UseSpa(spa =>
-            // {
-            //     spa.Options.SourcePath = "Client";
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = $"{Directory.GetParent(ParentDirectory.FullName)}/Client";
 
-            //     if (env.IsDevelopment())
-            //     {
-            //         // spa.UseReactDevelopmentServer(npmScript: "start");
-            //         spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
-            //     }
-            // });
+                if (env.IsDevelopment())
+                {
+                    spa.UseReactDevelopmentServer(npmScript: "start");
+                    // spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
+                }
+            });
         }
     }
 }
