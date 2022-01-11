@@ -8,13 +8,11 @@ namespace Application.Commands
 {
     public class UpdateEntity<S, T> : IRequest<T> where S:class where T: IEntity 
     {
-        public UpdateEntity(S body, string userId){
+        public UpdateEntity(S body){
             Body = body;
-            RequesterId = userId;
-            
         }
         public S Body {get;}
-        public string RequesterId {get;}
+       
     }
 
     public class UpdateEntityHandler<S,T> : IRequestHandler<UpdateEntity<S,T>, T>  where S: class where T : IEntity {
@@ -27,7 +25,7 @@ namespace Application.Commands
         }
         public async Task<T> Handle(UpdateEntity<S,T> request, CancellationToken cancellationToken)
         {
-           return await _entityRepo.Update(request.Body, request.RequesterId);
+           return await _entityRepo.Update(request.Body);
         }
     }
 }

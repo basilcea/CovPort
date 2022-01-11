@@ -7,9 +7,9 @@ using Infrastructure.Persistence;
 
 namespace Infrastructure.Repository
 {
-    public class SpacesRepository : EntityRepository<SpaceRequestBody, Space>
+    public class SpaceRepository : EntityRepository<SpaceRequestBody, Space>
     {
-        public SpacesRepository(PortalDbContext dbContext) : base(dbContext)
+        public SpaceRepository(PortalDbContext dbContext) : base(dbContext)
         {
         }
 

@@ -33,7 +33,7 @@ namespace Infrastructure.Repository
             return await InsertEntity(entity, DbContext);
         }
 
-        public virtual Task<IEnumerable<T>> GetByFilter(string filter, string requesterId = null)
+        public virtual Task<IEnumerable<T>> GetByFilter(string filter)
         {
             throw new System.NotImplementedException();
         }
@@ -41,7 +41,7 @@ namespace Infrastructure.Repository
         {
             throw new System.NotImplementedException();
         }
-        public virtual Task<T> Update(S entity, string requesterId=null)
+        public virtual Task<T> Update(S entity)
         {
             throw new System.NotImplementedException();
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.DTO;
+using Domain.Aggregates;
 using Domain.Entities;
 using Domain.ValueObjects;
 using Infrastructure.Persistence;
@@ -17,9 +18,9 @@ namespace Infrastructure.Repository
         {
         }
 
-        public override async Task<IEnumerable<Result>> GetByFilter(string filter = null, string requesterId=null)
+        public override async Task<IEnumerable<Result>> GetByFilter(string filter = null)
         {
-            var user = await DbContext.Users.FindAsync(requesterId);
+            var user = await DbContext.Users.FindAsync(filter);
             if (user == null)
             {
                 throw new Exception();
@@ -27,15 +28,15 @@ namespace Infrastructure.Repository
 
             if (user.UserRole == Role.USER.ToString())
             {
-                return DbContext.Results.Where(x => x.UserId == requesterId && x.Status == TestStatus.COMPLETED.ToString());
+                return DbContext.Results.Where(x => x.UserId == filter);
             }
 
             return await DbContext.Results.Where(x => x.Status == filter).ToListAsync();
         }
 
-        public override async Task<Result> Update(ResultPatchRequestBody body, string requesterId)
+        public override async Task<Result> Update(ResultPatchRequestBody body)
         {
-            var user = await DbContext.Users.FindAsync(requesterId);
+            var user = await DbContext.Users.FindAsync(body.RequesterId);
             if (user == null)
             {
                 throw new Exception();

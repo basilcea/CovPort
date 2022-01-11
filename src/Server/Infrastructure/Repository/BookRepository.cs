@@ -22,17 +22,18 @@ namespace Infrastructure.Repository
             var spaces = await DbContext.Spaces.FindAsync(savedBooking.SpaceId);
             if (spaces.Date < DateTime.Now)
             {
+                spaces.SpacesAvailable = 0;
                 savedBooking.Status = BookingStatus.CLOSED.ToString();
                 await DbContext.SaveChangesAsync();
             }
             return savedBooking;
         }
-        public override async Task<IEnumerable<Booking>> GetByFilter(string filter, string requesterId)
+        public override async Task<IEnumerable<Booking>> GetByFilter(string filter)
         {
             return await DbContext.Bookings.Where(x => x.Status == filter).ToListAsync();
         }
 
-        public override async Task<Booking> Update(BookingPatchRequestBody body, string requester)
+        public override async Task<Booking> Update(BookingPatchRequestBody body)
         {
             var savedBooking = await GetById(body.Id);
             if (savedBooking.UserId != body.UserId)
@@ -44,7 +45,7 @@ namespace Infrastructure.Repository
                 throw new Exception();
             }
             var space = await DbContext.Spaces.FindAsync(savedBooking.SpaceId);
-            space.Available = true;
+            space.SpacesAvailable += 1;
             savedBooking.Status = body.Status;
             return await UpdateEntity(savedBooking, DbContext);
         }
@@ -56,7 +57,7 @@ namespace Infrastructure.Repository
                 throw new Exception();
             }
             var space = await DbContext.Spaces.FindAsync(entity.SpaceId);
-            if (!space.Available)
+            if (space.SpacesAvailable <= 0)
             {
                 throw new Exception();
             }

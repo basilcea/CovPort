@@ -8,7 +8,7 @@ namespace Domain.Entities
         public string Id { get; set; }
         public string LocationName { get; set; }
         public DateTime Date { get; set; }
-        public bool Available { get; set; } = true;
+        public int SpacesAvailable {get;set;}
         public DateTime DateCreated { get; set; }
         public DateTime DateUpdated { get; set; }
     }
