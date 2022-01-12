@@ -17,8 +17,10 @@ namespace Infrastructure.Persistence
         }
         public async Task Seed()
         {
-           
-            await _dbContext.Database.MigrateAsync();
+            if ((await _dbContext.Database.GetPendingMigrationsAsync()).Any())
+            {
+                await _dbContext.Database.MigrateAsync();
+            }
 
             if (!_dbContext.Users.Any())
             {
