@@ -7,83 +7,125 @@ using Domain.Entities;
 using Domain.ValueObjects;
 using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace Infrastructure.Repository
 {
     public class BookingRepository : EntityRepository<Booking>
     {
-        public BookingRepository(PortalDbContext dbContext) : base(dbContext)
+
+        public BookingRepository(PortalDbContext dbContext, ILogger<Booking> logger) : base(dbContext, logger)
         {
         }
 
         public override async Task<Booking> GetById(int Id)
         {
-                var savedBooking = await DbContext.Bookings.FindAsync(Id);
-                if(savedBooking == null){
+            try
+            {
+                var savedBooking = await _dbContext.Bookings.FindAsync(Id);
+                if (savedBooking == null)
+                {
                     throw new NotFoundException("Booking Not Found");
                 }
-                await new SpaceRepository(DbContext).GetById(savedBooking.SpaceId);
+                var space = await GetSpaceById(savedBooking.SpaceId, _dbContext,_logger);
+                _logger.LogInformation("Received booking response: {@response}", savedBooking);
                 return savedBooking;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An sql error occurred:-  {ex.Message}");
+                throw new UserDefinedSQLException();
+
+            }
         }
         public override async Task<IEnumerable<Booking>> GetByFilter(string filter)
         {
-            int id;
-            var value = int.TryParse(filter, out id);
-
-            if (!value)
+            try
             {
-                return await DbContext.Bookings.Where(x => x.Status == filter.ToUpper()).ToListAsync();
+                int id;
+                var value = int.TryParse(filter, out id);
+                IEnumerable<Booking> result;
+                if (!value)
+                {
+                    result = await _dbContext.Bookings.Where(x => x.Status == filter.ToUpper()).ToListAsync();
+                    _logger.LogInformation("Received booking response: {@response}", result);
+                    return result;
+                }
+                result = await _dbContext.Bookings.Where(x => x.UserId == id && x.Status == BookingStatus.PENDING.ToString()).ToListAsync();
+                _logger.LogInformation("Received booking response: {@response}", result);
+                return result;
             }
-            return await DbContext.Bookings.Where(x => x.UserId == id && x.Status == BookingStatus.PENDING.ToString()).ToListAsync();
+            catch (Exception ex)
+            {
+                _logger.LogError($"An sql error occurred:-  {ex.Message}");
+                throw new UserDefinedSQLException();
+            }
         }
 
         public override async Task<Booking> Update(Booking body, int requesterId)
         {
-            var savedBooking = await GetById(body.Id);
-            if (savedBooking.Status != BookingStatus.PENDING.ToString())
+            try
             {
-                throw new BadRequestException("No Pending Booking Exists");
-            }
-            if (savedBooking.UserId != body.UserId)
-            {
-               throw new UnauthorizedException();
-            }
+                var savedBooking = await GetById(body.Id);
+                if (savedBooking.Status != BookingStatus.PENDING.ToString())
+                {
+                    throw new BadRequestException("No Pending Booking Exists");
+                }
+                if (savedBooking.UserId != body.UserId)
+                {
+                    throw new UnauthorizedException();
+                }
 
-            var space = await DbContext.Spaces.FindAsync(savedBooking.SpaceId);
-            space.SpacesAvailable += 1;
-            savedBooking.Status = body.Status ?? savedBooking.Status;
-            return await UpdateEntity(savedBooking, DbContext);
+                var space = await _dbContext.Spaces.FindAsync(savedBooking.SpaceId);
+                space.SpacesAvailable += 1;
+                _logger.LogInformation($"Updated space available in space {space.Id} to {space.SpacesAvailable}");
+                savedBooking.Status = body.Status ?? savedBooking.Status;
+                return await UpdateEntity(savedBooking, _dbContext, _logger);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An sql error occurred:-  {ex.Message}");
+                throw new UserDefinedSQLException();
+            }
         }
         public override async Task<Booking> Insert(Booking entity, int requesterId)
         {
-            var user = await DbContext.Users.FindAsync(entity.UserId);
-            if (user == null)
+            try
             {
-                  throw new NotFoundException("User Not Found");
+                var user = await _dbContext.Users.FindAsync(entity.UserId);
+                if (user == null)
+                {
+                    throw new NotFoundException("User Not Found");
+                }
+
+                var existingBooking = await _dbContext.Bookings.Where(x =>
+                    x.SpaceId == entity.SpaceId &&
+                    x.UserId == entity.UserId &&
+                    x.Status != BookingStatus.CANCELLED.ToString())
+                    .FirstOrDefaultAsync();
+
+                if (existingBooking != null)
+                {
+                    throw new BadRequestException("Pending Booking Exists");
+                }
+
+                var space = await GetSpaceById(entity.SpaceId, _dbContext,_logger);
+
+                if (space.SpacesAvailable <= 0)
+                {
+                    throw new NotFoundException("Available Space Not Found");
+                }
+                space.SpacesAvailable -= 1;
+                _logger.LogInformation($"Updated space available in space {space.Id} to {space.SpacesAvailable}");
+                entity.Status = BookingStatus.PENDING.ToString();
+                return await InsertEntity(entity, _dbContext, _logger);
             }
-
-            var existingBooking = await DbContext.Bookings.Where(x =>
-                x.SpaceId == entity.SpaceId &&
-                x.UserId == entity.UserId &&
-                x.Status != BookingStatus.CANCELLED.ToString())
-                .FirstOrDefaultAsync();
-
-            if (existingBooking != null)
+            catch (Exception ex)
             {
-                throw new BadRequestException("Pending Booking Exists");
-                
-            }
+                _logger.LogError($"An sql error occurred:-  {ex.Message}");
+                throw new UserDefinedSQLException();
 
-            var space = await new SpaceRepository(DbContext)
-            .GetById(entity.SpaceId); ;
-
-            if (space.SpacesAvailable <= 0)
-            {
-                throw new NotFoundException("Available Space Not Found");
             }
-            space.SpacesAvailable -= 1;
-            entity.Status = BookingStatus.PENDING.ToString();
-            return await InsertEntity(entity, DbContext);
 
         }
     }
