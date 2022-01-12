@@ -16,11 +16,11 @@ using Application;
 using Infrastructure;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
-using Api.HealthChecks;
 using Api.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Infrastructure.Persistence;
 
 namespace Api
 {
@@ -55,9 +55,8 @@ namespace Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
             });
             services.AddAutoMapper(cfg => cfg.AddProfile<RequestToCommandProfile>());
-            services.AddHealthChecks().AddCheck<DbHealthCheck>("Database");
-
             services.AddInfrastructure(Configuration);
+            services.AddHealthChecks().AddDbContextCheck<PortalDbContext>();
             services.AddApplication();
     
         }
@@ -90,8 +89,7 @@ namespace Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHealthChecks("/health");
-                endpoints.MapHealthChecks("/healthz", new HealthCheckOptions { Predicate = _ => false });
+                endpoints.MapHealthChecks("/healthz");
                 endpoints.MapGet("/", async context =>
                 {
                     var hostUrl = $"{context.Request.Scheme}://{context.Request.Host}{context.Request.PathBase}";
@@ -99,7 +97,7 @@ namespace Api
                     {
                         name = "CovPort",
                         version = "1.0.0",
-                        health = $"{hostUrl}/health",
+                        health = $"{hostUrl}/healthz",
                         documentation = $"{hostUrl}/swagger"
                     };
                     var infoJson = JsonConvert.SerializeObject(info);

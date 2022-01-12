@@ -17,7 +17,9 @@ namespace Api.Extension
             
             try
             {
+                logger.LogInformation($"Migrating and seeding db from {nameof(PortalDbContextSeeder)}");
                 new PortalDbContextSeeder(context).Seed().Wait();
+                logger.LogInformation($"Db seeding completed");
             }
             catch (Exception ex){
                 logger.LogError($"An error occurred running migration - {ex.Message}");
