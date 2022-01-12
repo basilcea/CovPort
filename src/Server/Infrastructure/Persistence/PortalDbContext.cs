@@ -18,13 +18,15 @@ namespace Infrastructure.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Booking>().HasKey(x => x.Id);
-
+          
             modelBuilder.Entity<Space>().HasKey(x => x.Id);
-            modelBuilder.Entity<Space>().HasIndex(x => new { x.LocationName, x.Date});
+            modelBuilder.Entity<Space>().HasIndex(x => new { x.LocationName, x.Date}).IsUnique();
 
             modelBuilder.Entity<Result>().HasKey(x => x.Id);
+            modelBuilder.Entity<Result>().HasIndex(x => x.BookingId).IsUnique();
+            
             modelBuilder.Entity<User>().HasKey(x => x.Id);
-            modelBuilder.Entity<User>().HasIndex(x => x.Email);
+            modelBuilder.Entity<User>().HasIndex(x => x.Email).IsUnique();
 
            
         }

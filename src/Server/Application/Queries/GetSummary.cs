@@ -1,33 +1,35 @@
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Domain.Aggregates;
 using Domain.Interfaces;
 using MediatR;
 
 namespace Application.Queries
 {
-    public class GetSummary<S, T> : IRequest<IEnumerable<S>> where S : class where T : IEntity
+    public class GetSummary : IRequest<IEnumerable<ResultSummary>> 
     {
-
-        public GetSummary(string id)
+         public GetSummary(DateTime date)
         {
-            Id = id;
+            Date = date;
         }
-        public string Id { get; }
+
+        public DateTime Date { get; }
     }
 
-    public class GetSummaryHandler<S, T> : IRequestHandler<GetSummary<S, T>, IEnumerable<S>> where S : class where T : IEntity
+    public class GetSummaryHandler : IRequestHandler<GetSummary, IEnumerable<ResultSummary>> 
     {
-        private readonly IEntityRepository<S,T> _entityRepository;
+        private readonly ISummaryRepository _summaryRepo;
 
-        public GetSummaryHandler(IEntityRepository<S,T> entityRepository)
+        public GetSummaryHandler(ISummaryRepository summaryRepository)
         {
-            _entityRepository = entityRepository;
+            _summaryRepo = summaryRepository;
         }
 
-        public async Task<IEnumerable<S>> Handle(Queries.GetSummary<S, T> request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<ResultSummary>> Handle(GetSummary request, CancellationToken cancellationToken)
         {
-            return await _entityRepository.GetSummary(request.Id);
+            return await _summaryRepo.GetReportSummary(request.Date);
         }
     }
 }

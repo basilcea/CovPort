@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public interface IEntityRepository<S, T> where S : class where T : IEntity
+    public interface IEntityRepository<T> where T : IEntity
     {
-        Task<T> Insert(T body, string requesterId);
-        Task<T> Update(S body);
-        Task<T> GetById(string id);
+        Task<T> Insert(T body, int requesterId);
+        Task<T> Update(T body, int requesterId);
+        Task<T> GetById(int id);
         Task<IEnumerable<T>> Get(); 
         Task<IEnumerable<T>> GetByFilter( string filter);
-        Task<IEnumerable<S>> GetSummary(string filter);
+        
     }
 }

@@ -4,7 +4,7 @@ namespace Domain.Interfaces
 {
     public interface IEntity
     {
-        string Id {get;set;}
+        int Id {get;set;}
         DateTime DateCreated { get; set;}
         DateTime DateUpdated {get;set;}
     }

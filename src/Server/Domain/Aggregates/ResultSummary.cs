@@ -5,11 +5,11 @@ namespace Domain.Aggregates
     public class ResultSummary
     {
         public string LocationName {get;set;}
-        public string BookingCapacity {get;set;}
-        public string Bookings {get;set;}
-        public string Test {get;set;}
-        public string PositiveCases {get;set;}
-        public string NegativeCases {get;set;}
-        public string AwaitingResult {get;set;}
+        public int BookingCapacity {get;set;}
+        public int Bookings {get;set;}
+        public int Tests {get;set;}
+        public int PositiveCases {get;set;}
+        public int NegativeCases {get;set;}
+        public int AwaitingResult {get;set;}
     }
 }

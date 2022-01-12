@@ -38,30 +38,30 @@ namespace Infrastructure.Persistence
            {
     new Space()
                 {
-                    Id="1",
                     LocationName = "Seychelles",
                     Date = DateTime.Parse("2022-01-20"),
                     SpacesAvailable = 30,
+                    SpacesCreated = 30,
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
 
                 },
                 new Space()
                 {
-                    Id="2",
                     LocationName = "Malta",
                     Date = DateTime.Parse("2022-01-20"),
                     SpacesAvailable = 20,
+                    SpacesCreated = 20,
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
 
                 },
                 new Space()
                 {   
-                    Id = "3",
                     LocationName = "Seychelles",
                     Date = DateTime.Parse("2022-01-21"),
                     SpacesAvailable = 30,
+                    SpacesCreated = 30,
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
 
@@ -76,7 +76,6 @@ namespace Infrastructure.Persistence
             {
                  new User()
                 {
-                    Id ="1a",
                     Email = "admin.cea@covport.check",
                     Name = "cea",
                     UserRole = "ADMIN",
@@ -86,7 +85,7 @@ namespace Infrastructure.Persistence
 
                 new User()
                 {
-                    Id ="1b",
+
                     Email = "labadmin.liwu@covport.check",
                     Name = "liwu",
                     UserRole = "LABADMIN",
@@ -96,8 +95,6 @@ namespace Infrastructure.Persistence
                 },
                 new User()
                 {
-
-                    Id ="1c",
                     Email = "me.patient@gmail.com",
                     Name = "Andres",
                     UserRole = "USER",
