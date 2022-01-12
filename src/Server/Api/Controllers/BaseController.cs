@@ -5,6 +5,7 @@ using Api.Extension;
 using Application.Commands;
 using Application.Queries;
 using AutoMapper;
+using Domain.Aggregates;
 using Domain.Interfaces;
 using Domain.ValueObjects;
 using MediatR;
@@ -23,7 +24,7 @@ namespace Api.Controllers
             _mediator = mediator;
         }
 
-        protected async Task<ActionResult<ApiResponse<T>>> GetById(string testId)
+        protected async Task<ActionResult<ApiResponse<T>>> GetById(int testId)
         {
             try
             {
@@ -63,22 +64,23 @@ namespace Api.Controllers
             }
         }
 
-        public async Task<ActionResult<ApiResponse<IEnumerable<S>>>> GetSummary<S>(string filter = null) where S : class
+        public async Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetReportSummary(string date) 
         {
             try
             {
-                var user = await _mediator.Send(new GetSummary<S,T>(filter));
+                var dateString = date  ??  DateTime.Now.ToShortDateString();
+                var user = await _mediator.Send(new GetSummary(DateTime.Parse(dateString)));
                 if (user is not null)
                 {
-                    return Ok(ApiResponse<IEnumerable<S>>.FromData(user));
+                    return Ok(ApiResponse<IEnumerable<ResultSummary>>.FromData(user));
 
                 }
-                return NotFound(ApiResponse<IEnumerable<S>>.WithError(Responses.NotFound));
+                return NotFound(ApiResponse<IEnumerable<ResultSummary>>.WithError(Responses.NotFound));
 
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<S>
+                return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<IEnumerable<ResultSummary>>
                 .WithError(ex.Message));
 
             }
@@ -88,7 +90,7 @@ namespace Api.Controllers
         {
             try
             {
-                var createTest = _mapper.Map<SaveEntity<S,T>>(request);
+                var createTest = _mapper.Map<SaveEntity<T>>(request);
                 var result = await _mediator.Send(createTest);
                 if (result is not null)
                 {
@@ -109,7 +111,7 @@ namespace Api.Controllers
         {
             try
             {
-                var createTest = _mapper.Map<UpdateEntity<S,T>>(request);
+                var createTest = _mapper.Map<UpdateEntity<T>>(request);
                 var result = await _mediator.Send(createTest);
                 if (result is not null)
                 {

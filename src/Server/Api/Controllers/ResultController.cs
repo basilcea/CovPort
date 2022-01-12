@@ -19,9 +19,9 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public Task<ActionResult<ApiResponse<Result>>> GetResult(string testId)
+        public Task<ActionResult<ApiResponse<Result>>> GetResult(int id)
         {
-            return GetById(testId);
+            return GetById(id);
         }
 
         [HttpGet]
@@ -42,13 +42,12 @@ namespace Api.Controllers
            return Update<ResultPatchRequestBody>(request);
         }
 
-        [HttpGet("summary")]
-        public Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetSummary()
+        [HttpGet("summary/{date}")]
+        public Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetSummary(string date)
         {
-            return GetSummary<ResultSummary>();
+            return GetReportSummary(date);
         }
-
-
+        
 
     }
 
