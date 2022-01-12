@@ -19,15 +19,15 @@ namespace Api.Controllers
         }
         
         [HttpGet]
-        public Task<ActionResult<ApiResponse<IEnumerable<Booking>>>> GetBookings([FromQuery] string status)
+        public Task<ActionResult<ApiResponse<IEnumerable<Booking>>>> GetBookings([FromQuery] string filter)
         {
-            return Get(status);
+            return Get(filter);
         }
 
         [HttpGet("{id}")]
-        public Task<ActionResult<ApiResponse<Booking>>> GetBooking(string bookingId)
+        public Task<ActionResult<ApiResponse<Booking>>> GetBooking(int id)
         {
-            return GetById(bookingId);
+            return GetById(id);
         }
 
         [HttpPost]
@@ -35,6 +35,7 @@ namespace Api.Controllers
         { 
             return Create<BookingPostRequestBody>(request);
         }
+
 
         [HttpPatch]
       

@@ -4,8 +4,9 @@ namespace Application.DTO
 {
     public class SpaceRequestBody
     {
-      public string RequesterId {get;set;}
+      public int RequesterId {get;set;}
       public string LocationName { get; set; }
       public string Date { get; set; }
+      public int SpacesCreated{get;set;}
     }
 }

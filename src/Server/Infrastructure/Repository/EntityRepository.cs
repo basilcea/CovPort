@@ -4,14 +4,11 @@ using Domain.Interfaces;
 using Infrastructure.Persistence;
 using System;
 using Microsoft.EntityFrameworkCore;
-using Domain.Entities;
-using Domain.ValueObjects;
+using Application.Exceptions;
 
 namespace Infrastructure.Repository
 {
-    public  class EntityRepository<S, T> : IEntityRepository<S,T>
-
-    where S : class where T : class, IEntity
+    public  class EntityRepository<T> : IEntityRepository<T> where T : class, IEntity
     {
 
         protected readonly PortalDbContext DbContext;
@@ -24,12 +21,16 @@ namespace Infrastructure.Repository
         {
             return await DbContext.Set<T>().ToListAsync();
         }
-        public virtual async Task<T> GetById(string id)
+        public virtual async Task<T> GetById(int id)
         {
 
-            return await DbContext.Set<T>().FindAsync(id);
+            var result = await DbContext.Set<T>().FindAsync(id);
+            if(result == null){
+                throw new NotFoundException($"{typeof(T)} Not Found");
+            }
+            return result;
         }
-        public async virtual Task<T> Insert(T entity, string requesterId = null)
+        public async virtual Task<T> Insert(T entity, int requesterId)
         {
             return await InsertEntity(entity, DbContext);
         }
@@ -38,11 +39,8 @@ namespace Infrastructure.Repository
         {
             throw new System.NotImplementedException();
         }
-        public virtual Task<IEnumerable<S>> GetSummary(string filter)
-        {
-            throw new System.NotImplementedException();
-        }
-        public virtual Task<T> Update(S entity)
+
+        public virtual Task<T> Update(T entity, int requesterId)
         {
             throw new System.NotImplementedException();
         }

@@ -8,18 +8,18 @@ namespace Application.Queries
 {
     public class GetEntityById<T> : IRequest<T> where T : IEntity
     {
-        public GetEntityById(string id)
+        public GetEntityById(int id)
         {
             Id = id;
         }
 
-        public string Id { get; }
+        public int Id { get; }
     }
     public class GetEntityByIdHandler<T> : IRequestHandler<GetEntityById<T>, T> where T : IEntity 
     {
-        private readonly IEntityRepository<string, T> _entityRepository;
+        private readonly IEntityRepository<T> _entityRepository;
 
-        public GetEntityByIdHandler(IEntityRepository<string, T> entityRepository)
+        public GetEntityByIdHandler(IEntityRepository<T> entityRepository)
         {
             _entityRepository = entityRepository;
         }

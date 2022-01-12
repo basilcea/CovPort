@@ -1,76 +1,89 @@
-// using System;
-// using System.Collections.Generic;
-// using System.Linq;
-// using System.Threading.Tasks;
-// using Application.DTO;
-// using Domain.Aggregates;
-// using Domain.Entities;
-// using Domain.Interfaces;
-// using Domain.ValueObjects;
-// using Infrastructure.Persistence;
-// using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Application.Exceptions;
+using Domain.Entities;
+using Domain.ValueObjects;
+using Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
-// namespace Infrastructure.Repository
-// {
-//     public class ResultRepository<S,T> :  EntityRepository<S,T> , IEntityRepository<S,T>
-//      where S : class  where T : class, IEntity
+namespace Infrastructure.Repository
+{
+    public class ResultRepository : EntityRepository<Result>
+    {
+        public ResultRepository(PortalDbContext dbContext) : base(dbContext)
+        {
+        }
 
-//     {
-//         public ResultRepository(PortalDbContext dbContext) : base(dbContext)
-//         {
-//         }
+        public override async Task<IEnumerable<Result>> GetByFilter(string filter)
+        {
+            int id;
+            var value = int.TryParse(filter, out id);
 
-//         public override async Task<IEnumerable<T>> GetByFilter(string filter = null)
-//         {
-//             var user = await DbContext.Users.FindAsync(filter);
-//             if (user == null)
-//             {
-//                 throw new Exception();
-//             }
+            if (!value)
+            {
+                return await DbContext.Results.
+                Where(x => x.Status == filter.ToUpper())
+                .ToListAsync();
+            }
 
-//             if (user.UserRole == Role.USER.ToString())
-//             {
-//                 return DbContext.Results.Where(x => x.UserId == filter).ToListAsync() as IEnumerable<T>;
-//             }
+            return await DbContext.Results
+            .Where(x => x.UserId == int.Parse(filter)
+            && x.Status == TestStatus.COMPLETED.
+            ToString()).ToListAsync();
 
-//             return await DbContext.Results.Where(x => x.Status == filter).ToListAsync() as IEnumerable<T>;
-//         }
+        }
 
-//         public override async Task<T> Update(S body)
-//         {
-//             var postBody = body as ResultPatchRequestBody;
-//             var user = await DbContext.Users.FindAsync(postBody.RequesterId);
-//             if (user == null)
-//             {
-//                 throw new Exception();
-//             }
+        public override async Task<Result> Update(Result body, int requesterId)
+        {
+            var user = await DbContext.Users.FindAsync(requesterId);
+            if (user == null)
+            {
+                throw new NotFoundException("User Not Found");
+            }
 
-//             if (user.UserRole != Role.LABADMIN.ToString())
-//             {
-//                 throw new Exception();
-//             }
+            if (user.UserRole != Role.LABADMIN.ToString())
+            {
+                throw new UnauthorizedException();
+            }
 
-//             var savedResult = await GetById(postBody.Id) as Result;
-//             savedResult.Status = postBody.Status;
-//             savedResult.Positive = Boolean.Parse(postBody.Positive);
-//             return await UpdateEntity(savedResult as T, DbContext);
-//         }
+            var savedResult = await GetById(body.Id);
+            savedResult.Status = body.Status;
+            savedResult.Positive = body.Positive;
+            return await UpdateEntity(savedResult, DbContext);
+        }
 
-//         public override async Task<T> Insert(T entity, string requesterId)
-//         {
+        public override async Task<Result> Insert(Result entity, int requesterId)
+        {
+            var user = await DbContext.Users.FindAsync(requesterId);
 
-//             var user = await DbContext.Users.FindAsync(requesterId);
+            if (user == null)
+            {
+                throw new NotFoundException("User Not Found");
+            }
 
-//             if (user == null)
-//             {
-//                 throw new Exception();
-//             }
+            if (user.UserRole != Role.LABADMIN.ToString())
+            {
+                throw new UnauthorizedException();
 
-//             if (user.UserRole != Role.LABADMIN.ToString())
-//             {
-//                 throw new Exception();
-//             }
-//            return await InsertEntity(entity, DbContext);
-//         }
-//     }
-// }
+            }
+            var booking = await DbContext.Bookings
+            .FindAsync(entity.BookingId);
+            if (booking == null || booking.Status != BookingStatus.PENDING.ToString())
+            {
+                throw new NotFoundException("Booking Not Found");
+            }
+            var spaces = await DbContext.Spaces.FindAsync(booking.SpaceId);
+
+            if (entity.TestLocation.ToUpper() != spaces.LocationName.ToUpper())
+            {
+                throw new BadRequestException("TestLocation - BookingLocation Mismatch");
+
+            }
+
+            booking.Status = BookingStatus.CLOSED.ToString();
+            return await InsertEntity(entity, DbContext);
+        }
+    }
+}

@@ -14,14 +14,12 @@ namespace Application.Queries
             Filter = filter;
         }
         public string Filter { get; }
-    
-
     }
     public class GetEntityHandler<T> : IRequestHandler<GetEntity<T>, IEnumerable<T>> where T : IEntity 
     {
-        private readonly IEntityRepository<string,T> _entityRepository;
+        private readonly IEntityRepository<T> _entityRepository;
 
-        public GetEntityHandler(IEntityRepository<string, T> entityRepository)
+        public GetEntityHandler(IEntityRepository<T> entityRepository)
         {
             _entityRepository = entityRepository;
         }

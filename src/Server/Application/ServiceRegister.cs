@@ -16,26 +16,20 @@ namespace Application
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services
-              .AddTransient<IRequestHandler<SaveEntity<BookingPostRequestBody,Booking>, Booking>,
-                  SaveEntityHandler<BookingPostRequestBody,Booking>>();
+              .AddTransient<IRequestHandler<SaveEntity<Booking>, Booking>,
+                  SaveEntityHandler<Booking>>();
             services
-                .AddTransient<IRequestHandler<SaveEntity<SpaceRequestBody,Space>, Space>,
-                    SaveEntityHandler<SpaceRequestBody,Space>>();
+                .AddTransient<IRequestHandler<SaveEntity<Space>, Space>,
+                    SaveEntityHandler<Space>>();
             services
-                .AddTransient<IRequestHandler<SaveEntity<ResultPostRequestBody,Result>, Result>,
-                    SaveEntityHandler<ResultPostRequestBody,Result>>();
+                .AddTransient<IRequestHandler<SaveEntity<Result>, Result>,
+                    SaveEntityHandler<Result>>();
             services
-                .AddTransient<IRequestHandler<UpdateEntity<BookingPatchRequestBody,Booking>, Booking>,
-                    UpdateEntityHandler<BookingPatchRequestBody,Booking>>();
+                .AddTransient<IRequestHandler<UpdateEntity<Booking>, Booking>,
+                    UpdateEntityHandler<Booking>>();
             services
-              .AddTransient<IRequestHandler<UpdateEntity<ResultPatchRequestBody,Result>, Result>,
-                  UpdateEntityHandler<ResultPatchRequestBody,Result>>();
-            services
-                .AddTransient<IRequestHandler<GetSummary<UserSummary,User>, IEnumerable<UserSummary>>,
-                    GetSummaryHandler<UserSummary,User>>();
-            services
-                .AddTransient<IRequestHandler<GetSummary<ResultSummary,Result>, IEnumerable<ResultSummary>>,
-                    GetSummaryHandler<ResultSummary,Result>>();
+              .AddTransient<IRequestHandler<UpdateEntity<Result>, Result>,
+                  UpdateEntityHandler<Result>>();
             services
                 .AddTransient<IRequestHandler<GetEntity<User>, IEnumerable<User>>,
                     GetEntityHandler<User>>();

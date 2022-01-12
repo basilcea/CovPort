@@ -15,26 +15,18 @@ namespace Api.Controllers
     [Route("api/[controller]")]
     public class UserController : ApiController<User>
     {
-
+        
         public UserController(IMediator mediator,  IMapper mapper): base(mediator, mapper)
         {
         }
         
 
         [HttpGet]
-        public Task<ActionResult<ApiResponse<IEnumerable<User>>>> GetUser(UserRequestBody body)
+        public Task<ActionResult<ApiResponse<IEnumerable<User>>>> GetUser([FromQuery] string email)
         {
-            return Get(body.Email);
+            return Get(email);
         }
-
-        [HttpGet("summary")]
-        public Task<ActionResult<ApiResponse<IEnumerable<UserSummary>>>> GetUserSummary([FromQuery] string userId)
-        {
-            return GetSummary<UserSummary>(userId);
-        }
-
-
 
     }
-
+   
 }

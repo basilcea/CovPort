@@ -8,7 +8,6 @@ namespace Api.Validations
          public UserRequestValidator()
         {
             RuleFor(x => x.Email).NotEmpty().EmailAddress();
-        
         }
 
         
