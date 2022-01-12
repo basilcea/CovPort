@@ -16,11 +16,11 @@ using Application;
 using Infrastructure;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
-using Api.HealthChecks;
 using Api.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Infrastructure.Persistence;
 
 namespace Api
 {
@@ -38,6 +38,14 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+    
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins("http://localhost:3000");
+                });
+            });
 
             services.AddControllers(options =>
                 {
@@ -55,15 +63,14 @@ namespace Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
             });
             services.AddAutoMapper(cfg => cfg.AddProfile<RequestToCommandProfile>());
-            services.AddHealthChecks().AddCheck<DbHealthCheck>("Database");
-
             services.AddInfrastructure(Configuration);
+            services.AddHealthChecks().AddDbContextCheck<PortalDbContext>();
             services.AddApplication();
-    
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void  Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -76,22 +83,22 @@ namespace Api
             }
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "Api v1"));
-            // app.UseSerilogRequestLogging();
+            app.UseSerilogRequestLogging();
 
             if (!env.IsDevelopment())
             {
                 app.UseHttpsRedirection();
             }
-    
+
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHealthChecks("/health");
-                endpoints.MapHealthChecks("/healthz", new HealthCheckOptions { Predicate = _ => false });
+                endpoints.MapHealthChecks("/healthz");
                 endpoints.MapGet("/", async context =>
                 {
                     var hostUrl = $"{context.Request.Scheme}://{context.Request.Host}{context.Request.PathBase}";
@@ -99,7 +106,7 @@ namespace Api
                     {
                         name = "CovPort",
                         version = "1.0.0",
-                        health = $"{hostUrl}/health",
+                        health = $"{hostUrl}/healthz",
                         documentation = $"{hostUrl}/swagger"
                     };
                     var infoJson = JsonConvert.SerializeObject(info);

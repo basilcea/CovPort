@@ -29,7 +29,7 @@ namespace Api.Filters
                         StatusCode = StatusCodes.Status400BadRequest
                     };
 
-                _logger.LogWarning("Received model errors: {@Errors} when calling {Request.Path}", responseBody.Errors, context.HttpContext.Request.Path);
+                _logger.LogError("Received model errors: {@Errors} when calling {Request.Path}", responseBody.Errors, context.HttpContext.Request.Path);
             }
 
             base.OnActionExecuting(context);

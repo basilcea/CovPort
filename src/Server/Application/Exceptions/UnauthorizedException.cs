@@ -4,7 +4,7 @@ namespace Application.Exceptions
 {
     public class UnauthorizedException : Exception
     {
-        public UnauthorizedException(): base("No Access")
+        public UnauthorizedException(): base("User Unauthorized")
         {
             
         }

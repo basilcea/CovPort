@@ -17,7 +17,7 @@ namespace Infrastructure.Persistence
         }
         public async Task Seed()
         {
-
+           
             await _dbContext.Database.MigrateAsync();
 
             if (!_dbContext.Users.Any())
@@ -36,7 +36,7 @@ namespace Infrastructure.Persistence
         {
             return new List<Space>
            {
-    new Space()
+                new Space()
                 {
                     LocationName = "Seychelles",
                     Date = DateTime.Parse("2022-01-20"),
@@ -57,7 +57,7 @@ namespace Infrastructure.Persistence
 
                 },
                 new Space()
-                {   
+                {
                     LocationName = "Seychelles",
                     Date = DateTime.Parse("2022-01-21"),
                     SpacesAvailable = 30,

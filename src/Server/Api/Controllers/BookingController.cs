@@ -38,7 +38,6 @@ namespace Api.Controllers
 
 
         [HttpPatch]
-      
         public Task<ActionResult<ApiResponse<Booking>>> CancelBooking(BookingPatchRequestBody request)
         { 
             return Update<BookingPatchRequestBody>(request);

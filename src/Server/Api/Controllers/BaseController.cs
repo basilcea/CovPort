@@ -26,105 +26,49 @@ namespace Api.Controllers
 
         protected async Task<ActionResult<ApiResponse<T>>> GetById(int testId)
         {
-            try
-            {
-                var result = await _mediator.Send(new GetEntityById<T>(testId));
-                if (result is not null)
-                {
-                    return Ok(ApiResponse<T>.FromData(result));
-                }
-                return NotFound(ApiResponse<T>.WithError(Responses.NotFound));
-
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<T>
-                .WithError(ex.Message));
-            }
+            var result = await _mediator.Send(new GetEntityById<T>(testId));
+            return Ok(ApiResponse<T>.FromData(result, GetMessage("GetById")));
         }
 
         protected async Task<ActionResult<ApiResponse<IEnumerable<T>>>> Get(
             [FromQuery] string filter = null)
         {
-            try
-            {
-                var result = await _mediator.Send(new GetEntity<T>(filter));
-                if (result is not null)
-                {
-                    return Ok(ApiResponse<IEnumerable<T>>.FromData(result));
-
-                }
-                return NotFound(ApiResponse<IEnumerable<T>>.WithError(Responses.NotFound));
-
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<IEnumerable<T>>
-                .WithError(ex.Message));
-            }
+            var result = await _mediator.Send(new GetEntity<T>(filter));
+            return Ok(ApiResponse<IEnumerable<T>>.FromData(result, GetMessage("Get")));
         }
 
-        protected async Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetReportSummary([FromQuery] string date) 
+        protected async Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetReportSummary([FromQuery] string date)
         {
-            try
-            {
-                var dateString = date  ??  DateTime.Now.ToShortDateString();
-                var user = await _mediator.Send(new GetSummary(DateTime.Parse(dateString)));
-                if (user is not null)
-                {
-                    return Ok(ApiResponse<IEnumerable<ResultSummary>>.FromData(user));
-
-                }
-                return NotFound(ApiResponse<IEnumerable<ResultSummary>>.WithError(Responses.NotFound));
-
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<IEnumerable<ResultSummary>>
-                .WithError(ex.Message));
-
-            }
+            var dateString = date ?? DateTime.Now.ToShortDateString();
+            var result = await _mediator.Send(new GetSummary(DateTime.Parse(dateString)));
+            return Ok(ApiResponse<IEnumerable<ResultSummary>>.FromData(result, GetMessage("Summary")));
         }
 
         protected async Task<ActionResult<ApiResponse<T>>> Create<S>(S request) where S : class
         {
-            try
-            {
-                var createTest = _mapper.Map<SaveEntity<T>>(request);
-                var result = await _mediator.Send(createTest);
-                if (result is not null)
-                {
-                    return Ok(ApiResponse<T>.FromData(result));
-
-                }
-                return NotFound(ApiResponse<T>.WithError(Responses.NotFound));
-
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<T>
-                .WithError(ex.Message));
-            }
+            var createTest = _mapper.Map<SaveEntity<T>>(request);
+            var result = await _mediator.Send(createTest);
+            return Ok(ApiResponse<T>.FromData(result, GetMessage("Create")));
         }
 
         protected async Task<ActionResult<ApiResponse<T>>> Update<S>(S request) where S : class
         {
-            try
-            {
-                var createTest = _mapper.Map<UpdateEntity<T>>(request);
-                var result = await _mediator.Send(createTest);
-                if (result is not null)
-                {
-                    return Ok(ApiResponse<T>.FromData(result));
+            var createTest = _mapper.Map<UpdateEntity<T>>(request);
+            var result = await _mediator.Send(createTest);
+            return Ok(ApiResponse<T>.FromData(result, GetMessage("Update")));
 
-                }
-                return NotFound(ApiResponse<T>.WithError(Responses.NotFound));
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ApiResponse<T>
-                .WithError(ex.Message));
-            }
+
+        }
+
+        protected static string GetMessage(string requestType)
+        {
+            return $"{typeof(T).Name} {requestType} Request Successful";
+
+        }
+        protected static string GetFailedMessage(string requestType)
+        {
+            return $"{typeof(T).Name} {requestType} Request Failed";
+
         }
     }
 }
