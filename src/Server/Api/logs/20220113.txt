@@ -1,0 +1,4 @@
+2022-01-13 00:00:06.767 +02:00 [INF] Db seeding completed
+2022-01-13 00:01:57.621 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-13 00:02:03.491 +02:00 [INF] Db seeding completed
+2022-01-13 00:03:44.586 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
