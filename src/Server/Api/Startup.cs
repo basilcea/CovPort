@@ -20,6 +20,7 @@ using Api.HealthChecks;
 using Api.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 namespace Api
 {
@@ -48,11 +49,6 @@ namespace Api
             .AddFluentValidation(cfg =>
                     cfg.RegisterValidatorsFromAssemblyContaining<BookingPostRequestValidator>()
                 );
-            // In production, the React files will be served from this directory
-            // services.AddSpaStaticFiles(configuration =>
-            // {
-            //     configuration.RootPath = $"{Directory.GetParent(ParentDirectory.FullName)}/Client/build";
-            // });
             services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
             services.AddSwaggerGen(c =>
             {
@@ -88,7 +84,6 @@ namespace Api
             }
     
             app.UseStaticFiles();
-            // app.UseSpaStaticFiles();
 
             app.UseRouting();
 
@@ -96,6 +91,7 @@ namespace Api
             {
                 endpoints.MapControllers();
                 endpoints.MapHealthChecks("/health");
+                endpoints.MapHealthChecks("/healthz", new HealthCheckOptions { Predicate = _ => false });
                 endpoints.MapGet("/", async context =>
                 {
                     var hostUrl = $"{context.Request.Scheme}://{context.Request.Host}{context.Request.PathBase}";
@@ -111,16 +107,6 @@ namespace Api
                 });
             });
 
-            // app.UseSpa(spa =>
-            // {
-            //     spa.Options.SourcePath = $"{Directory.GetParent(ParentDirectory.FullName)}/Client";
-
-            //     if (env.IsDevelopment())
-            //     {
-            //         // spa.UseReactDevelopmentServer(npmScript: "start");
-            //         spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
-            //     }
-            // });
         }
     }
 }

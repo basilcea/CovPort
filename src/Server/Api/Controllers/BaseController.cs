@@ -64,7 +64,7 @@ namespace Api.Controllers
             }
         }
 
-        public async Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetReportSummary(string date) 
+        protected async Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetReportSummary([FromQuery] string date) 
         {
             try
             {

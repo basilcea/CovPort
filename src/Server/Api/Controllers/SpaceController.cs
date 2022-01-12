@@ -19,7 +19,7 @@ namespace Api.Controllers
         {
         }
 
-  [HttpGet]
+        [HttpGet]
         public Task<ActionResult<ApiResponse<IEnumerable<Space>>>> GetSpaces()
         {
             return Get();

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Api.Extension;
+using Application.Exceptions;
 // using Application.Exceptions;
 
 using Microsoft.AspNetCore.Http;
@@ -12,7 +13,7 @@ namespace Api.Filters
 {
     public class UnhandledExceptionFilterAttribute : ExceptionFilterAttribute
     {
-        public override async Task OnExceptionAsync(ExceptionContext context)
+        public override Task OnExceptionAsync(ExceptionContext context)
         {
             if (!context.ExceptionHandled)
             {
@@ -20,21 +21,27 @@ namespace Api.Filters
                 var message = "Internal Server Error";
                 switch (context.Exception)
                 {
-                    // case DuplicateTransactionException _:
-                    //     statusCode = StatusCodes.Status409Conflict;
-                    //     message = context.Exception.Message;
-                    //     break;
-                    // case InvalidAccountException _:
-                    //     statusCode = StatusCodes.Status403Forbidden;
-                    //     message = context.Exception.Message;
-                    //     break;
+                    case BadRequestException _:
+                        statusCode = StatusCodes.Status400BadRequest;
+                        message = context.Exception.Message;
+                        break;
+                    case UnauthorizedException _:
+                        statusCode = StatusCodes.Status403Forbidden;
+                        message = context.Exception.Message;
+                        break;
+                    case NotFoundException _:
+                        statusCode = StatusCodes.Status404NotFound;
+                        message = context.Exception.Message;
+                        break;
                 }
 
                 context.Result = new JsonResult(context.Exception.ToApiResponse(message))
                 {
                     StatusCode = statusCode
                 };
+                
             }
+            return Task.CompletedTask;
         }
     }
 

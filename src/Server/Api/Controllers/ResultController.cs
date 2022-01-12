@@ -42,8 +42,8 @@ namespace Api.Controllers
            return Update<ResultPatchRequestBody>(request);
         }
 
-        [HttpGet("summary/{date}")]
-        public Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetSummary(string date)
+        [HttpGet("summary")]
+        public Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetSummary([FromQuery] string date)
         {
             return GetReportSummary(date);
         }
