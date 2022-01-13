@@ -37,11 +37,16 @@ namespace Api.Controllers
             return Ok(ApiResponse<IEnumerable<T>>.FromData(result, GetMessage("Get")));
         }
 
-        protected async Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetReportSummary([FromQuery] string date)
+        protected async Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetReportSummary(string date)
         {
             var dateString = date ?? DateTime.Now.ToShortDateString();
-            var result = await _mediator.Send(new GetSummary(DateTime.Parse(dateString)));
+            var result = await _mediator.Send(new GetResultSummary(DateTime.Parse(dateString)));
             return Ok(ApiResponse<IEnumerable<ResultSummary>>.FromData(result, GetMessage("Summary")));
+        }
+        protected async Task<ActionResult<ApiResponse<UserSummary>>> GetUserSummary(int id)
+        {
+            var result = await _mediator.Send(new GetUserSummary(id));
+            return Ok(ApiResponse<UserSummary>.FromData(result, GetMessage("Summary")));
         }
 
         protected async Task<ActionResult<ApiResponse<T>>> Create<S>(S request) where S : class
@@ -63,11 +68,6 @@ namespace Api.Controllers
         protected static string GetMessage(string requestType)
         {
             return $"{typeof(T).Name} {requestType} Request Successful";
-
-        }
-        protected static string GetFailedMessage(string requestType)
-        {
-            return $"{typeof(T).Name} {requestType} Request Failed";
 
         }
     }

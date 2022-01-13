@@ -22,9 +22,16 @@ namespace Api.Controllers
         
 
         [HttpGet]
-        public Task<ActionResult<ApiResponse<IEnumerable<User>>>> GetUser([FromQuery] string email)
+        public Task<ActionResult<ApiResponse<IEnumerable<User>>>> PostUser(string email)
         {
             return Get(email);
+        }
+
+
+        [HttpGet("summary/{id}")]
+        public Task<ActionResult<ApiResponse<UserSummary>>> GetSummary(int id)
+        {
+            return GetUserSummary(id);
         }
 
     }

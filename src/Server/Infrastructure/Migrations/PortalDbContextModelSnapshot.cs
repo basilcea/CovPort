@@ -32,6 +32,9 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("DateUpdated")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("LocationName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("SpaceId")
                         .HasColumnType("int");
 
