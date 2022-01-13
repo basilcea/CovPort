@@ -8,5 +8,6 @@ namespace Domain.Interfaces
     public interface ISummaryRepository
     {
          Task<IEnumerable<ResultSummary>> GetReportSummary(DateTime date);
+         Task<UserSummary> GetUserSummary(int id);
     }
 }

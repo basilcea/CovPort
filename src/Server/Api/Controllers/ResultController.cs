@@ -25,9 +25,9 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public Task<ActionResult<ApiResponse<IEnumerable<Result>>>> GetResults(string filter)
+        public Task<ActionResult<ApiResponse<IEnumerable<Result>>>> GetResults([FromQuery] string status)
         {
-            return Get(filter);
+            return Get(status);
         }
 
         [HttpPost]

@@ -17,6 +17,7 @@ namespace Infrastructure.Migrations
                     SpaceId = table.Column<int>(type: "int", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TestType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LocationName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },

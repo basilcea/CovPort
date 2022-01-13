@@ -28,10 +28,12 @@ namespace Infrastructure.Repository
                     throw new NotFoundException("Booking Not Found");
                 }
                 var space = await GetSpaceById(savedBooking.SpaceId, _dbContext,_logger);
+                _logger.LogInformation("Retrieved space: {@type}", space);
+                await _dbContext.SaveChangesAsync();
                 _logger.LogInformation("Received booking response: {@response}", savedBooking);
                 return savedBooking;
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
@@ -51,11 +53,11 @@ namespace Infrastructure.Repository
                     _logger.LogInformation("Received booking response: {@response}", result);
                     return result;
                 }
-                result = await _dbContext.Bookings.Where(x => x.UserId == id && x.Status == BookingStatus.PENDING.ToString()).ToListAsync();
+                result = await _dbContext.Bookings.Where(x => x.UserId == id).ToListAsync();
                 _logger.LogInformation("Received booking response: {@response}", result);
                 return result;
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
@@ -82,7 +84,7 @@ namespace Infrastructure.Repository
                 savedBooking.Status = body.Status ?? savedBooking.Status;
                 return await UpdateEntity(savedBooking, _dbContext, _logger);
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
@@ -106,11 +108,11 @@ namespace Infrastructure.Repository
 
                 if (existingBooking != null)
                 {
-                    throw new BadRequestException("Pending Booking Exists");
+                    throw new BadRequestException("You have a pending booking for this date");
                 }
 
                 var space = await GetSpaceById(entity.SpaceId, _dbContext,_logger);
-
+                _logger.LogInformation("Retrieved space: {@type}", space);
                 if (space.SpacesAvailable <= 0)
                 {
                     throw new NotFoundException("Available Space Not Found");
@@ -118,9 +120,10 @@ namespace Infrastructure.Repository
                 space.SpacesAvailable -= 1;
                 _logger.LogInformation($"Updated space available in space {space.Id} to {space.SpacesAvailable}");
                 entity.Status = BookingStatus.PENDING.ToString();
+                entity.LocationName = space.LocationName;
                 return await InsertEntity(entity, _dbContext, _logger);
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();

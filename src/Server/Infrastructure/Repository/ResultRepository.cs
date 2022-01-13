@@ -23,20 +23,23 @@ namespace Infrastructure.Repository
             {
                 int id;
                 var value = int.TryParse(filter, out id);
+                IEnumerable<Result> result;
 
                 if (!value)
                 {
-                    return await _dbContext.Results.
+                    result = await _dbContext.Results.
                     Where(x => x.Status == filter.ToUpper())
                     .ToListAsync();
+                    _logger.LogInformation("Received Result response: {@response}", result);
+                    return result;
                 }
 
-                return await _dbContext.Results
-                .Where(x => x.UserId == int.Parse(filter)
-                && x.Status == TestStatus.COMPLETED.
-                ToString()).ToListAsync();
+                result = await _dbContext.Results
+                .Where(x => x.UserId == int.Parse(filter)).ToListAsync();
+                _logger.LogInformation("Received Result response: {@response}", result);
+                return result;
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
@@ -66,7 +69,7 @@ namespace Infrastructure.Repository
                 savedResult.Positive = body.Positive;
                 return await UpdateEntity(savedResult, _dbContext, _logger);
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
@@ -95,7 +98,7 @@ namespace Infrastructure.Repository
                 .FindAsync(entity.BookingId);
                 if (booking == null || booking.Status != BookingStatus.PENDING.ToString())
                 {
-                    throw new NotFoundException("Booking Not Found");
+                    throw new NotFoundException("No Pending Booking");
                 }
                 var spaces = await _dbContext.Spaces.FindAsync(booking.SpaceId);
 
@@ -108,7 +111,7 @@ namespace Infrastructure.Repository
                 booking.Status = BookingStatus.CLOSED.ToString();
                 return await InsertEntity(entity, _dbContext, _logger);
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();

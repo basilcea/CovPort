@@ -19,9 +19,14 @@ namespace Infrastructure.Repository
         {
             try
             {
-                return await _dbContext.Users.Where(x => x.Email == filter).ToListAsync();
+                var result = await _dbContext.Users.Where(x => x.Email == filter).ToListAsync();
+                if (result.Count <= 0)
+                {
+                    throw new NotFoundException("User Not Found");
+                }
+                return result;
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();

@@ -2,3 +2,8 @@
 2022-01-13 00:01:57.621 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
 2022-01-13 00:02:03.491 +02:00 [INF] Db seeding completed
 2022-01-13 00:03:44.586 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-13 08:28:54.321 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-13 08:29:05.268 +02:00 [INF] Db seeding completed
+2022-01-13 08:31:39.781 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"me.patient@gmail.com","Name":"Andres","UserRole":"USER","DateCreated":"2022-01-12T12:28:48.2759510","DateUpdated":"2022-01-12T12:28:48.2759510","$type":"User"},"Bookings":[{"Id":1,"UserId":3,"SpaceId":4,"Status":"PENDING","TestType":"PCR","DateCreated":"2022-01-12T12:33:41.8188860","DateUpdated":"2022-01-12T12:33:41.8188860","$type":"Booking"}],"Tests":[],"$type":"UserSummary"}
+2022-01-13 08:31:39.995 +02:00 [INF] HTTP GET /api/user/summary/3?email=me.patient%40gmail.com responded 200 in 2129.7867 ms
+2022-01-13 08:45:46.658 +02:00 [INF] HTTP GET /api/user?email=le.patient%40gmail.com responded 405 in 4.2588 ms

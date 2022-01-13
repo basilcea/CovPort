@@ -8,9 +8,9 @@ using MediatR;
 
 namespace Application.Queries
 {
-    public class GetSummary : IRequest<IEnumerable<ResultSummary>> 
+    public class GetResultSummary : IRequest<IEnumerable<ResultSummary>> 
     {
-         public GetSummary(DateTime date)
+         public GetResultSummary(DateTime date)
         {
             Date = date;
         }
@@ -18,7 +18,7 @@ namespace Application.Queries
         public DateTime Date { get; }
     }
 
-    public class GetSummaryHandler : IRequestHandler<GetSummary, IEnumerable<ResultSummary>> 
+    public class GetSummaryHandler : IRequestHandler<GetResultSummary, IEnumerable<ResultSummary>> 
     {
         private readonly ISummaryRepository _summaryRepo;
 
@@ -27,7 +27,7 @@ namespace Application.Queries
             _summaryRepo = summaryRepository;
         }
 
-        public async Task<IEnumerable<ResultSummary>> Handle(GetSummary request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<ResultSummary>> Handle(GetResultSummary request, CancellationToken cancellationToken)
         {
             return await _summaryRepo.GetReportSummary(request.Date);
         }

@@ -17,7 +17,7 @@ namespace Infrastructure
             services.AddScoped<IEntityRepository<Result>, ResultRepository>();
             services.AddScoped<IEntityRepository<Booking>, BookingRepository>();
             services.AddScoped<IEntityRepository<Space>, SpaceRepository>();
-            services.AddScoped<ISummaryRepository, ReportRepository>();
+            services.AddScoped<ISummaryRepository, SummaryRepository>();
             services.AddScoped(typeof(IEntityRepository<>), typeof(EntityRepository<>));
             var loggerFactory = services.BuildServiceProvider().GetRequiredService<ILoggerFactory>();
             services.AddDbContext<PortalDbContext>(options =>
