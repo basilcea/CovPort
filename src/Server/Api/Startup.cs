@@ -43,7 +43,7 @@ namespace Api
             {
                 options.AddDefaultPolicy(builder =>
                 {
-                    builder.WithOrigins("http://localhost:3000").SetIsOriginAllowedToAllowWildcardSubdomains().AllowAnyHeader().AllowAnyMethod();
+                    builder.WithOrigins("http://localhost:3000", "https://localhost:5001", "http://localhost:5001").SetIsOriginAllowedToAllowWildcardSubdomains().AllowAnyHeader().AllowAnyMethod();
                 });
             });
 
@@ -58,6 +58,10 @@ namespace Api
                     cfg.RegisterValidatorsFromAssemblyContaining<BookingPostRequestValidator>()
                 );
             services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = $"{Directory.GetParent(ParentDirectory.FullName)}/Client/build";
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
@@ -87,10 +91,12 @@ namespace Api
 
             if (!env.IsDevelopment())
             {
-                app.UseHttpsRedirection();
+                
             }
 
+            // app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSpaStaticFiles();
 
             app.UseRouting();
             app.UseCors();
@@ -112,6 +118,16 @@ namespace Api
                     var infoJson = JsonConvert.SerializeObject(info);
                     await context.Response.WriteAsync(infoJson);
                 });
+            });
+
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = $"{Directory.GetParent(ParentDirectory.FullName)}/Client";
+
+                if (env.IsDevelopment())
+                {
+                    spa.UseReactDevelopmentServer(npmScript: "start");
+                }
             });
 
         }
