@@ -6,7 +6,8 @@ This project follows a Domain Driven Design pattern based largely on the Clean a
 
 ## Installation
 
-{Note} - To run this project, you should have npm package manager and  .net installed on your device. You also need a database connection string, Git and Cli.
+```Note`` - To run this project, you should have npm package manager and  .net installed on your device. You also need a database connection string, Git and Cli.
+- Copy appsettings.Example.json content into your appsettings.json file created in the api folder.
 
 Sample SQL Server connection string used in this project.
 
@@ -28,9 +29,9 @@ To run the project follow the following steps on the cli.
 
  npm install
 
- dotnet restore
-
  cd  ../src/server/api
+
+ dotnet restore
  
  dotnet build
 
@@ -78,6 +79,7 @@ Some assumptions made during the design of the project include:-
 - A user can only view completed tests results (results with the test status as completed having positive or negative values)
 - Admin can create spaces ahead of the current date;
 - No Authentication is implemented.
+- Migrations are recreated daily to ensure that defaults report summary are generated for ```Today``` and ```Tommorow```.
 
 
 ## Suggested Improvements
@@ -141,6 +143,10 @@ Some assumptions made during the design of the project include:-
     DateUpdated = DateTime.Now
 }
 
+```
+### Reports
+```
+Default Reports can be gotten for today and tommorow
 ```
 
 This project was built by [Basil Ogbonna](mailto:ogbonna.basil3@gmail.com)
