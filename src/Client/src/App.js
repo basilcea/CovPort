@@ -16,7 +16,6 @@ export default function App() {
     return (
       <Layout>
         <Route exact path='/' component={Home} />
-        <Route path='/home' component={Home} />
         <Route exact path='/createspace' component={CreateSpace} />
         <Route exact path="/createbooking" component={CreateBooking} />
         <Route exact path='/results' component={Result} />

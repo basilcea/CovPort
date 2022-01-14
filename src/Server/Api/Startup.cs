@@ -105,7 +105,7 @@ namespace Api
             {
                 endpoints.MapControllers();
                 endpoints.MapHealthChecks("/healthz");
-                endpoints.MapGet("/", async context =>
+                endpoints.MapGet("/api", async context =>
                 {
                     var hostUrl = $"{context.Request.Scheme}://{context.Request.Host}{context.Request.PathBase}";
                     var info = new
