@@ -78,7 +78,7 @@ Some assumptions made during the design of the project include:-
 - A user can only view completed tests results (results with the test status as completed having positive or negative values)
 - Admin can create spaces ahead of the current date;
 - No Authentication is implemented.
-- Migrations are recreated daily to ensure that defaults report summary are generated for ```Today``` and ```Tommorow```.
+
 
 
 ## Suggested Improvements
@@ -143,9 +143,6 @@ Some assumptions made during the design of the project include:-
 }
 
 ```
-### Reports
-```
-Default Reports can be gotten for today and tommorow
-```
+
 
 This project was built by [Basil Ogbonna](mailto:ogbonna.basil3@gmail.com)
