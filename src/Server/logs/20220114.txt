@@ -1644,3 +1644,334 @@ The underlying exception message was 'Connection refused (localhost:3000)'.Check
 2022-01-14 02:06:08.244 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 10045.5004 ms
 2022-01-14 02:11:45.845 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
 2022-01-14 02:11:55.319 +02:00 [INF] Db seeding completed
+2022-01-14 03:12:48.493 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 03:13:00.966 +02:00 [INF] Db seeding completed
+2022-01-14 03:18:48.002 +02:00 [INF] HTTP GET / responded 200 in 201.8983 ms
+2022-01-14 03:18:48.067 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 30.4187 ms
+2022-01-14 03:18:48.083 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 12.0695 ms
+2022-01-14 03:18:48.156 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 200 in 69.8934 ms
+2022-01-14 03:18:48.307 +02:00 [INF] HTTP GET /manifest.json responded 200 in 22.1572 ms
+2022-01-14 03:18:50.133 +02:00 [INF] Received User Summary: {"User":{"Id":1,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-13T18:22:00.6142610","DateUpdated":"2022-01-13T18:22:00.6146950","$type":"User"},"Bookings":[],"Tests":[{"Id":1,"BookingId":1,"UserId":1,"TestLocation":"SEYCHELLES","TestType":"RAPID","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-13T19:10:37.8725730","DateUpdated":"2022-01-13T21:15:52.7885310","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 03:18:50.332 +02:00 [INF] HTTP GET /api/user/summary/1 responded 200 in 2119.9449 ms
+2022-01-14 03:18:51.498 +02:00 [INF] Received User Summary: {"User":{"Id":1,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-13T18:22:00.6142610","DateUpdated":"2022-01-13T18:22:00.6146950","$type":"User"},"Bookings":[],"Tests":[{"Id":1,"BookingId":1,"UserId":1,"TestLocation":"SEYCHELLES","TestType":"RAPID","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-13T19:10:37.8725730","DateUpdated":"2022-01-13T21:15:52.7885310","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 03:18:51.530 +02:00 [INF] HTTP GET /api/user/summary/1 responded 200 in 1179.2415 ms
+2022-01-14 03:18:56.871 +02:00 [INF] HTTP GET / responded 200 in 44.4698 ms
+2022-01-14 03:18:56.894 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 8652.7403 ms
+2022-01-14 03:18:56.918 +02:00 [INF] HTTP GET /static/js/bundle.js responded 304 in 7.5808 ms
+2022-01-14 03:18:56.924 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 304 in 12.7010 ms
+2022-01-14 03:18:56.924 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 304 in 13.4029 ms
+2022-01-14 03:18:56.974 +02:00 [INF] HTTP GET /manifest.json responded 200 in 3.9925 ms
+2022-01-14 03:19:03.856 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 515.9892 ms
+2022-01-14 03:20:08.949 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 71947.6656 ms
+2022-01-14 10:07:23.778 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 10:07:45.714 +02:00 [INF] Db seeding completed
+2022-01-14 10:08:30.825 +02:00 [INF] HTTP GET / responded 200 in 189.3532 ms
+2022-01-14 10:08:30.896 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 26.4268 ms
+2022-01-14 10:08:30.932 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 9.2122 ms
+2022-01-14 10:08:31.003 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 200 in 69.0695 ms
+2022-01-14 10:08:31.174 +02:00 [INF] HTTP GET /manifest.json responded 200 in 10.9270 ms
+2022-01-14 10:09:28.196 +02:00 [INF] HTTP GET /api/user?email=admin.cea@covport.check responded 200 in 967.2838 ms
+2022-01-14 10:09:29.414 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T10:07:42.6622490","DateUpdated":"2022-01-14T10:07:42.6628770","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T10:07:43.6694580","DateUpdated":"2022-01-14T10:07:43.6694590","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T10:07:43.6694230","DateUpdated":"2022-01-14T10:07:43.6694240","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T10:07:44.1764360","DateUpdated":"2022-01-14T10:07:44.1764790","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 10:09:29.446 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1241.7896 ms
+2022-01-14 10:09:49.393 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 2720.4984 ms
+2022-01-14 10:10:38.380 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T10:07:42.6622490","DateUpdated":"2022-01-14T10:07:42.6628770","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T10:07:43.6694580","DateUpdated":"2022-01-14T10:07:43.6694590","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T10:07:43.6694230","DateUpdated":"2022-01-14T10:07:43.6694240","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T10:07:44.1764360","DateUpdated":"2022-01-14T10:07:44.1764790","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 10:10:38.397 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1091.9202 ms
+2022-01-14 10:10:39.541 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T10:07:42.6622490","DateUpdated":"2022-01-14T10:07:42.6628770","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T10:07:43.6694580","DateUpdated":"2022-01-14T10:07:43.6694590","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T10:07:43.6694230","DateUpdated":"2022-01-14T10:07:43.6694240","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T10:07:44.1764360","DateUpdated":"2022-01-14T10:07:44.1764790","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 10:10:39.563 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1147.3609 ms
+2022-01-14 10:13:12.501 +02:00 [INF] HTTP GET /6aa1724f09e0897c4f36.hot-update.json responded 200 in 22.6155 ms
+2022-01-14 10:13:12.508 +02:00 [INF] HTTP GET /main.6aa1724f09e0897c4f36.hot-update.js responded 200 in 2.7383 ms
+2022-01-14 10:13:12.526 +02:00 [INF] HTTP GET / responded 200 in 2.7361 ms
+2022-01-14 10:13:12.585 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 10.1570 ms
+2022-01-14 10:13:12.600 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 281514.7483 ms
+2022-01-14 10:13:12.662 +02:00 [INF] HTTP GET /static/js/1.chunk.js responded 200 in 74.5836 ms
+2022-01-14 10:13:12.668 +02:00 [INF] HTTP GET /main.6aa1724f09e0897c4f36.hot-update.js responded 304 in 3.8388 ms
+2022-01-14 10:13:12.671 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 6.0940 ms
+2022-01-14 10:13:12.799 +02:00 [INF] HTTP GET /manifest.json responded 200 in 3.4338 ms
+2022-01-14 10:13:13.804 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T10:07:42.6622490","DateUpdated":"2022-01-14T10:07:42.6628770","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T10:07:43.6694580","DateUpdated":"2022-01-14T10:07:43.6694590","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T10:07:43.6694230","DateUpdated":"2022-01-14T10:07:43.6694240","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T10:07:44.1764360","DateUpdated":"2022-01-14T10:07:44.1764790","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 10:13:13.926 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1205.1019 ms
+2022-01-14 10:13:15.204 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T10:07:42.6622490","DateUpdated":"2022-01-14T10:07:42.6628770","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T10:07:43.6694580","DateUpdated":"2022-01-14T10:07:43.6694590","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T10:07:43.6694230","DateUpdated":"2022-01-14T10:07:43.6694240","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T10:07:44.1764360","DateUpdated":"2022-01-14T10:07:44.1764790","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 10:13:15.226 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1242.3488 ms
+2022-01-14 10:13:18.769 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 2516.3778 ms
+2022-01-14 10:14:43.756 +02:00 [INF] HTTP GET /d1facd0fc5be8ecdc5c0.hot-update.json responded 200 in 51.4308 ms
+2022-01-14 10:14:43.770 +02:00 [INF] HTTP GET /main.d1facd0fc5be8ecdc5c0.hot-update.js responded 200 in 9.0133 ms
+2022-01-14 10:14:43.793 +02:00 [INF] HTTP GET /summary responded 200 in 5.6967 ms
+2022-01-14 10:14:43.877 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 91100.4683 ms
+2022-01-14 10:14:43.890 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 43.7648 ms
+2022-01-14 10:14:43.910 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 5.8645 ms
+2022-01-14 10:14:43.921 +02:00 [INF] HTTP GET /main.d1facd0fc5be8ecdc5c0.hot-update.js responded 304 in 5.5408 ms
+2022-01-14 10:14:43.951 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 200 in 104.3925 ms
+2022-01-14 10:14:44.053 +02:00 [INF] HTTP GET /manifest.json responded 200 in 11.4938 ms
+2022-01-14 10:14:46.226 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 2222.0574 ms
+2022-01-14 10:14:47.857 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T10:07:42.6622490","DateUpdated":"2022-01-14T10:07:42.6628770","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T10:07:43.6694580","DateUpdated":"2022-01-14T10:07:43.6694590","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T10:07:43.6694230","DateUpdated":"2022-01-14T10:07:43.6694240","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T10:07:44.1764360","DateUpdated":"2022-01-14T10:07:44.1764790","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 10:14:47.866 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1074.7795 ms
+2022-01-14 10:14:48.922 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T10:07:42.6622490","DateUpdated":"2022-01-14T10:07:42.6628770","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T10:07:43.6694580","DateUpdated":"2022-01-14T10:07:43.6694590","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T10:07:43.6694230","DateUpdated":"2022-01-14T10:07:43.6694240","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T10:07:44.1764360","DateUpdated":"2022-01-14T10:07:44.1764790","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 10:14:48.931 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1049.2573 ms
+2022-01-14 10:14:52.005 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 2329.1441 ms
+2022-01-14 10:16:39.569 +02:00 [INF] HTTP GET /aa3b874d121a53711cf7.hot-update.json responded 200 in 18.0545 ms
+2022-01-14 10:16:39.577 +02:00 [INF] HTTP GET /main.aa3b874d121a53711cf7.hot-update.js responded 200 in 3.8923 ms
+2022-01-14 10:16:39.594 +02:00 [INF] HTTP GET /summary responded 200 in 3.4725 ms
+2022-01-14 10:16:39.638 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 115596.4742 ms
+2022-01-14 10:16:39.661 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 10.1349 ms
+2022-01-14 10:16:39.667 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 4.2565 ms
+2022-01-14 10:16:39.671 +02:00 [INF] HTTP GET /main.aa3b874d121a53711cf7.hot-update.js responded 304 in 1.5187 ms
+2022-01-14 10:16:39.733 +02:00 [INF] HTTP GET /static/js/1.chunk.js responded 200 in 82.1105 ms
+2022-01-14 10:16:39.824 +02:00 [INF] HTTP GET /manifest.json responded 200 in 3.8683 ms
+2022-01-14 10:16:42.234 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 2450.2916 ms
+2022-01-14 10:16:44.978 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T10:07:42.6622490","DateUpdated":"2022-01-14T10:07:42.6628770","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T10:07:43.6694580","DateUpdated":"2022-01-14T10:07:43.6694590","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T10:07:43.6694230","DateUpdated":"2022-01-14T10:07:43.6694240","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T10:07:44.1764360","DateUpdated":"2022-01-14T10:07:44.1764790","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 10:16:44.982 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1255.6860 ms
+2022-01-14 10:16:45.022 +02:00 [INF] HTTP GET / responded 200 in 28.5117 ms
+2022-01-14 10:16:45.064 +02:00 [INF] HTTP GET /static/js/1.chunk.js responded 304 in 8.5552 ms
+2022-01-14 10:16:45.065 +02:00 [INF] HTTP GET /static/js/bundle.js responded 304 in 10.0446 ms
+2022-01-14 10:16:45.067 +02:00 [INF] HTTP GET /main.aa3b874d121a53711cf7.hot-update.js responded 304 in 1.4826 ms
+2022-01-14 10:16:45.068 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 304 in 1.9892 ms
+2022-01-14 10:16:45.117 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 5300.8953 ms
+2022-01-14 10:16:45.122 +02:00 [INF] HTTP GET /manifest.json responded 200 in 2.5280 ms
+2022-01-14 10:16:46.054 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T10:07:42.6622490","DateUpdated":"2022-01-14T10:07:42.6628770","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T10:07:43.6694580","DateUpdated":"2022-01-14T10:07:43.6694590","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T10:07:43.6694230","DateUpdated":"2022-01-14T10:07:43.6694240","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T10:07:44.1764360","DateUpdated":"2022-01-14T10:07:44.1764790","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 10:16:46.064 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1060.5642 ms
+2022-01-14 10:16:48.691 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T10:07:42.6622490","DateUpdated":"2022-01-14T10:07:42.6628770","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T10:07:43.6694580","DateUpdated":"2022-01-14T10:07:43.6694590","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T10:07:43.6694230","DateUpdated":"2022-01-14T10:07:43.6694240","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T10:07:44.1764360","DateUpdated":"2022-01-14T10:07:44.1764790","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 10:16:48.699 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 3596.3823 ms
+2022-01-14 10:16:49.603 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 2543.3403 ms
+2022-01-14 10:17:48.496 +02:00 [INF] HTTP GET /835f7b51747d81b4a441.hot-update.json responded 200 in 16.5358 ms
+2022-01-14 10:17:48.503 +02:00 [INF] HTTP GET /main.835f7b51747d81b4a441.hot-update.js responded 200 in 3.0270 ms
+2022-01-14 10:17:48.523 +02:00 [INF] HTTP GET /summary responded 200 in 7.6630 ms
+2022-01-14 10:17:48.570 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 63411.1335 ms
+2022-01-14 10:17:48.594 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 20.5720 ms
+2022-01-14 10:17:48.602 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 6.6841 ms
+2022-01-14 10:17:48.606 +02:00 [INF] HTTP GET /main.835f7b51747d81b4a441.hot-update.js responded 304 in 2.3472 ms
+2022-01-14 10:17:48.662 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 200 in 88.4490 ms
+2022-01-14 10:17:48.754 +02:00 [INF] HTTP GET /manifest.json responded 200 in 4.1323 ms
+2022-01-14 10:17:50.870 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 2157.5176 ms
+2022-01-14 10:17:53.798 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T10:07:42.6622490","DateUpdated":"2022-01-14T10:07:42.6628770","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T10:07:43.6694580","DateUpdated":"2022-01-14T10:07:43.6694590","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T10:07:43.6694230","DateUpdated":"2022-01-14T10:07:43.6694240","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T10:07:44.1764360","DateUpdated":"2022-01-14T10:07:44.1764790","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 10:17:53.802 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1129.4998 ms
+2022-01-14 10:17:54.800 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T10:07:42.6622490","DateUpdated":"2022-01-14T10:07:42.6628770","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T10:07:43.6694580","DateUpdated":"2022-01-14T10:07:43.6694590","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T10:07:43.6694230","DateUpdated":"2022-01-14T10:07:43.6694240","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T10:07:44.1764360","DateUpdated":"2022-01-14T10:07:44.1764790","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 10:17:54.809 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 988.5116 ms
+2022-01-14 10:17:58.462 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 2467.3223 ms
+2022-01-14 10:18:35.472 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-15 responded 200 in 2468.8510 ms
+2022-01-14 10:19:35.197 +02:00 [INF] HTTP GET /d370732f431707a20ebc.hot-update.json responded 200 in 6.2785 ms
+2022-01-14 10:19:35.205 +02:00 [INF] HTTP GET /main.d370732f431707a20ebc.hot-update.js responded 200 in 3.3699 ms
+2022-01-14 10:19:35.228 +02:00 [INF] HTTP GET /summary responded 200 in 2.5813 ms
+2022-01-14 10:19:35.286 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 7.9014 ms
+2022-01-14 10:19:35.337 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 106591.9788 ms
+2022-01-14 10:19:35.362 +02:00 [INF] HTTP GET /static/js/1.chunk.js responded 200 in 73.3077 ms
+2022-01-14 10:19:35.368 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 3.3998 ms
+2022-01-14 10:19:35.372 +02:00 [INF] HTTP GET /main.d370732f431707a20ebc.hot-update.js responded 304 in 7.8741 ms
+2022-01-14 10:19:35.501 +02:00 [INF] HTTP GET /manifest.json responded 200 in 2.9262 ms
+2022-01-14 10:19:37.899 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 2484.3421 ms
+2022-01-14 10:19:41.563 +02:00 [INF] HTTP GET /summary responded 200 in 8.8667 ms
+2022-01-14 10:19:41.610 +02:00 [INF] HTTP GET /static/js/1.chunk.js responded 304 in 8.5057 ms
+2022-01-14 10:19:41.611 +02:00 [INF] HTTP GET /static/js/bundle.js responded 304 in 9.6602 ms
+2022-01-14 10:19:41.612 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 304 in 9.9456 ms
+2022-01-14 10:19:41.612 +02:00 [INF] HTTP GET /main.d370732f431707a20ebc.hot-update.js responded 304 in 7.3620 ms
+2022-01-14 10:19:41.670 +02:00 [INF] HTTP GET /manifest.json responded 200 in 2.3195 ms
+2022-01-14 10:19:41.671 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 6214.7599 ms
+2022-01-14 10:19:44.040 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 2387.5119 ms
+2022-01-14 10:19:59.589 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-15 responded 200 in 2398.3004 ms
+2022-01-14 10:22:08.146 +02:00 [INF] HTTP GET /bb84bc387c1806baa711.hot-update.json responded 200 in 3.3215 ms
+2022-01-14 10:22:08.151 +02:00 [INF] HTTP GET /main.bb84bc387c1806baa711.hot-update.js responded 200 in 1.5662 ms
+2022-01-14 10:22:08.170 +02:00 [INF] HTTP GET /summary responded 200 in 1.8192 ms
+2022-01-14 10:22:08.229 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 4.2523 ms
+2022-01-14 10:22:08.285 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 146580.3493 ms
+2022-01-14 10:22:08.304 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 200 in 73.7687 ms
+2022-01-14 10:22:08.312 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 6.4863 ms
+2022-01-14 10:22:08.314 +02:00 [INF] HTTP GET /main.bb84bc387c1806baa711.hot-update.js responded 304 in 4.6891 ms
+2022-01-14 10:22:08.445 +02:00 [INF] HTTP GET /manifest.json responded 200 in 3.1814 ms
+2022-01-14 10:22:10.734 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 2378.8676 ms
+2022-01-14 10:22:28.736 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-15 responded 200 in 2551.1165 ms
+2022-01-14 10:25:04.227 +02:00 [INF] HTTP GET /c2c51e4d5d8c80239351.hot-update.json responded 200 in 6.1573 ms
+2022-01-14 10:25:04.233 +02:00 [INF] HTTP GET /main.c2c51e4d5d8c80239351.hot-update.js responded 200 in 2.0847 ms
+2022-01-14 10:25:04.253 +02:00 [INF] HTTP GET /summary responded 200 in 2.8620 ms
+2022-01-14 10:25:04.315 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 2.5368 ms
+2022-01-14 10:25:04.365 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 175964.7026 ms
+2022-01-14 10:25:04.389 +02:00 [INF] HTTP GET /static/js/1.chunk.js responded 200 in 73.3233 ms
+2022-01-14 10:25:04.391 +02:00 [INF] HTTP GET /main.c2c51e4d5d8c80239351.hot-update.js responded 304 in 1.0391 ms
+2022-01-14 10:25:04.396 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 4.1740 ms
+2022-01-14 10:25:04.531 +02:00 [INF] HTTP GET /manifest.json responded 200 in 3.3816 ms
+2022-01-14 10:25:07.112 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 2671.8166 ms
+2022-01-14 10:25:17.226 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-15 responded 200 in 2627.5677 ms
+2022-01-14 10:25:43.333 +02:00 [INF] HTTP GET /manifest.json responded 200 in 7.6719 ms
+2022-01-14 10:25:43.369 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 6.0273 ms
+2022-01-14 10:25:43.376 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 12.7821 ms
+2022-01-14 10:25:43.448 +02:00 [INF] HTTP GET /static/js/1.chunk.js.map responded 200 in 84.7076 ms
+2022-01-14 10:25:51.278 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-14 responded 200 in 2762.4400 ms
+2022-01-14 10:26:03.464 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T10:07:42.6622490","DateUpdated":"2022-01-14T10:07:42.6628770","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T10:07:43.6694580","DateUpdated":"2022-01-14T10:07:43.6694590","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T10:07:43.6694230","DateUpdated":"2022-01-14T10:07:43.6694240","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T10:07:44.1764360","DateUpdated":"2022-01-14T10:07:44.1764790","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 10:26:03.487 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1168.1393 ms
+2022-01-14 10:26:04.551 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T10:07:42.6622490","DateUpdated":"2022-01-14T10:07:42.6628770","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T10:07:43.6694580","DateUpdated":"2022-01-14T10:07:43.6694590","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T10:07:43.6694230","DateUpdated":"2022-01-14T10:07:43.6694240","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T10:07:44.1764360","DateUpdated":"2022-01-14T10:07:44.1764790","$type":"Result"}],"$type":"UserSummary"}
+2022-01-14 10:26:04.553 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1048.5017 ms
+2022-01-14 10:26:06.905 +02:00 [INF] HTTP GET / responded 200 in 11.9891 ms
+2022-01-14 10:26:06.963 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 62457.8891 ms
+2022-01-14 10:26:06.985 +02:00 [INF] HTTP GET /static/js/1.chunk.js responded 304 in 17.3091 ms
+2022-01-14 10:26:06.985 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 304 in 17.8025 ms
+2022-01-14 10:26:06.986 +02:00 [INF] HTTP GET /static/js/bundle.js responded 304 in 18.3843 ms
+2022-01-14 10:26:06.991 +02:00 [INF] HTTP GET /main.c2c51e4d5d8c80239351.hot-update.js responded 304 in 2.1593 ms
+2022-01-14 10:26:07.038 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 2.0360 ms
+2022-01-14 10:26:07.083 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 7.4759 ms
+2022-01-14 10:26:07.109 +02:00 [INF] HTTP GET /main.c2c51e4d5d8c80239351.hot-update.js.map responded 200 in 1.1428 ms
+2022-01-14 10:26:07.151 +02:00 [INF] HTTP GET /static/js/1.chunk.js.map responded 200 in 75.1138 ms
+2022-01-14 10:26:07.177 +02:00 [INF] HTTP GET /manifest.json responded 200 in 2.2358 ms
+2022-01-14 10:33:38.021 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 450880.6254 ms
+2022-01-14 10:53:08.565 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 10:53:19.354 +02:00 [INF] Db seeding completed
+2022-01-14 11:08:44.066 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:09:17.242 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:09:20.600 +02:00 [ERR] An error occurred using the connection to database 'CovPort' on server 'database-2.cgcficszidtv.us-west-2.rds.amazonaws.com'.
+2022-01-14 11:09:20.656 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Persistence.PortalDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "CovPort" requested by the login. The login failed.
+Login failed for user 'admin'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:72d84329-6316-43c8-9779-9aff3c7acfa2
+Error Number:4060,State:1,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "CovPort" requested by the login. The login failed.
+Login failed for user 'admin'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:72d84329-6316-43c8-9779-9aff3c7acfa2
+Error Number:4060,State:1,Class:11
+2022-01-14 11:09:20.663 +02:00 [ERR] An error occurred running migration - One or more errors occurred. (Cannot open database "CovPort" requested by the login. The login failed.
+Login failed for user 'admin'.)
+2022-01-14 11:10:19.658 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:10:25.646 +02:00 [ERR] An error occurred using the connection to database 'CovPort' on server 'database-2.cgcficszidtv.us-west-2.rds.amazonaws.com'.
+2022-01-14 11:10:25.694 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Persistence.PortalDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "CovPort" requested by the login. The login failed.
+Login failed for user 'admin'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:27003539-f855-4488-8683-e7651e1a4e1d
+Error Number:4060,State:1,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "CovPort" requested by the login. The login failed.
+Login failed for user 'admin'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:27003539-f855-4488-8683-e7651e1a4e1d
+Error Number:4060,State:1,Class:11
+2022-01-14 11:10:25.701 +02:00 [ERR] An error occurred running migration - One or more errors occurred. (Cannot open database "CovPort" requested by the login. The login failed.
+Login failed for user 'admin'.)
+2022-01-14 11:11:41.197 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:11:57.876 +02:00 [ERR] An error occurred running migration - One or more errors occurred. (Object reference not set to an instance of an object.)
+2022-01-14 11:12:32.900 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:12:38.746 +02:00 [ERR] An error occurred running migration - One or more errors occurred. (Object reference not set to an instance of an object.)
+2022-01-14 11:13:05.902 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:13:12.169 +02:00 [ERR] An error occurred running migration - One or more errors occurred. (Object reference not set to an instance of an object.)
+2022-01-14 11:13:46.548 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:13:54.134 +02:00 [INF] Db seeding completed
+2022-01-14 11:14:29.316 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:14:36.564 +02:00 [INF] Db seeding completed
+2022-01-14 11:14:52.750 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:15:03.454 +02:00 [INF] Db seeding completed
+2022-01-14 11:16:01.995 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:16:09.131 +02:00 [INF] Db seeding completed
+2022-01-14 11:16:40.768 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:16:48.412 +02:00 [INF] Db seeding completed
+2022-01-14 11:17:28.299 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:17:35.220 +02:00 [INF] Db seeding completed
+2022-01-14 11:18:40.102 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:18:47.827 +02:00 [INF] Db seeding completed
+2022-01-14 11:19:50.869 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:20:01.806 +02:00 [INF] Db seeding completed
+2022-01-14 11:20:44.599 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:20:51.412 +02:00 [INF] Db seeding completed
+2022-01-14 11:23:04.409 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:23:14.639 +02:00 [INF] Db seeding completed
+2022-01-14 11:23:51.797 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:23:58.730 +02:00 [INF] Db seeding completed
+2022-01-14 11:24:54.878 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:25:14.755 +02:00 [INF] Db seeding completed
+2022-01-14 11:29:28.980 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:29:34.600 +02:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2022-01-14 11:29:42.332 +02:00 [INF] Db seeding completed
+2022-01-14 11:30:17.934 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:30:24.811 +02:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2022-01-14 11:30:32.096 +02:00 [INF] Db seeding completed
+2022-01-14 11:34:05.254 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:34:17.267 +02:00 [INF] Db seeding completed
+2022-01-14 11:35:08.245 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:35:32.537 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:35:48.276 +02:00 [ERR] An error occurred running migration - One or more errors occurred. (Object reference not set to an instance of an object.)
+2022-01-14 11:41:51.730 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:42:14.158 +02:00 [INF] Db seeding completed
+2022-01-14 11:45:47.550 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 11:45:58.521 +02:00 [INF] Db seeding completed

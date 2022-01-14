@@ -7,10 +7,13 @@ export default function Summary() {
   const [report, setReport] = useState([]);
   const [errors,setErrors] = useState([])
   const [dateValue, setDateValue] = useState()
+  const [isRequesting, setRequesting] = useState(false)
+  const [isLoaded, setLoaded] = useState(false)
 
   useEffect(() => {
     const getReports = async () => {
       await getResultSummary();
+      setLoaded(true)
     };
     try{
         getReports();
@@ -19,16 +22,19 @@ export default function Summary() {
         handleError(error, setErrors)
         setReport([])
     }
+    
    
   }, []);
 
   const getResultSummary= async (value) => {
     const path = value?`/result/summary?date=${value}`: `/result/summary`
-    const data= await axios.get(path);
-    setReport((prev) => [...prev, ...data.data.data]);
+    const {data:{data}}= await axios.get(path);
+    setReport((prev) => [...data]);
   };
 
   const change = (e) => {
+    setReport([]);
+    setRequesting(true);
     const target = e.target;
     const value = target.value;
     const dateString = new Date(value).toISOString().split("T")[0]
@@ -37,6 +43,7 @@ export default function Summary() {
 
   const handleSubmit = async (e) => {
     setErrors([]);
+    setRequesting(true);
     e.preventDefault();
     try {
       await getResultSummary(dateValue) 
@@ -49,10 +56,13 @@ export default function Summary() {
   
   const columns = report.length> 0 && Object.keys(report[0]).map(val => val.toUpperCase())
   const entries = report.length> 0 && report.map(singleReport => Object.values(singleReport) )
+  const Today = new Date().toISOString().split("T")[0];
   
 
   return (
     <div>
+    {isLoaded && <div>
+      
      
       <form onSubmit={handleSubmit}>
         <label>
@@ -63,7 +73,7 @@ export default function Summary() {
       </form>
       {report.length > 1 && 
       <div>
-        <h3>Report Summary for {dateValue}</h3>
+        <h3>Report Summary for {dateValue? dateValue : Today }</h3>
         <table>
           <thead>
           <tr>{columns.map(columnName => <th key={uuid()}>{columnName}</th>)}</tr>
@@ -77,12 +87,14 @@ export default function Summary() {
           </tbody>
         </table>
         </div>}
-      {report.length < 1 && (
+
+      {report.length < 1 && !isRequesting && (
         <div>
-          <h4>No Report for {new Date().toISOString().split("T")[0]} </h4>
+          <h4>No Report for {Today} </h4>
           <p>Reason: No Spaces Created</p>
         </div>
       )}
+    </div>}
     </div>
   );
 }
