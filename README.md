@@ -82,7 +82,7 @@ Some assumptions made during the design of the project include:-
 ## Suggested Improvements
 
 - Frontend: Styling, More Atomic design and use of state container (redux or context api) for better state handling. Conditional routing based on userId.
-- Backend: Explicit use of Transactions, Dbcontext used currently embeds unitOfWork pattern and transactions, Improved logging.
+- Backend: Explicit use of Transactions, Dbcontext used currently embeds unitOfWork pattern and transactions, Improved logging, Unit and Integrations tests.
 
 ## Defaults Db Seeds
 
