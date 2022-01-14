@@ -57,8 +57,8 @@ On the frontend, to navigate through the application the following routes are av
 | `http://localhost:5001/createBooking` | Allows user to create a booking based on location and date |
 | `http://localhost:5001/createSpaces` | Admin can create spaces for a specific location for a day using a calendar |
 | `http://localhost:5001/summary`| All users can view daily covport summary of activities or can search for report of a specific date |
-| `/api`  | Get the backend startup details  including health checks and swagger documentation | 
-| `/swagger`  | Swagger documentation of backend endpoints | 
+| `http://localhost:5001/api`  | Get the backend startup details  including health checks and swagger documentation | 
+| `http://localhost:5001/swagger`  | Swagger documentation of backend endpoints | 
 
 
 
