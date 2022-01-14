@@ -53,12 +53,12 @@ On the frontend, to navigate through the application the following routes are av
 
 | Routing              | Description                            |
 | -------------------  | -------------------------------------- |
-| `http://localhost:5001/`  | Home - User to get details using email(pre-set user in the absence of authorization and authentication) and view userSummary  including  pending bookiing, test results and user info|
-| `http://localhost:5001/createBooking`| Allows user to create a booking based on location and date|
-
+| `http://localhost:5001/`  | Home - User to get details using email(pre-set user in the absence of authorization and authentication) and view userSummary  including  pending booking, test results and user info |
+| `http://localhost:5001/createBooking` | Allows user to create a booking based on location and date |
 | `http://localhost:5001/createSpaces` | Admin can create spaces for a specific location for a day using a calendar |
-| `http://localhost:5001/summary`|All users can view daily covport summary of activities or can search for report of a specific date|
+| `http://localhost:5001/summary`| All users can view daily covport summary of activities or can search for report of a specific date |
 | `/api`  | Get the backend startup details  including health checks and swagger documentation | 
+| `/api/swagger`  | Swagger documentation of backend endpoints | 
 
 
 
