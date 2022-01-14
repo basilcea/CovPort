@@ -143,6 +143,9 @@ Some assumptions made during the design of the project include:-
 }
 
 ```
-
+### ReportsSummary
+ ```
+ Default Report Summary for 2022-01-14 and 2022-01-15
+ ```
 
 This project was built by [Basil Ogbonna](mailto:ogbonna.basil3@gmail.com)
