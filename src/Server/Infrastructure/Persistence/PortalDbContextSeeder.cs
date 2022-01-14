@@ -23,22 +23,6 @@ namespace Infrastructure.Persistence
                 await _dbContext.Database.MigrateAsync();
             }
 
-            if (_dbContext.Spaces.Any())
-            {
-                var firstSpaceSeeded = await _dbContext.Spaces.FirstOrDefaultAsync(p => p.Id > 0);
-                var wasSeededToday = DateTime.Today == DateTime.Parse(firstSpaceSeeded.DateCreated.ToShortDateString());
-
-                if (_dbContext.Spaces.Count() < 6 && !wasSeededToday)
-                {
-                    _dbContext.Results.RemoveRange(_dbContext.Results);
-                    _dbContext.Bookings.RemoveRange(_dbContext.Bookings);
-                    _dbContext.Spaces.RemoveRange(_dbContext.Spaces);
-                    _dbContext.Users.RemoveRange(_dbContext.Users);
-                    await _dbContext.SaveChangesAsync();
-                };
-
-            }
-
             if (!_dbContext.Users.Any())
             {
                 _dbContext.Users.AddRange(AddUsers());

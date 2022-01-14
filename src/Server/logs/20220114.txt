@@ -1975,3 +1975,44 @@ Login failed for user 'admin'.)
 2022-01-14 11:42:14.158 +02:00 [INF] Db seeding completed
 2022-01-14 11:45:47.550 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
 2022-01-14 11:45:58.521 +02:00 [INF] Db seeding completed
+2022-01-14 12:01:27.978 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 12:01:39.367 +02:00 [INF] Db seeding completed
+2022-01-14 13:49:50.904 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 13:50:03.953 +02:00 [INF] Db seeding completed
+2022-01-14 13:50:13.698 +02:00 [INF] HTTP GET / responded 200 in 200.3638 ms
+2022-01-14 13:50:13.790 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 36.8170 ms
+2022-01-14 13:50:13.844 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 13.5616 ms
+2022-01-14 13:50:13.919 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 200 in 86.2823 ms
+2022-01-14 13:50:14.090 +02:00 [INF] HTTP GET /manifest.json responded 200 in 11.7652 ms
+2022-01-14 13:50:48.496 +02:00 [INF] HTTP GET /api/user?email=labadmin.liwu@covport.check responded 200 in 928.4136 ms
+2022-01-14 13:50:49.884 +02:00 [INF] Received User Summary: {"User":{"Id":2,"Email":"labadmin.liwu@covport.check","Name":"liwu","UserRole":"LABADMIN","DateCreated":"2022-01-14T11:42:11.0999150","DateUpdated":"2022-01-14T11:42:11.0999250","$type":"User"},"Bookings":[],"Tests":[],"$type":"UserSummary"}
+2022-01-14 13:50:49.930 +02:00 [INF] HTTP GET /api/user/summary/2 responded 200 in 1425.8480 ms
+2022-01-14 13:50:53.756 +02:00 [INF] Received Result response: [{"Id":1,"BookingId":1,"UserId":1,"TestLocation":"SEYCHELLES","TestType":"RAPID","Status":"PENDING","Positive":null,"DateCreated":"2022-01-14T11:42:12.4791400","DateUpdated":"2022-01-14T11:42:12.4800280","$type":"Result"},{"Id":2,"BookingId":3,"UserId":2,"TestLocation":"MALTA","TestType":"PCR","Status":"PENDING","Positive":null,"DateCreated":"2022-01-14T11:42:12.4805150","DateUpdated":"2022-01-14T11:42:12.4805400","$type":"Result"}]
+2022-01-14 13:50:53.777 +02:00 [INF] HTTP GET /api/result?status=PENDING responded 200 in 463.0124 ms
+2022-01-14 13:51:33.117 +02:00 [INF] HTTP OPTIONS /api/result responded 204 in 7.1747 ms
+2022-01-14 13:51:33.992 +02:00 [INF] Received Result response: {"Id":1,"BookingId":1,"UserId":1,"TestLocation":"SEYCHELLES","TestType":"RAPID","Status":"PENDING","Positive":null,"DateCreated":"2022-01-14T11:42:12.4791400","DateUpdated":"2022-01-14T11:42:12.4800280","$type":"Result"}
+2022-01-14 13:51:35.224 +02:00 [INF] Result updated and saved: {"Id":1,"BookingId":1,"UserId":1,"TestLocation":"SEYCHELLES","TestType":"RAPID","Status":"COMPLETED","Positive":false,"DateCreated":"2022-01-14T11:42:12.4791400","DateUpdated":"2022-01-14T13:51:34.0018240+02:00","$type":"Result"}
+2022-01-14 13:51:35.246 +02:00 [INF] HTTP PATCH /api/result responded 200 in 2122.7867 ms
+2022-01-14 13:51:35.299 +02:00 [INF] HTTP GET /results responded 200 in 18.7311 ms
+2022-01-14 13:51:35.335 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 81334.1072 ms
+2022-01-14 13:51:35.350 +02:00 [INF] HTTP GET /static/js/bundle.js responded 304 in 7.0289 ms
+2022-01-14 13:51:35.353 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 304 in 10.2962 ms
+2022-01-14 13:51:35.354 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 304 in 1.9458 ms
+2022-01-14 13:51:35.406 +02:00 [INF] HTTP GET /manifest.json responded 200 in 4.5439 ms
+2022-01-14 13:51:35.724 +02:00 [INF] Received Result response: [{"Id":2,"BookingId":3,"UserId":2,"TestLocation":"MALTA","TestType":"PCR","Status":"PENDING","Positive":null,"DateCreated":"2022-01-14T11:42:12.4805150","DateUpdated":"2022-01-14T11:42:12.4805400","$type":"Result"}]
+2022-01-14 13:51:35.738 +02:00 [INF] HTTP GET /api/result?status=PENDING responded 200 in 354.7808 ms
+2022-01-14 13:51:48.267 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 2740.7353 ms
+2022-01-14 13:52:52.976 +02:00 [INF] HTTP GET /summary responded 200 in 34.1699 ms
+2022-01-14 13:52:53.047 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 77620.7571 ms
+2022-01-14 13:52:53.049 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 304 in 9.3737 ms
+2022-01-14 13:52:53.049 +02:00 [INF] HTTP GET /static/js/bundle.js responded 304 in 9.5761 ms
+2022-01-14 13:52:53.052 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 304 in 1.3513 ms
+2022-01-14 13:52:53.180 +02:00 [INF] HTTP GET /manifest.json responded 200 in 4.6685 ms
+2022-01-14 13:52:56.030 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 2882.5754 ms
+2022-01-14 13:54:27.942 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-15 responded 200 in 2966.9063 ms
+2022-01-14 13:55:39.989 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-14 responded 200 in 2515.0795 ms
+2022-01-14 13:58:46.323 +02:00 [INF] Received Booking response: [{"Id":1,"UserId":1,"SpaceId":1,"Status":"COMPLETED","TestType":"RAPID","LocationName":"SEYCHELLES","DateCreated":"2022-01-14T11:42:12.0904950","DateUpdated":"2022-01-14T11:42:12.0914510","$type":"Booking"},{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T11:42:12.0923090","DateUpdated":"2022-01-14T11:42:12.0923090","$type":"Booking"},{"Id":3,"UserId":3,"SpaceId":1,"Status":"COMPLETED","TestType":"PCR","LocationName":"SEYCHELLES","DateCreated":"2022-01-14T11:42:12.0923050","DateUpdated":"2022-01-14T11:42:12.0923060","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T11:42:12.0922120","DateUpdated":"2022-01-14T11:42:12.0922760","$type":"Booking"},{"Id":5,"UserId":2,"SpaceId":5,"Status":"CANCELLED","TestType":"PCR","LocationName":"MALTA","DateCreated":"2022-01-14T11:42:12.0919600","DateUpdated":"2022-01-14T11:42:12.0919610","$type":"Booking"},{"Id":6,"UserId":2,"SpaceId":2,"Status":"COMPLETED","TestType":"PCR","LocationName":"MALTA","DateCreated":"2022-01-14T11:42:12.0919560","DateUpdated":"2022-01-14T11:42:12.0919570","$type":"Booking"},{"Id":7,"UserId":1,"SpaceId":4,"Status":"PENDING","TestType":"PCR","LocationName":"SEYCHELLES","DateCreated":"2022-01-14T11:42:12.0919130","DateUpdated":"2022-01-14T11:42:12.0919510","$type":"Booking"}]
+2022-01-14 13:58:46.376 +02:00 [INF] HTTP GET /api/booking responded 200 in 683.3008 ms
+2022-01-14 14:00:44.649 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 471470.6231 ms
+2022-01-14 14:12:19.570 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-14 14:12:40.586 +02:00 [INF] Db seeding completed
