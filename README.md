@@ -2,7 +2,7 @@
 A simplistic covid -19 test portal built using React Js (dotnet-react), Asp.NetCore, Fluent Validator, AutoMappers and vanilla CSS.
 
 ## Architecture
-This project follows a Domain Driven Design pattern based largely on the Clean architecture (Onion). Other patterns used in the project include  Command Query Responsibility Segregation (CQRS), Builder, Mediator and Repository patterns.
+This project follows a Domain Driven Design pattern based largely on the Clean architecture (Onion). Other patterns used in the project include  Command Query Responsibility Segregation (CQRS), Factory,  Decorator , Mediator and Repository patterns.
 
 ## Installation
 
