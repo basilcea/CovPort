@@ -12,8 +12,10 @@ export default function Summary() {
 
   useEffect(() => {
     const getReports = async () => {
+      setRequesting(true)
       await getResultSummary();
       setLoaded(true)
+  
     };
     try{
         getReports();
@@ -30,6 +32,7 @@ export default function Summary() {
     const path = value?`/result/summary?date=${value}`: `/result/summary`
     const {data:{data}}= await axios.get(path);
     setReport((prev) => [...data]);
+    setRequesting(false)
   };
 
   const change = (e) => {
@@ -47,6 +50,7 @@ export default function Summary() {
     e.preventDefault();
     try {
       await getResultSummary(dateValue) 
+      setRequesting(false);
     
     } catch (error) {
       handleError(error, setErrors);
@@ -71,7 +75,7 @@ export default function Summary() {
         </label>
         <input type="submit" value="Enter" />
       </form>
-      {report.length > 1 && 
+      {report.length > 0 && 
       <div>
         <h3>Report Summary for {dateValue? dateValue : Today }</h3>
         <table>
@@ -87,10 +91,9 @@ export default function Summary() {
           </tbody>
         </table>
         </div>}
-
       {report.length < 1 && !isRequesting && (
         <div>
-          <h4>No Report for {Today} </h4>
+          <h4>No Report for {dateValue? dateValue : Today } </h4>
           <p>Reason: No Spaces Created</p>
         </div>
       )}

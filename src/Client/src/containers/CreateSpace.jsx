@@ -89,7 +89,7 @@ export default function CreateSpace() {
             </p>
           );
         })}
-      <NavLink to="/">View Booking</NavLink>
+      <NavLink to="/">Back Home</NavLink>
     </div>
   );
 }

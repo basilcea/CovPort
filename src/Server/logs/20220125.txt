@@ -1,0 +1,249 @@
+2022-01-25 10:45:26.942 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-25 10:45:39.849 +02:00 [INF] Db seeding completed
+2022-01-25 10:46:45.427 +02:00 [INF] HTTP GET / responded 200 in 260.7354 ms
+2022-01-25 10:46:45.546 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 53.6156 ms
+2022-01-25 10:46:45.546 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 41.4645 ms
+2022-01-25 10:46:45.602 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 200 in 111.7515 ms
+2022-01-25 10:46:45.763 +02:00 [INF] HTTP GET /favicon.ico responded 200 in 17.7337 ms
+2022-01-25 10:46:45.769 +02:00 [INF] HTTP GET /manifest.json responded 200 in 24.4531 ms
+2022-01-25 10:46:52.066 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1252.2639 ms
+2022-01-25 10:47:20.837 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-14 responded 200 in 3460.7235 ms
+2022-01-25 10:47:45.734 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-15 responded 200 in 2816.8391 ms
+2022-01-25 10:48:53.521 +02:00 [INF] HTTP GET /api/user?email=admin.cea@covport.check responded 200 in 631.8057 ms
+2022-01-25 10:48:55.057 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[{"Id":2,"UserId":3,"SpaceId":6,"Status":"PENDING","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T14:39:38.2069300","DateUpdated":"2022-01-14T14:39:38.2069300","$type":"Booking"},{"Id":4,"UserId":3,"SpaceId":3,"Status":"PENDING","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T14:39:38.2069000","DateUpdated":"2022-01-14T14:39:38.2069000","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 10:48:55.107 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1579.7678 ms
+2022-01-25 10:49:11.331 +02:00 [INF] Updated space available in space 6 to 0
+2022-01-25 10:49:11.758 +02:00 [INF] Closed all past booking in space 6
+2022-01-25 10:49:11.767 +02:00 [INF] Retrieved space: {"Id":6,"LocationName":"GREENLAND","Date":"2022-01-15T00:00:00.0000000","SpacesCreated":30,"SpacesAvailable":0,"DateCreated":"2022-01-14T14:39:37.7818890","DateUpdated":"2022-01-14T14:39:37.7818900","$type":"Space"}
+2022-01-25 10:49:13.639 +02:00 [INF] Received booking response: {"Id":2,"UserId":3,"SpaceId":6,"Status":"CLOSED","TestType":"RAPID","LocationName":"MALTA","DateCreated":"2022-01-14T14:39:38.2069300","DateUpdated":"2022-01-14T14:39:38.2069300","$type":"Booking"}
+2022-01-25 10:49:13.654 +02:00 [ERR] Received request errors: No Pending Booking Exists when calling {Request.Path}
+2022-01-25 10:49:13.676 +02:00 [INF] HTTP PATCH /api/booking responded 400 in 3425.1067 ms
+2022-01-25 10:49:32.763 +02:00 [INF] Updated space available in space 3 to 0
+2022-01-25 10:49:33.100 +02:00 [INF] Closed all past booking in space 3
+2022-01-25 10:49:33.104 +02:00 [INF] Retrieved space: {"Id":3,"LocationName":"GREENLAND","Date":"2022-01-14T00:00:00.0000000","SpacesCreated":30,"SpacesAvailable":0,"DateCreated":"2022-01-14T14:39:37.7818500","DateUpdated":"2022-01-14T14:39:37.7818510","$type":"Space"}
+2022-01-25 10:49:34.406 +02:00 [INF] Received booking response: {"Id":4,"UserId":3,"SpaceId":3,"Status":"CLOSED","TestType":"PCR","LocationName":"GREENLAND","DateCreated":"2022-01-14T14:39:38.2069000","DateUpdated":"2022-01-14T14:39:38.2069000","$type":"Booking"}
+2022-01-25 10:49:34.416 +02:00 [ERR] Received request errors: No Pending Booking Exists when calling {Request.Path}
+2022-01-25 10:49:34.425 +02:00 [INF] HTTP PATCH /api/booking responded 400 in 2446.1179 ms
+2022-01-25 10:49:48.883 +02:00 [INF] HTTP GET / responded 304 in 64.0383 ms
+2022-01-25 10:49:48.991 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 304 in 12.7018 ms
+2022-01-25 10:49:48.991 +02:00 [INF] HTTP GET /static/js/bundle.js responded 304 in 12.9596 ms
+2022-01-25 10:49:48.991 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 304 in 11.5632 ms
+2022-01-25 10:49:49.009 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 183329.3133 ms
+2022-01-25 10:49:49.143 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 15.4498 ms
+2022-01-25 10:49:49.143 +02:00 [INF] HTTP GET /manifest.json responded 304 in 15.1694 ms
+2022-01-25 10:49:53.773 +02:00 [INF] HTTP GET /api/user?email=admin.cea@covport.check responded 200 in 924.4212 ms
+2022-01-25 10:49:55.088 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 10:49:55.100 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1170.4160 ms
+2022-01-25 10:50:31.425 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 482.7026 ms
+2022-01-25 10:50:36.896 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-14 responded 200 in 2662.5191 ms
+2022-01-25 10:50:47.022 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 10:50:47.034 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1169.5854 ms
+2022-01-25 10:50:48.123 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 10:50:48.136 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1087.2967 ms
+2022-01-25 10:51:17.167 +02:00 [INF] Space created and saved: {"Id":7,"LocationName":"Rwanda","Date":"2022-01-25T00:00:00.0000000","SpacesCreated":20,"SpacesAvailable":20,"DateCreated":"2022-01-25T10:51:15.7469020+02:00","DateUpdated":"2022-01-25T10:51:15.7469020+02:00","$type":"Space"}
+2022-01-25 10:51:17.199 +02:00 [INF] HTTP POST /api/space responded 200 in 2113.6364 ms
+2022-01-25 10:51:28.821 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 10:51:28.834 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1174.2486 ms
+2022-01-25 10:51:30.087 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 10:51:30.095 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1246.3785 ms
+2022-01-25 10:52:32.842 +02:00 [INF] HTTP GET /1422ac04922a46577a61.hot-update.json responded 200 in 179.1022 ms
+2022-01-25 10:52:32.866 +02:00 [INF] HTTP GET /main.1422ac04922a46577a61.hot-update.js responded 200 in 18.6648 ms
+2022-01-25 10:52:32.913 +02:00 [INF] HTTP GET / responded 200 in 9.0932 ms
+2022-01-25 10:52:32.985 +02:00 [INF] HTTP GET /main.1422ac04922a46577a61.hot-update.js responded 304 in 15.4853 ms
+2022-01-25 10:52:32.999 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 30.3173 ms
+2022-01-25 10:52:32.999 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 30.2843 ms
+2022-01-25 10:52:33.024 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 163967.5322 ms
+2022-01-25 10:52:33.053 +02:00 [INF] HTTP GET /static/js/1.chunk.js responded 200 in 84.1094 ms
+2022-01-25 10:52:33.160 +02:00 [INF] HTTP GET /manifest.json responded 304 in 7.2828 ms
+2022-01-25 10:52:33.160 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 9.1193 ms
+2022-01-25 10:52:34.218 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 10:52:34.229 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1114.1626 ms
+2022-01-25 10:52:35.228 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 10:52:35.239 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 991.3996 ms
+2022-01-25 10:52:39.368 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1226.0793 ms
+2022-01-25 10:52:49.258 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-25 responded 200 in 986.6377 ms
+2022-01-25 10:52:59.644 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-25 responded 200 in 1220.2553 ms
+2022-01-25 10:53:00.861 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-25 responded 200 in 1214.5205 ms
+2022-01-25 10:53:01.895 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-25 responded 200 in 1031.6844 ms
+2022-01-25 10:53:03.329 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-21 responded 200 in 352.8365 ms
+2022-01-25 10:53:09.292 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 101.1910 ms
+2022-01-25 10:53:09.292 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 100.3281 ms
+2022-01-25 10:53:09.298 +02:00 [INF] HTTP GET /manifest.json responded 304 in 135.2565 ms
+2022-01-25 10:53:09.345 +02:00 [INF] HTTP GET /static/js/1.chunk.js.map responded 200 in 151.8750 ms
+2022-01-25 10:53:14.394 +02:00 [INF] HTTP GET /summary responded 200 in 33.2175 ms
+2022-01-25 10:53:14.435 +02:00 [INF] HTTP GET /static/js/bundle.js responded 304 in 4.2487 ms
+2022-01-25 10:53:14.446 +02:00 [INF] HTTP GET /static/js/1.chunk.js responded 304 in 11.1820 ms
+2022-01-25 10:53:14.447 +02:00 [INF] HTTP GET /main.1422ac04922a46577a61.hot-update.js responded 304 in 13.1206 ms
+2022-01-25 10:53:14.447 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 304 in 13.3136 ms
+2022-01-25 10:53:14.487 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 41404.1485 ms
+2022-01-25 10:53:14.488 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 3.5005 ms
+2022-01-25 10:53:14.550 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 11.9211 ms
+2022-01-25 10:53:14.607 +02:00 [INF] HTTP GET /main.1422ac04922a46577a61.hot-update.js.map responded 200 in 31.4955 ms
+2022-01-25 10:53:14.629 +02:00 [INF] HTTP GET /static/js/1.chunk.js.map responded 200 in 97.2782 ms
+2022-01-25 10:53:14.641 +02:00 [INF] HTTP GET /manifest.json responded 304 in 5.6855 ms
+2022-01-25 10:53:14.641 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 5.5814 ms
+2022-01-25 10:53:15.602 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1013.4094 ms
+2022-01-25 10:53:24.360 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-14 responded 200 in 2240.0392 ms
+2022-01-25 10:53:28.914 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-25 responded 200 in 1025.0875 ms
+2022-01-25 10:53:38.361 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 10:53:38.373 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1010.8007 ms
+2022-01-25 10:53:39.533 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 10:53:39.536 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1144.4543 ms
+2022-01-25 10:53:46.685 +02:00 [INF] Retrieved space: [{"Id":7,"LocationName":"Rwanda","Date":"2022-01-25T00:00:00.0000000","SpacesCreated":20,"SpacesAvailable":20,"DateCreated":"2022-01-25T10:51:15.7469020","DateUpdated":"2022-01-25T10:51:15.7469020","$type":"Space"}]
+2022-01-25 10:53:46.734 +02:00 [INF] HTTP GET /api/space?location=Rwanda responded 200 in 569.1604 ms
+2022-01-25 10:53:52.562 +02:00 [INF] Retrieved space: {"Id":7,"LocationName":"Rwanda","Date":"2022-01-25T00:00:00.0000000","SpacesCreated":20,"SpacesAvailable":20,"DateCreated":"2022-01-25T10:51:15.7469020","DateUpdated":"2022-01-25T10:51:15.7469020","$type":"Space"}
+2022-01-25 10:53:52.563 +02:00 [INF] Updated space available in space 7 to 19
+2022-01-25 10:53:53.981 +02:00 [INF] Booking created and saved: {"Id":8,"UserId":3,"SpaceId":7,"Status":"PENDING","TestType":"PCR","LocationName":"Rwanda","DateCreated":"2022-01-25T10:53:52.5640330+02:00","DateUpdated":"2022-01-25T10:53:52.5640330+02:00","$type":"Booking"}
+2022-01-25 10:53:54.015 +02:00 [INF] HTTP POST /api/booking responded 200 in 2773.6960 ms
+2022-01-25 10:53:57.958 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[{"Id":8,"UserId":3,"SpaceId":7,"Status":"PENDING","TestType":"PCR","LocationName":"Rwanda","DateCreated":"2022-01-25T10:53:52.5640330","DateUpdated":"2022-01-25T10:53:52.5640330","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 10:53:57.974 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1199.4033 ms
+2022-01-25 10:53:58.969 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[{"Id":8,"UserId":3,"SpaceId":7,"Status":"PENDING","TestType":"PCR","LocationName":"Rwanda","DateCreated":"2022-01-25T10:53:52.5640330","DateUpdated":"2022-01-25T10:53:52.5640330","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 10:53:58.984 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 989.2444 ms
+2022-01-25 10:54:07.938 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1081.2895 ms
+2022-01-25 10:54:41.355 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1238.8020 ms
+2022-01-25 10:56:33.368 +02:00 [INF] HTTP GET /23c5a14e5bc76e151d57.hot-update.json responded 200 in 38.7110 ms
+2022-01-25 10:56:33.377 +02:00 [INF] HTTP GET /main.23c5a14e5bc76e151d57.hot-update.js responded 200 in 4.0334 ms
+2022-01-25 10:56:33.410 +02:00 [INF] HTTP GET /main.23c5a14e5bc76e151d57.hot-update.js.map responded 200 in 4.0425 ms
+2022-01-25 10:56:33.414 +02:00 [INF] HTTP GET /summary responded 200 in 4.0691 ms
+2022-01-25 10:56:33.481 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 198924.6517 ms
+2022-01-25 10:56:33.485 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 304 in 13.6018 ms
+2022-01-25 10:56:33.489 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 12.5562 ms
+2022-01-25 10:56:33.491 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 15.2988 ms
+2022-01-25 10:56:33.536 +02:00 [INF] HTTP GET /main.23c5a14e5bc76e151d57.hot-update.js responded 304 in 1.7923 ms
+2022-01-25 10:56:33.541 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 6.5203 ms
+2022-01-25 10:56:33.609 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 19.6688 ms
+2022-01-25 10:56:33.646 +02:00 [INF] HTTP GET /main.23c5a14e5bc76e151d57.hot-update.js.map responded 200 in 6.5788 ms
+2022-01-25 10:56:33.696 +02:00 [INF] HTTP GET /static/js/0.chunk.js.map responded 200 in 106.0860 ms
+2022-01-25 10:56:33.705 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 8.8703 ms
+2022-01-25 10:56:33.705 +02:00 [INF] HTTP GET /manifest.json responded 304 in 6.3930 ms
+2022-01-25 10:56:34.758 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1113.5057 ms
+2022-01-25 10:57:05.574 +02:00 [INF] HTTP GET /3ad035f40a838157ba2f.hot-update.json responded 200 in 19.1514 ms
+2022-01-25 10:57:05.588 +02:00 [INF] HTTP GET /main.3ad035f40a838157ba2f.hot-update.js responded 200 in 4.7153 ms
+2022-01-25 10:57:05.624 +02:00 [INF] HTTP GET /main.3ad035f40a838157ba2f.hot-update.js.map responded 200 in 10.7675 ms
+2022-01-25 10:57:05.631 +02:00 [INF] HTTP GET /summary responded 200 in 13.9671 ms
+2022-01-25 10:57:05.746 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 32145.6413 ms
+2022-01-25 10:57:05.756 +02:00 [INF] HTTP GET /static/js/1.chunk.js responded 304 in 25.0113 ms
+2022-01-25 10:57:05.759 +02:00 [INF] HTTP GET /main.3ad035f40a838157ba2f.hot-update.js responded 304 in 16.7073 ms
+2022-01-25 10:57:05.762 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 15.4254 ms
+2022-01-25 10:57:05.763 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 29.9678 ms
+2022-01-25 10:57:05.783 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 9.4215 ms
+2022-01-25 10:57:05.853 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 20.1417 ms
+2022-01-25 10:57:05.882 +02:00 [INF] HTTP GET /main.3ad035f40a838157ba2f.hot-update.js.map responded 200 in 1.9583 ms
+2022-01-25 10:57:05.944 +02:00 [INF] HTTP GET /static/js/1.chunk.js.map responded 200 in 112.7690 ms
+2022-01-25 10:57:05.953 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 9.1195 ms
+2022-01-25 10:57:05.953 +02:00 [INF] HTTP GET /manifest.json responded 304 in 6.3270 ms
+2022-01-25 10:57:07.097 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1205.0714 ms
+2022-01-25 10:57:21.651 +02:00 [INF] HTTP GET /54a38e07c023153b8162.hot-update.json responded 200 in 25.3060 ms
+2022-01-25 10:57:21.660 +02:00 [INF] HTTP GET /main.54a38e07c023153b8162.hot-update.js responded 200 in 3.4420 ms
+2022-01-25 10:57:21.696 +02:00 [INF] HTTP GET /main.54a38e07c023153b8162.hot-update.js.map responded 200 in 8.7345 ms
+2022-01-25 10:57:21.700 +02:00 [INF] HTTP GET /summary responded 200 in 3.7196 ms
+2022-01-25 10:57:21.801 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 15964.3575 ms
+2022-01-25 10:57:21.802 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 304 in 28.3028 ms
+2022-01-25 10:57:21.825 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 50.9395 ms
+2022-01-25 10:57:21.827 +02:00 [INF] HTTP GET /main.54a38e07c023153b8162.hot-update.js responded 304 in 57.4025 ms
+2022-01-25 10:57:21.831 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 61.5074 ms
+2022-01-25 10:57:21.854 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 8.7435 ms
+2022-01-25 10:57:21.941 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 32.1751 ms
+2022-01-25 10:57:21.991 +02:00 [INF] HTTP GET /main.54a38e07c023153b8162.hot-update.js.map responded 200 in 16.8932 ms
+2022-01-25 10:57:22.020 +02:00 [INF] HTTP GET /static/js/0.chunk.js.map responded 200 in 111.0726 ms
+2022-01-25 10:57:22.045 +02:00 [INF] HTTP GET /manifest.json responded 304 in 6.6171 ms
+2022-01-25 10:57:22.046 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 7.5003 ms
+2022-01-25 10:57:23.041 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1056.2807 ms
+2022-01-25 10:58:21.121 +02:00 [INF] HTTP GET /6cb96e68e500ae3799bb.hot-update.json responded 200 in 11.9700 ms
+2022-01-25 10:58:21.127 +02:00 [INF] HTTP GET /main.6cb96e68e500ae3799bb.hot-update.js responded 200 in 2.2442 ms
+2022-01-25 10:58:21.155 +02:00 [INF] HTTP GET /main.6cb96e68e500ae3799bb.hot-update.js.map responded 200 in 2.4488 ms
+2022-01-25 10:58:21.164 +02:00 [INF] HTTP GET /summary responded 200 in 6.8631 ms
+2022-01-25 10:58:21.255 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 4.4003 ms
+2022-01-25 10:58:21.273 +02:00 [INF] HTTP GET /static/js/1.chunk.js responded 304 in 21.4725 ms
+2022-01-25 10:58:21.274 +02:00 [INF] HTTP GET /main.6cb96e68e500ae3799bb.hot-update.js responded 304 in 21.7641 ms
+2022-01-25 10:58:21.276 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 20.5743 ms
+2022-01-25 10:58:21.299 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 59380.0463 ms
+2022-01-25 10:58:21.319 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 3.0632 ms
+2022-01-25 10:58:21.391 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 17.1103 ms
+2022-01-25 10:58:21.424 +02:00 [INF] HTTP GET /main.6cb96e68e500ae3799bb.hot-update.js.map responded 200 in 3.0592 ms
+2022-01-25 10:58:21.481 +02:00 [INF] HTTP GET /manifest.json responded 304 in 6.2520 ms
+2022-01-25 10:58:21.482 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 6.7873 ms
+2022-01-25 10:58:21.482 +02:00 [INF] HTTP GET /static/js/1.chunk.js.map responded 200 in 108.6400 ms
+2022-01-25 10:58:22.557 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1126.3645 ms
+2022-01-25 10:58:38.824 +02:00 [INF] HTTP GET /88b05ca26f6e79d13036.hot-update.json responded 200 in 20.4520 ms
+2022-01-25 10:58:38.829 +02:00 [INF] HTTP GET /main.88b05ca26f6e79d13036.hot-update.js responded 200 in 1.8100 ms
+2022-01-25 10:58:38.856 +02:00 [INF] HTTP GET /main.88b05ca26f6e79d13036.hot-update.js.map responded 200 in 1.6603 ms
+2022-01-25 10:58:38.867 +02:00 [INF] HTTP GET /summary responded 200 in 3.0778 ms
+2022-01-25 10:58:38.927 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 5.3455 ms
+2022-01-25 10:58:38.942 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 304 in 19.1955 ms
+2022-01-25 10:58:38.946 +02:00 [INF] HTTP GET /main.88b05ca26f6e79d13036.hot-update.js responded 304 in 22.7258 ms
+2022-01-25 10:58:38.946 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 24.7216 ms
+2022-01-25 10:58:38.981 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 2.9080 ms
+2022-01-25 10:58:38.986 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 17605.9365 ms
+2022-01-25 10:58:39.047 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 11.0079 ms
+2022-01-25 10:58:39.086 +02:00 [INF] HTTP GET /main.88b05ca26f6e79d13036.hot-update.js.map responded 200 in 2.5408 ms
+2022-01-25 10:58:39.123 +02:00 [INF] HTTP GET /static/js/0.chunk.js.map responded 200 in 87.3831 ms
+2022-01-25 10:58:39.159 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 2.4350 ms
+2022-01-25 10:58:39.159 +02:00 [INF] HTTP GET /manifest.json responded 304 in 2.6016 ms
+2022-01-25 10:58:40.252 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1147.8213 ms
+2022-01-25 10:59:01.885 +02:00 [INF] HTTP GET /d8585269dc4ed93171cd.hot-update.json responded 200 in 21.3434 ms
+2022-01-25 10:59:01.894 +02:00 [INF] HTTP GET /main.d8585269dc4ed93171cd.hot-update.js responded 200 in 4.7978 ms
+2022-01-25 10:59:01.925 +02:00 [INF] HTTP GET /main.d8585269dc4ed93171cd.hot-update.js.map responded 200 in 1.8213 ms
+2022-01-25 10:59:01.930 +02:00 [INF] HTTP GET /summary responded 200 in 4.2813 ms
+2022-01-25 10:59:01.990 +02:00 [INF] HTTP GET /static/js/1.chunk.js responded 304 in 9.1493 ms
+2022-01-25 10:59:01.996 +02:00 [INF] HTTP GET /main.d8585269dc4ed93171cd.hot-update.js responded 304 in 14.5591 ms
+2022-01-25 10:59:01.996 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 14.5089 ms
+2022-01-25 10:59:01.996 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 14.6974 ms
+2022-01-25 10:59:02.040 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 2.4263 ms
+2022-01-25 10:59:02.045 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 23002.2108 ms
+2022-01-25 10:59:02.112 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 12.3578 ms
+2022-01-25 10:59:02.182 +02:00 [INF] HTTP GET /main.d8585269dc4ed93171cd.hot-update.js.map responded 200 in 8.4792 ms
+2022-01-25 10:59:02.205 +02:00 [INF] HTTP GET /static/js/1.chunk.js.map responded 200 in 107.8436 ms
+2022-01-25 10:59:02.249 +02:00 [INF] HTTP GET /manifest.json responded 304 in 4.0081 ms
+2022-01-25 10:59:02.256 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 7.4079 ms
+2022-01-25 10:59:03.215 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1020.6893 ms
+2022-01-25 11:00:39.608 +02:00 [INF] HTTP GET /ec24b0520761c3b647de.hot-update.json responded 200 in 17.7256 ms
+2022-01-25 11:00:39.618 +02:00 [INF] HTTP GET /main.ec24b0520761c3b647de.hot-update.js responded 200 in 2.2430 ms
+2022-01-25 11:00:39.651 +02:00 [INF] HTTP GET /main.ec24b0520761c3b647de.hot-update.js.map responded 200 in 1.4089 ms
+2022-01-25 11:00:39.653 +02:00 [INF] HTTP GET /summary responded 200 in 3.2440 ms
+2022-01-25 11:00:39.678 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 97573.4360 ms
+2022-01-25 11:00:39.734 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 304 in 18.9148 ms
+2022-01-25 11:00:39.735 +02:00 [INF] HTTP GET /main.ec24b0520761c3b647de.hot-update.js responded 304 in 16.9687 ms
+2022-01-25 11:00:39.737 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 20.1955 ms
+2022-01-25 11:00:39.739 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 19.7661 ms
+2022-01-25 11:00:39.780 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 1.9274 ms
+2022-01-25 11:00:39.845 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 9.6835 ms
+2022-01-25 11:00:39.883 +02:00 [INF] HTTP GET /main.ec24b0520761c3b647de.hot-update.js.map responded 200 in 1.6115 ms
+2022-01-25 11:00:39.930 +02:00 [INF] HTTP GET /static/js/0.chunk.js.map responded 200 in 95.2900 ms
+2022-01-25 11:00:40.071 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 3.3112 ms
+2022-01-25 11:00:40.072 +02:00 [INF] HTTP GET /manifest.json responded 304 in 2.0319 ms
+2022-01-25 11:00:41.056 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1160.1468 ms
+2022-01-25 11:01:39.399 +02:00 [INF] HTTP GET /39d5d5df9a99c2105daa.hot-update.json responded 200 in 13.0063 ms
+2022-01-25 11:01:39.406 +02:00 [INF] HTTP GET /main.39d5d5df9a99c2105daa.hot-update.js responded 200 in 2.0469 ms
+2022-01-25 11:01:39.433 +02:00 [INF] HTTP GET /main.39d5d5df9a99c2105daa.hot-update.js.map responded 200 in 1.9371 ms
+2022-01-25 11:01:39.439 +02:00 [INF] HTTP GET /summary responded 200 in 3.9930 ms
+2022-01-25 11:01:39.470 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 59628.5128 ms
+2022-01-25 11:01:39.500 +02:00 [INF] HTTP GET /main.39d5d5df9a99c2105daa.hot-update.js responded 304 in 8.0964 ms
+2022-01-25 11:01:39.512 +02:00 [INF] HTTP GET /static/js/1.chunk.js responded 304 in 20.6954 ms
+2022-01-25 11:01:39.515 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 23.3435 ms
+2022-01-25 11:01:39.516 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 24.6310 ms
+2022-01-25 11:01:39.551 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 2.9722 ms
+2022-01-25 11:01:39.614 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 7.9625 ms
+2022-01-25 11:01:39.660 +02:00 [INF] HTTP GET /main.39d5d5df9a99c2105daa.hot-update.js.map responded 200 in 1.4335 ms
+2022-01-25 11:01:39.700 +02:00 [INF] HTTP GET /static/js/1.chunk.js.map responded 200 in 95.6685 ms
+2022-01-25 11:01:39.733 +02:00 [INF] HTTP GET /manifest.json responded 304 in 3.8532 ms
+2022-01-25 11:01:39.733 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 4.7320 ms
+2022-01-25 11:01:41.148 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1479.4023 ms
+2022-01-25 11:01:44.031 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-26 responded 200 in 352.5402 ms
+2022-01-25 11:02:38.657 +02:00 [INF] HTTP GET /7cca6f2f2eb0a528db63.hot-update.json responded 200 in 10.9085 ms
+2022-01-25 11:02:38.664 +02:00 [INF] HTTP GET /main.7cca6f2f2eb0a528db63.hot-update.js responded 200 in 2.2842 ms
+2022-01-25 11:02:38.683 +02:00 [INF] HTTP GET /main.7cca6f2f2eb0a528db63.hot-update.js.map responded 200 in 1.3039 ms
+2022-01-25 11:02:38.691 +02:00 [INF] HTTP GET /summary responded 200 in 2.2257 ms
+2022-01-25 11:02:38.749 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 59138.5789 ms
+2022-01-25 11:02:38.756 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 9.5794 ms
+2022-01-25 11:02:38.759 +02:00 [INF] HTTP GET /main.7cca6f2f2eb0a528db63.hot-update.js responded 304 in 11.7967 ms
+2022-01-25 11:02:38.773 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 304 in 17.5692 ms
+2022-01-25 11:02:38.774 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 200 in 17.9394 ms
+2022-01-25 11:02:38.811 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 5.2461 ms
+2022-01-25 11:02:38.879 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 16.7475 ms
+2022-01-25 11:02:38.919 +02:00 [INF] HTTP GET /main.7cca6f2f2eb0a528db63.hot-update.js.map responded 200 in 2.1169 ms
+2022-01-25 11:02:38.965 +02:00 [INF] HTTP GET /static/js/0.chunk.js.map responded 200 in 103.2138 ms
+2022-01-25 11:02:39.012 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 3.4877 ms
+2022-01-25 11:02:39.012 +02:00 [INF] HTTP GET /manifest.json responded 304 in 3.4676 ms
+2022-01-25 11:02:40.288 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1340.2546 ms
+2022-01-25 11:02:44.782 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-26 responded 200 in 666.2619 ms
