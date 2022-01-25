@@ -247,3 +247,103 @@
 2022-01-25 11:02:39.012 +02:00 [INF] HTTP GET /manifest.json responded 304 in 3.4676 ms
 2022-01-25 11:02:40.288 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1340.2546 ms
 2022-01-25 11:02:44.782 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-26 responded 200 in 666.2619 ms
+2022-01-25 11:04:13.606 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[{"Id":8,"UserId":3,"SpaceId":7,"Status":"PENDING","TestType":"PCR","LocationName":"Rwanda","DateCreated":"2022-01-25T10:53:52.5640330","DateUpdated":"2022-01-25T10:53:52.5640330","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 11:04:13.619 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1062.6183 ms
+2022-01-25 11:04:14.938 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[{"Id":8,"UserId":3,"SpaceId":7,"Status":"PENDING","TestType":"PCR","LocationName":"Rwanda","DateCreated":"2022-01-25T10:53:52.5640330","DateUpdated":"2022-01-25T10:53:52.5640330","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 11:04:14.946 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1311.5220 ms
+2022-01-25 11:04:22.043 +02:00 [INF] Retrieved space: {"Id":7,"LocationName":"Rwanda","Date":"2022-01-25T00:00:00.0000000","SpacesCreated":20,"SpacesAvailable":19,"DateCreated":"2022-01-25T10:51:15.7469020","DateUpdated":"2022-01-25T10:51:15.7469020","$type":"Space"}
+2022-01-25 11:04:22.060 +02:00 [INF] Received booking response: {"Id":8,"UserId":3,"SpaceId":7,"Status":"PENDING","TestType":"PCR","LocationName":"Rwanda","DateCreated":"2022-01-25T10:53:52.5640330","DateUpdated":"2022-01-25T10:53:52.5640330","$type":"Booking"}
+2022-01-25 11:04:22.064 +02:00 [INF] Updated space available in space 7 to 20
+2022-01-25 11:04:23.488 +02:00 [INF] Booking updated and saved: {"Id":8,"UserId":3,"SpaceId":7,"Status":"CANCELLED","TestType":"PCR","LocationName":"Rwanda","DateCreated":"2022-01-25T10:53:52.5640330","DateUpdated":"2022-01-25T11:04:22.0774530+02:00","$type":"Booking"}
+2022-01-25 11:04:23.495 +02:00 [INF] HTTP PATCH /api/booking responded 200 in 2409.0349 ms
+2022-01-25 11:04:23.559 +02:00 [INF] HTTP GET / responded 200 in 17.3459 ms
+2022-01-25 11:04:23.624 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 304 in 7.4958 ms
+2022-01-25 11:04:23.639 +02:00 [INF] HTTP GET /static/js/bundle.js responded 304 in 18.8545 ms
+2022-01-25 11:04:23.652 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 304 in 32.4951 ms
+2022-01-25 11:04:23.653 +02:00 [INF] HTTP GET /main.7cca6f2f2eb0a528db63.hot-update.js responded 304 in 30.0845 ms
+2022-01-25 11:04:23.680 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 104851.8239 ms
+2022-01-25 11:04:23.689 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 3.3840 ms
+2022-01-25 11:04:23.741 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 5.3332 ms
+2022-01-25 11:04:23.781 +02:00 [INF] HTTP GET /main.7cca6f2f2eb0a528db63.hot-update.js.map responded 200 in 2.4765 ms
+2022-01-25 11:04:23.822 +02:00 [INF] HTTP GET /static/js/0.chunk.js.map responded 200 in 91.0644 ms
+2022-01-25 11:04:23.870 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 9.4398 ms
+2022-01-25 11:04:23.871 +02:00 [INF] HTTP GET /manifest.json responded 304 in 10.4578 ms
+2022-01-25 11:04:24.916 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 11:04:24.922 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1121.3944 ms
+2022-01-25 11:04:25.980 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 11:04:25.985 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1036.6905 ms
+2022-01-25 11:04:56.012 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1140.0199 ms
+2022-01-25 11:05:05.940 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-25 responded 200 in 1132.0047 ms
+2022-01-25 11:05:38.951 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1145.1496 ms
+2022-01-25 11:07:29.873 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 186131.6569 ms
+2022-01-25 11:07:42.763 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-25 11:07:53.359 +02:00 [INF] Db seeding completed
+2022-01-25 11:08:30.328 +02:00 [INF] Received Space response: [{"Id":1,"LocationName":"MALTA","Date":"2022-01-15T00:00:00.0000000","SpacesCreated":20,"SpacesAvailable":20,"DateCreated":"2022-01-14T14:39:37.7818790","DateUpdated":"2022-01-14T14:39:37.7818790","$type":"Space"},{"Id":2,"LocationName":"SEYCHELLES","Date":"2022-01-15T00:00:00.0000000","SpacesCreated":30,"SpacesAvailable":30,"DateCreated":"2022-01-14T14:39:37.7818750","DateUpdated":"2022-01-14T14:39:37.7818750","$type":"Space"},{"Id":3,"LocationName":"GREENLAND","Date":"2022-01-14T00:00:00.0000000","SpacesCreated":30,"SpacesAvailable":0,"DateCreated":"2022-01-14T14:39:37.7818500","DateUpdated":"2022-01-14T14:39:37.7818510","$type":"Space"},{"Id":4,"LocationName":"MALTA","Date":"2022-01-14T00:00:00.0000000","SpacesCreated":20,"SpacesAvailable":20,"DateCreated":"2022-01-14T14:39:37.7818320","DateUpdated":"2022-01-14T14:39:37.7818470","$type":"Space"},{"Id":5,"LocationName":"SEYCHELLES","Date":"2022-01-14T00:00:00.0000000","SpacesCreated":30,"SpacesAvailable":30,"DateCreated":"2022-01-14T14:39:37.7815120","DateUpdated":"2022-01-14T14:39:37.7816320","$type":"Space"},{"Id":6,"LocationName":"GREENLAND","Date":"2022-01-15T00:00:00.0000000","SpacesCreated":30,"SpacesAvailable":0,"DateCreated":"2022-01-14T14:39:37.7818890","DateUpdated":"2022-01-14T14:39:37.7818900","$type":"Space"},{"Id":7,"LocationName":"Rwanda","Date":"2022-01-25T00:00:00.0000000","SpacesCreated":20,"SpacesAvailable":20,"DateCreated":"2022-01-25T10:51:15.7469020","DateUpdated":"2022-01-25T10:51:15.7469020","$type":"Space"}]
+2022-01-25 11:08:30.568 +02:00 [INF] HTTP GET /api/space responded 200 in 1200.4150 ms
+2022-01-25 11:08:42.160 +02:00 [INF] HTTP GET /api/result/summary?date=2022-01-25 responded 200 in 1469.4563 ms
+2022-01-25 11:08:49.333 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 11:08:49.395 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1626.0242 ms
+2022-01-25 11:08:50.717 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 11:08:50.741 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1327.7075 ms
+2022-01-25 11:08:58.105 +02:00 [INF] Retrieved space: [{"Id":7,"LocationName":"Rwanda","Date":"2022-01-25T00:00:00.0000000","SpacesCreated":20,"SpacesAvailable":20,"DateCreated":"2022-01-25T10:51:15.7469020","DateUpdated":"2022-01-25T10:51:15.7469020","$type":"Space"}]
+2022-01-25 11:08:58.122 +02:00 [INF] HTTP GET /api/space?location=Rwanda responded 200 in 631.7450 ms
+2022-01-25 11:09:04.027 +02:00 [INF] Retrieved space: {"Id":7,"LocationName":"Rwanda","Date":"2022-01-25T00:00:00.0000000","SpacesCreated":20,"SpacesAvailable":20,"DateCreated":"2022-01-25T10:51:15.7469020","DateUpdated":"2022-01-25T10:51:15.7469020","$type":"Space"}
+2022-01-25 11:09:04.033 +02:00 [INF] Updated space available in space 7 to 19
+2022-01-25 11:09:05.886 +02:00 [INF] Booking created and saved: {"Id":9,"UserId":3,"SpaceId":7,"Status":"PENDING","TestType":"RAPID","LocationName":"Rwanda","DateCreated":"2022-01-25T11:09:04.0398100+02:00","DateUpdated":"2022-01-25T11:09:04.0398100+02:00","$type":"Booking"}
+2022-01-25 11:09:05.904 +02:00 [INF] HTTP POST /api/booking responded 200 in 3499.5726 ms
+2022-01-25 11:09:08.795 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[{"Id":9,"UserId":3,"SpaceId":7,"Status":"PENDING","TestType":"RAPID","LocationName":"Rwanda","DateCreated":"2022-01-25T11:09:04.0398100","DateUpdated":"2022-01-25T11:09:04.0398100","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 11:09:08.807 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1367.5322 ms
+2022-01-25 11:09:09.860 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[{"Id":9,"UserId":3,"SpaceId":7,"Status":"PENDING","TestType":"RAPID","LocationName":"Rwanda","DateCreated":"2022-01-25T11:09:04.0398100","DateUpdated":"2022-01-25T11:09:04.0398100","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 11:09:09.871 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1043.6319 ms
+2022-01-25 11:09:12.743 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1381.2969 ms
+2022-01-25 11:09:18.994 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[{"Id":9,"UserId":3,"SpaceId":7,"Status":"PENDING","TestType":"RAPID","LocationName":"Rwanda","DateCreated":"2022-01-25T11:09:04.0398100","DateUpdated":"2022-01-25T11:09:04.0398100","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 11:09:19.003 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1724.5953 ms
+2022-01-25 11:09:20.022 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[{"Id":9,"UserId":3,"SpaceId":7,"Status":"PENDING","TestType":"RAPID","LocationName":"Rwanda","DateCreated":"2022-01-25T11:09:04.0398100","DateUpdated":"2022-01-25T11:09:04.0398100","$type":"Booking"}],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 11:09:20.031 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1009.0688 ms
+2022-01-25 11:09:21.232 +02:00 [INF] Retrieved space: {"Id":7,"LocationName":"Rwanda","Date":"2022-01-25T00:00:00.0000000","SpacesCreated":20,"SpacesAvailable":19,"DateCreated":"2022-01-25T10:51:15.7469020","DateUpdated":"2022-01-25T10:51:15.7469020","$type":"Space"}
+2022-01-25 11:09:21.271 +02:00 [INF] Received booking response: {"Id":9,"UserId":3,"SpaceId":7,"Status":"PENDING","TestType":"RAPID","LocationName":"Rwanda","DateCreated":"2022-01-25T11:09:04.0398100","DateUpdated":"2022-01-25T11:09:04.0398100","$type":"Booking"}
+2022-01-25 11:09:21.278 +02:00 [INF] Updated space available in space 7 to 20
+2022-01-25 11:09:23.122 +02:00 [INF] Booking updated and saved: {"Id":9,"UserId":3,"SpaceId":7,"Status":"CANCELLED","TestType":"RAPID","LocationName":"Rwanda","DateCreated":"2022-01-25T11:09:04.0398100","DateUpdated":"2022-01-25T11:09:21.2801850+02:00","$type":"Booking"}
+2022-01-25 11:09:23.225 +02:00 [INF] HTTP PATCH /api/booking responded 200 in 3095.1649 ms
+2022-01-25 11:09:23.513 +02:00 [INF] HTTP GET / responded 200 in 169.3647 ms
+2022-01-25 11:09:23.677 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 304 in 39.8297 ms
+2022-01-25 11:09:23.683 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 304 in 43.6903 ms
+2022-01-25 11:09:23.686 +02:00 [INF] HTTP GET /static/js/bundle.js responded 200 in 48.1660 ms
+2022-01-25 11:09:23.702 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 5.2580 ms
+2022-01-25 11:09:23.736 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 14.3093 ms
+2022-01-25 11:09:23.833 +02:00 [INF] HTTP GET /static/js/0.chunk.js.map responded 200 in 111.6698 ms
+2022-01-25 11:09:23.861 +02:00 [INF] HTTP GET /manifest.json responded 304 in 27.4613 ms
+2022-01-25 11:09:23.861 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 28.5831 ms
+2022-01-25 11:09:24.971 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 11:09:24.999 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1219.8381 ms
+2022-01-25 11:09:26.418 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 11:09:26.425 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1402.1145 ms
+2022-01-25 11:09:29.102 +02:00 [INF] HTTP GET /api/result/summary responded 200 in 1074.2797 ms
+2022-01-25 11:09:51.539 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 11:09:51.549 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 1054.5945 ms
+2022-01-25 11:09:52.548 +02:00 [INF] Received User Summary: {"User":{"Id":3,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-01-14T14:39:37.2155910","DateUpdated":"2022-01-14T14:39:37.2158340","$type":"User"},"Bookings":[],"Tests":[{"Id":3,"BookingId":6,"UserId":3,"TestLocation":"SEYCHELLES","TestType":"PCR","Status":"COMPLETED","Positive":true,"DateCreated":"2022-01-14T14:39:38.5816380","DateUpdated":"2022-01-14T14:39:38.5816720","$type":"Result"}],"$type":"UserSummary"}
+2022-01-25 11:09:52.556 +02:00 [INF] HTTP GET /api/user/summary/3 responded 200 in 987.2273 ms
+2022-01-25 11:10:57.392 +02:00 [INF] HTTP GET / responded 304 in 50.3422 ms
+2022-01-25 11:10:57.501 +02:00 [INF] HTTP GET /static/js/main.chunk.js responded 304 in 16.8714 ms
+2022-01-25 11:10:57.517 +02:00 [INF] HTTP GET /static/js/bundle.js responded 304 in 38.8465 ms
+2022-01-25 11:10:57.517 +02:00 [INF] HTTP GET /static/js/0.chunk.js responded 304 in 31.8319 ms
+2022-01-25 11:10:57.520 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 93794.0033 ms
+2022-01-25 11:10:57.560 +02:00 [INF] HTTP GET /static/js/bundle.js.map responded 200 in 7.5225 ms
+2022-01-25 11:10:57.760 +02:00 [INF] HTTP GET /static/js/main.chunk.js.map responded 200 in 189.3896 ms
+2022-01-25 11:10:57.802 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 41.9075 ms
+2022-01-25 11:10:57.802 +02:00 [INF] HTTP GET /manifest.json responded 304 in 41.3802 ms
+2022-01-25 11:10:57.811 +02:00 [INF] HTTP GET /static/js/0.chunk.js.map responded 200 in 240.6898 ms
+2022-01-25 11:11:02.733 +02:00 [INF] HTTP GET /api/user?email=me.patient@gmail.com responded 200 in 943.6789 ms
+2022-01-25 11:11:03.760 +02:00 [INF] Received User Summary: {"User":{"Id":1,"Email":"me.patient@gmail.com","Name":"Andres","UserRole":"USER","DateCreated":"2022-01-14T14:39:37.2160950","DateUpdated":"2022-01-14T14:39:37.2160950","$type":"User"},"Bookings":[{"Id":7,"UserId":1,"SpaceId":4,"Status":"PENDING","TestType":"PCR","LocationName":"SEYCHELLES","DateCreated":"2022-01-14T14:39:38.2067060","DateUpdated":"2022-01-14T14:39:38.2068810","$type":"Booking"}],"Tests":[],"$type":"UserSummary"}
+2022-01-25 11:11:03.767 +02:00 [INF] HTTP GET /api/user/summary/1 responded 200 in 1029.2423 ms
+2022-01-25 11:11:07.867 +02:00 [INF] Updated space available in space 4 to 0
+2022-01-25 11:11:08.255 +02:00 [INF] Closed all past booking in space 4
+2022-01-25 11:11:08.258 +02:00 [INF] Retrieved space: {"Id":4,"LocationName":"MALTA","Date":"2022-01-14T00:00:00.0000000","SpacesCreated":20,"SpacesAvailable":0,"DateCreated":"2022-01-14T14:39:37.7818320","DateUpdated":"2022-01-14T14:39:37.7818470","$type":"Space"}
+2022-01-25 11:11:09.679 +02:00 [INF] Received booking response: {"Id":7,"UserId":1,"SpaceId":4,"Status":"CLOSED","TestType":"PCR","LocationName":"SEYCHELLES","DateCreated":"2022-01-14T14:39:38.2067060","DateUpdated":"2022-01-14T14:39:38.2068810","$type":"Booking"}
+2022-01-25 11:11:09.708 +02:00 [ERR] Received request errors: No Pending Booking Exists when calling {Request.Path}
+2022-01-25 11:11:09.736 +02:00 [INF] HTTP PATCH /api/booking responded 400 in 2783.8230 ms
+2022-01-25 11:23:45.226 +02:00 [INF] HTTP GET /sockjs-node responded 101 in 767453.0650 ms
+2022-01-25 11:23:58.222 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-25 11:24:04.623 +02:00 [INF] Db seeding completed
+2022-01-25 11:26:22.729 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-01-25 11:26:31.231 +02:00 [INF] Db seeding completed

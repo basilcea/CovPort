@@ -43,7 +43,7 @@ namespace Infrastructure.Repository
                     {
                         LocationName = space.First().LocationName,
                         BookingCapacity = space.First().SpacesCreated,
-                        Bookings = _dbContext.Bookings.Where(x => x.SpaceId == space.First().Id).Count(),
+                        Bookings = _dbContext.Bookings.Where(x => x.SpaceId == space.First().Id && x.Status == BookingStatus.PENDING.ToString()).Count(),
                         Tests = tests.Count(),
                         PositiveCases = tests
                         .Where(x => x.Status == TestStatus.COMPLETED.ToString() && x.Positive == true)
