@@ -26,15 +26,17 @@ namespace Infrastructure.Repository
         {
             try
             {
-                var spaces = _dbContext.Spaces.AsEnumerable()
+                var spaces = _dbContext.Spaces
                 .Where(x => DateTime.Parse(x.Date.ToShortDateString()) == Date)
+                .AsEnumerable()
                 .GroupBy(x => x.LocationName);
+
+                var results = await _dbContext.Results.ToListAsync();
 
                 List<ResultSummary> resultList = new();
 
                 foreach (var space in spaces)
                 {
-                    var results = await _dbContext.Results.ToListAsync();
                     var tests = results.Where(x => (
                         x.TestLocation.ToLower() == space.First().LocationName.ToLower()
                         && DateTime.Parse(x.DateCreated.ToShortDateString()) == Date));

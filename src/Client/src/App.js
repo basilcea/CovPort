@@ -6,10 +6,6 @@ import CreateBooking from './containers/CreateBooking';
 import Result from './containers/Results'
 import CreateSpace from './containers/CreateSpace'
 import Summary from "./components/Summary"
-
-
-
-
 import './custom.css'
 
 export default function App() {

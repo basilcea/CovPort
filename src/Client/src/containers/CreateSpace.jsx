@@ -15,9 +15,10 @@ export default function CreateSpace() {
     requesterId: localStorage.getItem("userId"),
   });
   const onChange = (e) => {
+    const val = e
     setSpace((prev) => ({
       ...prev,
-      date: e,
+      date: val,
     }));
   };
   const change = (e) => {
