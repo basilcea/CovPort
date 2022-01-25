@@ -18,6 +18,7 @@ export default function Home() {
   const history = useHistory();
   useEffect(() => {
     const getUser = async () => {
+      await axios.get(`/space`);
       let userId = localStorage.getItem("userId");
       if (userId) {
         await getUserSummary(userId);
