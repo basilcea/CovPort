@@ -17,13 +17,13 @@ namespace Infrastructure.Repository
         {
         }
 
-        public async virtual Task<IEnumerable<Space>> Get()
+        public override async Task<IEnumerable<Space>> Get()
         {
             try
             {
                 var result = await _dbContext.Spaces.ToListAsync();
                 foreach (var space in result)
-                {
+                { 
                     if (space.Date < DateTime.Parse(DateTime.Now.ToShortDateString()))
                     {
                         space.SpacesAvailable = 0;
