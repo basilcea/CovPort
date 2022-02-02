@@ -39,7 +39,7 @@ namespace Infrastructure.Repository
                 _logger.LogInformation("Received Result response: {@response}", result);
                 return result;
             }
-            catch (InvalidOperationException ex)
+            catch (Exception ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
@@ -69,7 +69,7 @@ namespace Infrastructure.Repository
                 savedResult.Positive = body.Positive;
                 return await UpdateEntity(savedResult, _dbContext, _logger);
             }
-            catch (InvalidOperationException ex)
+            catch (Exception ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
@@ -110,7 +110,7 @@ namespace Infrastructure.Repository
                 booking.Status = BookingStatus.CLOSED.ToString();
                 return await InsertEntity(entity, _dbContext, _logger);
             }
-            catch (InvalidOperationException ex)
+            catch (Exception ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
