@@ -29,9 +29,9 @@ namespace Api.Controllers
 
 
         [HttpGet("summary/{id}")]
-        public Task<ActionResult<ApiResponse<UserSummary>>> GetSummary(int id)
+        public Task<ActionResult<ApiResponse<UserSummary>>> GetSummary(int id, [FromQuery] int pageId = 1)
         {
-            return GetUserSummary(id);
+            return GetUserSummary(id, pageId);
         }
 
     }

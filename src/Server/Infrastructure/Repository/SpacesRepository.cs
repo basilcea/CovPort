@@ -17,35 +17,35 @@ namespace Infrastructure.Repository
         {
         }
 
-        public override async Task<IEnumerable<Space>> Get()
-        {
-            try
-            {
-                var result = await _dbContext.Spaces.ToListAsync();
-                foreach (var space in result)
-                { 
-                    if (space.Date < DateTime.Parse(DateTime.Now.ToShortDateString()))
-                    {
-                        space.SpacesAvailable = 0;
-                        _logger.LogInformation("Updated space available in space {@id} to {@SpacesAvailable}", space.Id, space.SpacesAvailable);
-                        var bookings = await _dbContext.Bookings.Where(x => x.SpaceId == space.Id && x.Status != BookingStatus.CLOSED.ToString()).ToListAsync();
-                        foreach (var booking in bookings)
-                        {
-                            booking.Status = BookingStatus.CLOSED.ToString();
-                        }
-                        _logger.LogInformation("Closed all past booking in space {@space}", space.Id);
-                    }
-                }
-                _logger.LogInformation("Received spaces response: {@response}", result);
-                return result;
-            }
-            catch (InvalidOperationException ex)
-            {
-                _logger.LogError($"An sql error occurred:-  {ex.Message}");
-                throw new UserDefinedSQLException();
+        // public override async Task<IEnumerable<Space>> Get()
+        // {
+        //     try
+        //     {
+        //         var result = await _dbContext.Spaces.ToListAsync();
+        //         foreach (var space in result)
+        //         { 
+        //             if (space.Date < DateTime.Parse(DateTime.Now.ToShortDateString()))
+        //             {
+        //                 // space.SpacesAvailable = 0;
+        //                 // _logger.LogInformation("Updated space available in space {@id} to {@SpacesAvailable}", space.Id, space.SpacesAvailable);
+        //                 var bookings = await _dbContext.Bookings.Where(x => x.SpaceId == space.Id && x.Status != BookingStatus.CLOSED.ToString()).ToListAsync();
+        //                 foreach (var booking in bookings)
+        //                 {
+        //                     booking.Status = BookingStatus.CLOSED.ToString();
+        //                 }
+        //                 _logger.LogInformation("Closed all past booking in space {@space}", space.Id);
+        //             }
+        //         }
+        //         _logger.LogInformation("Received spaces response: {@response}", result);
+        //         return result;
+        //     }
+        //     catch (InvalidOperationException ex)
+        //     {
+        //         _logger.LogError($"An sql error occurred:-  {ex.Message}");
+        //         throw new UserDefinedSQLException();
 
-            }
-        }
+        //     }
+        // }
 
         public override async Task<Space> Insert(Space entity, int requesterId)
         {
@@ -61,7 +61,7 @@ namespace Infrastructure.Repository
                 {
                     throw new UnauthorizedException();
                 }
-                if (entity.Date < DateTime.Parse(DateTime.Now.ToShortDateString()))
+                if (entity.Date < DateTime.Today)
                 {
                     throw new BadRequestException("Space Closed");
                 }
@@ -94,12 +94,11 @@ namespace Infrastructure.Repository
             }
 
         }
-
         public override async Task<IEnumerable<Space>> GetByFilter(string location)
         {
             try
             {
-                var space = await _dbContext.Spaces.Where(x => x.LocationName.ToUpper() == location.ToUpper() && x.SpacesAvailable > 0).ToListAsync();
+                var space = await _dbContext.Spaces.Where(x => x.LocationName.ToUpper() == location.ToUpper() && !x.Closed).ToListAsync();
                 _logger.LogInformation("Retrieved space: {@type}", space);
                 return space;
             }

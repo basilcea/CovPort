@@ -1,14 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.IO;
-using System;
 using FluentValidation.AspNetCore;
 using Api.Validations;
 using Api.Mappings;
@@ -19,8 +16,9 @@ using Microsoft.AspNetCore.Http;
 using Api.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Infrastructure.Persistence;
+using Domain.Interfaces;
+using Domain.Entities;
 
 namespace Api
 {
@@ -79,7 +77,6 @@ namespace Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
             }
             else
             {
@@ -101,8 +98,8 @@ namespace Api
             app.UseRouting();
             app.UseCors();
 
-            app.UseEndpoints(endpoints =>
-            {
+            app.UseEndpoints( endpoints =>
+            { 
                 endpoints.MapControllers();
                 endpoints.MapHealthChecks("/healthz");
                 endpoints.MapGet("/api", async context =>

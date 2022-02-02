@@ -98,6 +98,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Closed")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -109,9 +112,6 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("LocationName")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("SpacesAvailable")
-                        .HasColumnType("int");
 
                     b.Property<int>("SpacesCreated")
                         .HasColumnType("int");

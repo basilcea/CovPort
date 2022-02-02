@@ -1,0 +1,5 @@
+2022-02-02 23:16:30.931 +02:00 [INF] Worker running at: "2022-02-02T23:16:30.9249070+02:00"
+2022-02-02 23:17:21.810 +02:00 [INF] Migrating and seeding db from PortalDbContextSeeder
+2022-02-02 23:17:32.103 +02:00 [INF] Db seeding completed
+2022-02-02 23:17:56.570 +02:00 [INF] Received User Summary: {"User":{"Id":1,"Email":"admin.cea@covport.check","Name":"cea","UserRole":"ADMIN","DateCreated":"2022-02-02T22:37:26.1312620","DateUpdated":"2022-02-02T22:37:26.1321580","$type":"User"},"Bookings":[{"Id":2,"UserId":1,"SpaceId":4,"Status":"PENDING","TestType":"PCR","LocationName":"SEYCHELLES","DateCreated":"2022-02-02T22:37:31.9960360","DateUpdated":"2022-02-02T22:37:31.9960810","$type":"Booking"}],"Tests":[],"$type":"UserSummary"}
+2022-02-02 23:17:56.932 +02:00 [INF] HTTP GET /api/user/summary/1?id=1 responded 200 in 1596.1772 ms

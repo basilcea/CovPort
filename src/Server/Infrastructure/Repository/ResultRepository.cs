@@ -92,10 +92,9 @@ namespace Infrastructure.Repository
                 if (user.UserRole != Role.LABADMIN.ToString())
                 {
                     throw new UnauthorizedException();
-
                 }
-                var booking = await _dbContext.Bookings
-                .FindAsync(entity.BookingId);
+                var booking = await _dbContext.Bookings.FindAsync(entity.BookingId);
+
                 if (booking == null || booking.Status != BookingStatus.PENDING.ToString())
                 {
                     throw new NotFoundException("No Pending Booking");

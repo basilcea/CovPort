@@ -37,17 +37,18 @@ namespace Api.Controllers
             return Ok(ApiResponse<IEnumerable<T>>.FromData(result, GetMessage("Get")));
         }
 
-        protected async Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetReportSummary(string date)
+        protected async Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetReportSummary(string date, int pageId)
         {
             var dateString = date ?? DateTime.Now.ToShortDateString();
-            var result = await _mediator.Send(new GetResultSummary(DateTime.Parse(dateString)));
+            var result = await _mediator.Send(new GetResultSummary(DateTime.Parse(dateString),pageId));
             return Ok(ApiResponse<IEnumerable<ResultSummary>>.FromData(result, GetMessage("Summary")));
         }
-        protected async Task<ActionResult<ApiResponse<UserSummary>>> GetUserSummary(int id)
+        protected async Task<ActionResult<ApiResponse<UserSummary>>> GetUserSummary(int id,int pageId)
         {
-            var result = await _mediator.Send(new GetUserSummary(id));
+            var result = await _mediator.Send(new GetUserSummary(id, pageId));
             return Ok(ApiResponse<UserSummary>.FromData(result, GetMessage("Summary")));
         }
+       
 
         protected async Task<ActionResult<ApiResponse<T>>> Create<S>(S request) where S : class
         {
@@ -61,7 +62,6 @@ namespace Api.Controllers
             var createTest = _mapper.Map<UpdateEntity<T>>(request);
             var result = await _mediator.Send(createTest);
             return Ok(ApiResponse<T>.FromData(result, GetMessage("Update")));
-
 
         }
 

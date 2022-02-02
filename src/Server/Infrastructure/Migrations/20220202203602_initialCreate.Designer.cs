@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(PortalDbContext))]
-    [Migration("20220113162115_initial")]
-    partial class initial
+    [Migration("20220202203602_initialCreate")]
+    partial class initialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -100,6 +100,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Closed")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -111,9 +114,6 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("LocationName")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("SpacesAvailable")
-                        .HasColumnType("int");
 
                     b.Property<int>("SpacesCreated")
                         .HasColumnType("int");

@@ -10,12 +10,14 @@ namespace Application.Queries
 {
     public class GetResultSummary : IRequest<IEnumerable<ResultSummary>> 
     {
-         public GetResultSummary(DateTime date)
+         public GetResultSummary(DateTime date, int page)
         {
             Date = date;
+            Page = page;
         }
 
         public DateTime Date { get; }
+        public int Page {get;}
     }
 
     public class GetSummaryHandler : IRequestHandler<GetResultSummary, IEnumerable<ResultSummary>> 
@@ -29,7 +31,7 @@ namespace Application.Queries
 
         public async Task<IEnumerable<ResultSummary>> Handle(GetResultSummary request, CancellationToken cancellationToken)
         {
-            return await _summaryRepo.GetReportSummary(request.Date);
+            return await _summaryRepo.GetReportSummary(request.Date, request.Page);
         }
     }
 }

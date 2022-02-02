@@ -23,7 +23,6 @@ namespace Api.Mappings
             CreateMap<SpaceRequestBody, SaveEntity<Space>>()
                 .ForPath(d => d.Body.LocationName, opt => opt.MapFrom(s => s.LocationName))
                 .ForPath(d => d.Body.SpacesCreated, opt => opt.MapFrom(s => s.SpacesCreated))
-                .ForPath(d => d.Body.SpacesAvailable, opt => opt.MapFrom(s => s.SpacesCreated))
                 .ForPath(d => d.Body.Date, opt => opt.MapFrom(s => DateTime.Parse(s.Date)))
                 .ForPath(d => d.RequesterId, opt => opt.MapFrom(s => s.RequesterId));
 

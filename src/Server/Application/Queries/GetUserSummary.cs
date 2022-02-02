@@ -10,12 +10,14 @@ namespace Application.Queries
 {
     public class GetUserSummary : IRequest<UserSummary> 
     {
-         public GetUserSummary(int id)
+         public GetUserSummary(int id,int page)
         {
             Id = id;
+            Page = page;
         }
 
         public int Id { get; }
+        public int Page {get;}
     }
 
     public class GetUserSummaryHandler : IRequestHandler<GetUserSummary, UserSummary> 
@@ -29,7 +31,7 @@ namespace Application.Queries
 
         public async Task<UserSummary> Handle(GetUserSummary request, CancellationToken cancellationToken)
         {
-            return await _summaryRepo.GetUserSummary(request.Id);
+            return await _summaryRepo.GetUserSummary(request.Id, request.Page);
         }
     }
 }

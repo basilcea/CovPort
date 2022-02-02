@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Domain.Interfaces
@@ -11,6 +10,7 @@ namespace Domain.Interfaces
         Task<T> GetById(int id);
         Task<IEnumerable<T>> Get(); 
         Task<IEnumerable<T>> GetByFilter( string filter);
+       
         
     }
 }

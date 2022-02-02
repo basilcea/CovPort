@@ -43,9 +43,9 @@ namespace Api.Controllers
         }
 
         [HttpGet("summary")]
-        public Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetSummary([FromQuery] string date)
+        public Task<ActionResult<ApiResponse<IEnumerable<ResultSummary>>>> GetSummary([FromQuery] string date , [FromQuery] int pageId = 1)
         {
-            return GetReportSummary(date);
+            return GetReportSummary(date, pageId);
         }
         
 

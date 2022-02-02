@@ -27,9 +27,6 @@ namespace Infrastructure.Repository
                 {
                     throw new NotFoundException("Booking Not Found");
                 }
-                var space = await GetSpaceById(savedBooking.SpaceId, _dbContext,_logger);
-                _logger.LogInformation("Retrieved space: {@type}", space);
-                await _dbContext.SaveChangesAsync();
                 _logger.LogInformation("Received booking response: {@response}", savedBooking);
                 return savedBooking;
             }
@@ -77,10 +74,6 @@ namespace Infrastructure.Repository
                 {
                     throw new UnauthorizedException();
                 }
-
-                var space = await _dbContext.Spaces.FindAsync(savedBooking.SpaceId);
-                space.SpacesAvailable += 1;
-                _logger.LogInformation($"Updated space available in space {space.Id} to {space.SpacesAvailable}");
                 savedBooking.Status = body.Status ?? savedBooking.Status;
                 return await UpdateEntity(savedBooking, _dbContext, _logger);
             }
@@ -101,24 +94,26 @@ namespace Infrastructure.Repository
                 }
 
                 var existingBooking = await _dbContext.Bookings.Where(x =>
-                    x.SpaceId == entity.SpaceId &&
-                    x.UserId == entity.UserId &&
-                    x.Status != BookingStatus.CANCELLED.ToString())
-                    .FirstOrDefaultAsync();
+                    x.SpaceId == entity.SpaceId).ToListAsync();
 
-                if (existingBooking != null)
+                var space = await GetSpaceById(entity.SpaceId, _dbContext, _logger);
+                _logger.LogInformation("Retrieved space: {@type}", space);
+
+                if (space.SpacesCreated - existingBooking.Count < 1)
+                {
+                    space.Closed = true;
+                    throw new NotFoundException("Available Space Not Found");
+                }
+
+                var userExistingBooking = existingBooking.AsEnumerable()
+                .Where(x => x.UserId == entity.UserId && x.Status != BookingStatus.CANCELLED.ToString())
+                .ToList();
+
+                if (userExistingBooking.Count > 0)
                 {
                     throw new BadRequestException("You have a pending booking for this date");
                 }
 
-                var space = await GetSpaceById(entity.SpaceId, _dbContext,_logger);
-                _logger.LogInformation("Retrieved space: {@type}", space);
-                if (space.SpacesAvailable <= 0)
-                {
-                    throw new NotFoundException("Available Space Not Found");
-                }
-                space.SpacesAvailable -= 1;
-                _logger.LogInformation($"Updated space available in space {space.Id} to {space.SpacesAvailable}");
                 entity.Status = BookingStatus.PENDING.ToString();
                 entity.LocationName = space.LocationName;
                 return await InsertEntity(entity, _dbContext, _logger);

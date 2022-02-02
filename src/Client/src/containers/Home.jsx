@@ -18,7 +18,6 @@ export default function Home() {
   const history = useHistory();
   useEffect(() => {
     const getUser = async () => {
-      await updateSpaceDaily()
       let userId = localStorage.getItem("userId");
       if (userId) {
         await getUserSummary(userId);
@@ -35,15 +34,6 @@ export default function Home() {
     history.push(`/createspace`);
   };
   const [errors, setErrors] = useState([]);
-
-  const updateSpaceDaily = async () => {
-    const date = localStorage.getItem("spaceUpdated")
-    const today = new Date().toLocaleDateString()
-    if (date !== today ){
-      await axios.get(`/space`);
-      localStorage.setItem("spaceUpdated", today )
-    }
-  }
 
   const getUserSummary = async (id) => {
     const {

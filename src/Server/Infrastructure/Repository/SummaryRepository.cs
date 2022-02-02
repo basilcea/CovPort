@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
+using System.Data;
+using System.Data.Common;
+using System.IO;
 using System.Threading.Tasks;
 using Application.Exceptions;
+using AutoMapper;
 using Domain.Aggregates;
+using Domain.Entities;
 using Domain.Interfaces;
-using Domain.ValueObjects;
 using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -17,50 +19,43 @@ namespace Infrastructure.Repository
     {
         protected readonly PortalDbContext _dbContext;
         private readonly ILogger<ResultSummary> _logger;
-        public SummaryRepository(PortalDbContext dbContext, ILogger<ResultSummary> logger)
+        private readonly IMapper _mapper;
+        public SummaryRepository(PortalDbContext dbContext, ILogger<ResultSummary> logger, IMapper mapper)
         {
             _dbContext = dbContext;
             _logger = logger;
+            _mapper = mapper;
         }
-        public async Task<IEnumerable<ResultSummary>> GetReportSummary(DateTime Date)
+        public static void AddParameters(DbCommand cmd, string name, object value, DbType dbType)
+        {
+
+            var param = cmd.CreateParameter();
+            param.ParameterName = name;
+            param.Value = value;
+            param.DbType = dbType;
+            cmd.Parameters.Add(param);
+        }
+        public async Task<IEnumerable<ResultSummary>> GetReportSummary(DateTime Date, int page)
         {
             try
             {
-                var spaces = _dbContext.Spaces
-                .Where(x => DateTime.Parse(x.Date.ToShortDateString()) == Date)
-                .AsEnumerable()
-                .GroupBy(x => x.LocationName);
-
-                var results = await _dbContext.Results.ToListAsync();
-
-                List<ResultSummary> resultList = new();
-
-                foreach (var space in spaces)
+                var results = new List<ResultSummary>();
+                var query = File.ReadAllText("../Infrastructure/SQL/ReportViewQuery.sql");
+                var connection = _dbContext.Database.GetDbConnection();
+                var cmd = connection.CreateCommand();
+                AddParameters(cmd, "Date", Date, DbType.DateTime);
+                AddParameters(cmd, "PageNumber", page, DbType.Int32);
+                AddParameters(cmd, "PageSize", 50, DbType.Int32);
+                cmd.CommandText = query;
+                connection.Open();
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    var tests = results.Where(x => (
-                        x.TestLocation.ToLower() == space.First().LocationName.ToLower()
-                        && DateTime.Parse(x.DateCreated.ToShortDateString()) == Date));
-
-                    var resultSummary = new ResultSummary
-                    {
-                        LocationName = space.First().LocationName,
-                        BookingCapacity = space.First().SpacesCreated,
-                        Bookings = _dbContext.Bookings.Where(x => x.SpaceId == space.First().Id && x.Status == BookingStatus.PENDING.ToString()).Count(),
-                        Tests = tests.Count(),
-                        PositiveCases = tests
-                        .Where(x => x.Status == TestStatus.COMPLETED.ToString() && x.Positive == true)
-                        .Count(),
-                        NegativeCases = tests
-                        .Where(x => x.Status == TestStatus.COMPLETED.ToString() && x.Positive == false)
-                        .Count(),
-                        AwaitingResult = tests
-                        .Where(x => x.Status == TestStatus.PENDING.ToString() && x.Positive == null)
-                        .Count()
-                    };
-
-                    resultList.Add(resultSummary);
-                };
-                return resultList;
+                    results.Add(_mapper.Map<ResultSummary>(reader));
+                }
+                reader.Close();
+                _logger.LogInformation("Received Report Summary: {@response}", results);
+                return await Task.FromResult(results);
             }
             catch (InvalidOperationException ex)
             {
@@ -71,24 +66,52 @@ namespace Infrastructure.Repository
 
         }
 
-        public async Task<UserSummary> GetUserSummary(int id)
+        public async Task<UserSummary> GetUserSummary(int id, int page)
         {
             try
             {
-                var user = await _dbContext.Users.FindAsync(id);
-                var bookings = await _dbContext.Bookings.Where(x => x.UserId == id && x.Status == BookingStatus.PENDING.ToString()).ToListAsync();
-                var tests = await _dbContext.Results
-                .Where(x => x.UserId == id
-                && x.Status == TestStatus.COMPLETED.
-                ToString()).ToListAsync();
+                var userWritten = false;
+                var bookings = new List<Booking>();
+                var testResults = new List<Result>();
+                var user = new User();
+                var query = File.ReadAllText("../Infrastructure/SQL/UserSummaryViewQuery.sql");
+                var connection = _dbContext.Database.GetDbConnection();
+                var cmd = connection.CreateCommand();
+                AddParameters(cmd, "UserId", id, DbType.Int32);
+                AddParameters(cmd, "PageNumber", page, DbType.Int32);
+                AddParameters(cmd, "PageSize", 10, DbType.Int32);
+                cmd.CommandText = query;
+                connection.Open();
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (!userWritten)
+                    {
+                        user = _mapper.Map<User>(reader);
+                        userWritten = true;
+                    }
+                    if (reader[8].ToString() == "PENDING")
+                    {
+                        bookings.Add(_mapper.Map<Booking>(reader));
+                    }
+                    if (reader[13] is not DBNull)
+                    {
+                        testResults.Add(_mapper.Map<Result>(reader));
+                    }
+
+                }
+
+                reader.Close();
                 var result = new UserSummary
                 {
                     User = user,
                     Bookings = bookings,
-                    Tests = tests
+                    Tests = testResults
                 };
+
                 _logger.LogInformation("Received User Summary: {@response}", result);
-                return result;
+                return await Task.FromResult(result);
             }
             catch (InvalidOperationException ex)
             {

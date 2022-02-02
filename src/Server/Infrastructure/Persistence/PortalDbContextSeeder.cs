@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
@@ -17,32 +18,51 @@ namespace Infrastructure.Persistence
         }
         public async Task Seed()
         {
-
+           
             if ((await _dbContext.Database.GetPendingMigrationsAsync()).Any())
             {
                 await _dbContext.Database.MigrateAsync();
+                string reportScript = File.ReadAllText("../Infrastructure/SQL/ReportView.sql");
+                string userScript = File.ReadAllText("../Infrastructure/SQL/UserSummaryView.sql");
+                await _dbContext.Database.ExecuteSqlRawAsync(reportScript);
+                await _dbContext.Database.ExecuteSqlRawAsync(userScript);
             }
+             _dbContext.Database.OpenConnection();
 
             if (!_dbContext.Users.Any())
-            {
+            {  
+                await _dbContext.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Users ON");
                 _dbContext.Users.AddRange(AddUsers());
+                await _dbContext.SaveChangesAsync();
+                await _dbContext.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Users OFF");
+              
             }
             if (!_dbContext.Spaces.Any())
             {
-                _dbContext.Spaces.AddRange(AddSpaces());
+                await _dbContext.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Spaces ON");
+                _dbContext.Spaces.AddRange(AddSpaces());      
+                await _dbContext.SaveChangesAsync();
+                await _dbContext.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Spaces OFF");
+            
 
             }
             if (!_dbContext.Bookings.Any())
             {
-                _dbContext.Bookings.AddRange(AddBookings());
+               await _dbContext.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Bookings ON");
+               _dbContext.Bookings.AddRange(AddBookings());
+                await _dbContext.SaveChangesAsync();
+                await _dbContext.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Bookings OFF");
+              
             }
 
             if (!_dbContext.Results.Any())
             {
+                await _dbContext.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Results ON");
                 _dbContext.Results.AddRange(AddResults());
+                await _dbContext.SaveChangesAsync();
+                await _dbContext.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Results OFF");
             }
-
-            await _dbContext.SaveChangesAsync();
+              _dbContext.Database.CloseConnection();
         }
 
         private static IEnumerable<Space> AddSpaces()
@@ -51,9 +71,9 @@ namespace Infrastructure.Persistence
            {
                 new Space()
                 {
+                    Id = 1,
                     LocationName = "SEYCHELLES",
                     Date = DateTime.Today,
-                    SpacesAvailable = 30,
                     SpacesCreated = 30,
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
@@ -61,9 +81,9 @@ namespace Infrastructure.Persistence
                 },
                 new Space()
                 {
+                    Id = 2,
                     LocationName = "MALTA",
                     Date = DateTime.Today,
-                    SpacesAvailable = 20,
                     SpacesCreated = 20,
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
@@ -71,19 +91,18 @@ namespace Infrastructure.Persistence
                 },
                 new Space()
                 {
+                    Id = 3,
                     LocationName = "GREENLAND",
                     Date = DateTime.Today,
-                    SpacesAvailable = 30,
                     SpacesCreated = 30,
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
 
                 },
                 new Space()
-                {
+                {   Id = 4,
                     LocationName = "SEYCHELLES",
                     Date = DateTime.Today.AddDays(1),
-                    SpacesAvailable = 30,
                     SpacesCreated = 30,
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
@@ -91,9 +110,9 @@ namespace Infrastructure.Persistence
                 },
                 new Space()
                 {
+                    Id = 5,
                     LocationName = "MALTA",
                     Date = DateTime.Today.AddDays(1),
-                    SpacesAvailable = 20,
                     SpacesCreated = 20,
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
@@ -101,9 +120,9 @@ namespace Infrastructure.Persistence
                 },
                 new Space()
                 {
+                    Id = 6,
                     LocationName = "GREENLAND",
                     Date = DateTime.Today.AddDays(1),
-                    SpacesAvailable = 30,
                     SpacesCreated = 30,
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
@@ -117,7 +136,7 @@ namespace Infrastructure.Persistence
             return new List<User>
             {
                  new User()
-                {
+                {   Id = 1,
                     Email = "admin.cea@covport.check",
                     Name = "cea",
                     UserRole = "ADMIN",
@@ -126,8 +145,7 @@ namespace Infrastructure.Persistence
                 },
 
                 new User()
-                {
-
+                {   Id = 2,
                     Email = "labadmin.liwu@covport.check",
                     Name = "liwu",
                     UserRole = "LABADMIN",
@@ -137,6 +155,7 @@ namespace Infrastructure.Persistence
                 },
                 new User()
                 {
+                    Id = 3,
                     Email = "me.patient@gmail.com",
                     Name = "Andres",
                     UserRole = "USER",
@@ -153,6 +172,7 @@ namespace Infrastructure.Persistence
 
                 new Booking()
                 {
+                    Id = 1,
                     UserId = 1,
                     SpaceId = 1,
                     Status = "COMPLETED",
@@ -163,7 +183,7 @@ namespace Infrastructure.Persistence
                 },
 
                 new Booking()
-                {
+                {   Id = 2,
                     UserId = 1,
                     SpaceId = 4,
                     Status = "PENDING",
@@ -173,7 +193,7 @@ namespace Infrastructure.Persistence
                     DateUpdated = DateTime.Now
                 },
                 new Booking()
-                {
+                {   Id = 3,
                     UserId = 2,
                     SpaceId = 2,
                     Status = "COMPLETED",
@@ -184,7 +204,7 @@ namespace Infrastructure.Persistence
                 },
 
                 new Booking()
-                {
+                {   Id = 4,
                     UserId = 2,
                     SpaceId = 5,
                     Status = "CANCELLED",
@@ -196,7 +216,7 @@ namespace Infrastructure.Persistence
 
                 },
                 new Booking()
-                {
+                {   Id =5,
                     UserId = 3,
                     SpaceId = 3,
                     Status = "PENDING",
@@ -207,6 +227,7 @@ namespace Infrastructure.Persistence
                 },
                    new Booking()
                 {
+                    Id = 6,
                     UserId = 3,
                     SpaceId = 1,
                     Status = "COMPLETED",
@@ -218,6 +239,7 @@ namespace Infrastructure.Persistence
 
                 new Booking()
                 {
+                    Id = 7,
                     UserId = 3,
                     SpaceId = 6,
                     Status = "PENDING",
@@ -238,6 +260,7 @@ namespace Infrastructure.Persistence
             {
                  new Result()
                 {
+                   Id = 1,
                    BookingId = 1,
                    UserId = 1,
                    TestLocation = "SEYCHELLES",
@@ -249,7 +272,7 @@ namespace Infrastructure.Persistence
 
                 new Result()
                 {
-
+                   Id =2,
                    BookingId = 3,
                    UserId = 2,
                    TestLocation = "MALTA",
@@ -260,7 +283,7 @@ namespace Infrastructure.Persistence
 
                 },
                 new Result()
-                {
+                {  Id= 3,
                    BookingId = 6,
                    UserId = 3,
                    TestLocation = "SEYCHELLES",

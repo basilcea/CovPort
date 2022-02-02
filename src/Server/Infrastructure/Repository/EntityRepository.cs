@@ -107,19 +107,10 @@ namespace Infrastructure.Repository
             {
                 throw new NotFoundException("Space Not Found");
             }
-            if (space.Date < DateTime.Parse(DateTime.Now.ToShortDateString()) && space.SpacesAvailable > 0)
-            {
-                space.SpacesAvailable = 0;
-                logger.LogInformation("Updated space available in space {@id} to {@SpacesAvailable}", space.Id, space.SpacesAvailable);
-                var bookings = await _dbContext.Bookings.Where(x => x.SpaceId == Id && x.Status != BookingStatus.CLOSED.ToString()).ToListAsync();
-                foreach (var booking in bookings)
-                {
-                    booking.Status = BookingStatus.CLOSED.ToString();
-                }
-                logger.LogInformation("Closed all past booking in space {@space}", space.Id);
-            }
             return space;
 
         }
+
+        
     }
 }
