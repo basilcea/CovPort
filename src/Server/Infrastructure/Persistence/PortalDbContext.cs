@@ -5,8 +5,17 @@ namespace Infrastructure.Persistence
 {
     public class PortalDbContext : DbContext
     {
-        public PortalDbContext(DbContextOptions<PortalDbContext> options): base(options)
+        private readonly DbContextOptions<PortalDbContext> _options;
+        public DbContextOptions<PortalDbContext> Options 
         {
+            get
+            {
+                return _options;
+            }
+        }
+        public PortalDbContext(DbContextOptions<PortalDbContext> options) : base(options)
+        {
+            _options = options;
         }
 
         public DbSet<Booking> Bookings { get; set; }
@@ -18,17 +27,17 @@ namespace Infrastructure.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Booking>().HasKey(x => x.Id);
-          
+
             modelBuilder.Entity<Space>().HasKey(x => x.Id);
-            modelBuilder.Entity<Space>().HasIndex(x => new { x.LocationName, x.Date}).IsUnique();
+            modelBuilder.Entity<Space>().HasIndex(x => new { x.LocationName, x.Date }).IsUnique();
 
             modelBuilder.Entity<Result>().HasKey(x => x.Id);
             modelBuilder.Entity<Result>().HasIndex(x => x.BookingId).IsUnique();
-            
+
             modelBuilder.Entity<User>().HasKey(x => x.Id);
             modelBuilder.Entity<User>().HasIndex(x => x.Email).IsUnique();
 
-           
+
         }
     }
 }

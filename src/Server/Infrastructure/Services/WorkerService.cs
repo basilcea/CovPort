@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Infrastructure.Services
 {
-    public class WorkerService: IWorkerService
+    public class WorkerService : IWorkerService
     {
         protected readonly PortalDbContext _dbContext;
         private readonly ILogger<WorkerService> _logger;
@@ -26,20 +26,24 @@ namespace Infrastructure.Services
         }
         public async Task CloseOldSpacesBookings()
         {
-            var spaces = await _dbContext.Spaces
-            .Where(x => !x.Closed && x.Date < DateTime.Today).ToListAsync();
-            if (spaces.Count > 0)
+            using (var _newContext = new PortalDbContext(_dbContext.Options))
             {
-                foreach (var space in spaces)
+                var spaces = await _newContext.Spaces
+                .Where(x => !x.Closed && x.Date < DateTime.Today).ToListAsync();
+                if (spaces.Count > 0)
                 {
-                    var bookings = await _dbContext.Bookings.Where(x => x.SpaceId == space.Id && x.Status != BookingStatus.CLOSED.ToString()).ToListAsync();
-                    foreach (var booking in bookings)
+                    foreach (var space in spaces)
                     {
-                        booking.Status = BookingStatus.CLOSED.ToString();
+                        var bookings = await _newContext.Bookings.Where(x => x.SpaceId == space.Id && x.Status != BookingStatus.CLOSED.ToString()).ToListAsync();
+                        foreach (var booking in bookings)
+                        {
+                            booking.Status = BookingStatus.CLOSED.ToString();
+                        }
+                        _logger.LogInformation("Closed all past booking in space {@space}", space.Id);
+                        space.Closed = true;
+                        _logger.LogInformation("Closed Space {@space}", space.Id);
+                        await _newContext.SaveChangesAsync();
                     }
-                    _logger.LogInformation("Closed all past booking in space {@space}", space.Id);
-                    space.Closed = true;
-                    _logger.LogInformation("Closed Space {@space}", space.Id);
                 }
             }
         }
