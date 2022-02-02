@@ -149,4 +149,23 @@ Some assumptions made during the design of the project include:-
  Default Report Summary for 2022-01-14 and 2022-01-15
  ```
 
+## Updates to Version 1.2
+- AutoGeneration of Id  (Identity) disabled for seeding purposes only. Data seeded with corresponding Id to ensure data correctness.
+- Logic for SummaryRepository (UserSummary and Reports) rewritten using raw Sql and Views. Views are created on first migration or if there are any pending Migrations (i.e Migrations Update)
+- SQL Folder in Infrastructure Layer contains the various queries used in the project
+- AutoMapper included in the Infrastucture layer to map Dbreader to class properties.
+- space.SpacesAvailable removed from Logic to ensure thread safe. Available Spaces are now calculated, i.e SpaceCreated - existingBookings
+- Space Entity now has boolean property Closed
+- Background Worker created that closes all previous spaces of past dates and their corresponding booking.It runs every midnight (12:00).
+- IWorker Interface and WorkerService created respectively
+- To Start Worker 
+```bash
+ cd src/server/worker
+ dotnet watch run
+```
+- GetSpaceById method in the EntityRepository Updated.
+
+
+
+
 This project was built by [Basil Ogbonna](mailto:ogbonna.basil3@gmail.com)
