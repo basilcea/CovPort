@@ -57,7 +57,7 @@ namespace Infrastructure.Repository
                 _logger.LogInformation("Received Report Summary: {@response}", results);
                 return await Task.FromResult(results);
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
@@ -113,7 +113,7 @@ namespace Infrastructure.Repository
                 _logger.LogInformation("Received User Summary: {@response}", result);
                 return await Task.FromResult(result);
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();

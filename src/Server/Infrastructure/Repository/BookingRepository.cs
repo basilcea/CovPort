@@ -30,7 +30,7 @@ namespace Infrastructure.Repository
                 _logger.LogInformation("Received booking response: {@response}", savedBooking);
                 return savedBooking;
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
@@ -54,7 +54,7 @@ namespace Infrastructure.Repository
                 _logger.LogInformation("Received booking response: {@response}", result);
                 return result;
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
@@ -77,7 +77,7 @@ namespace Infrastructure.Repository
                 savedBooking.Status = body.Status ?? savedBooking.Status;
                 return await UpdateEntity(savedBooking, _dbContext, _logger);
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
@@ -118,7 +118,7 @@ namespace Infrastructure.Repository
                 entity.LocationName = space.LocationName;
                 return await InsertEntity(entity, _dbContext, _logger);
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();

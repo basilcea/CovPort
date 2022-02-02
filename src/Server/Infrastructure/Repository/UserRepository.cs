@@ -26,7 +26,7 @@ namespace Infrastructure.Repository
                 }
                 return result;
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();

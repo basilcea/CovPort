@@ -67,7 +67,7 @@ namespace Infrastructure.Repository
                 }
                 return await InsertEntity(entity, _dbContext, _logger);
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
@@ -86,7 +86,7 @@ namespace Infrastructure.Repository
                 _logger.LogInformation("Retrieved space: {@type}", space);
                 return space;
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
@@ -102,7 +102,7 @@ namespace Infrastructure.Repository
                 _logger.LogInformation("Retrieved space: {@type}", space);
                 return space;
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogError($"An sql error occurred:-  {ex.Message}");
                 throw new UserDefinedSQLException();
