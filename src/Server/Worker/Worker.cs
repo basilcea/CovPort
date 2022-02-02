@@ -32,12 +32,12 @@ namespace Worker
                 {
                     var t1 = Task.Delay(firstInterval);
                     t1.Wait();
-                    
-                    _logger.LogInformation("Worker Closing Old Spaces and Bookings: {time}", DateTimeOffset.Now);
                     TimerAction(null);
+                    _logger.LogInformation("Worker Closing Old Spaces and Bookings: {time}", DateTimeOffset.Now);
                     var timer = new Timer(TimerAction, null, TimeSpan.Zero, interval);
                 };
                 Task.Run(action); 
+                return Task.CompletedTask;
             }
             return Task.CompletedTask;
         }
