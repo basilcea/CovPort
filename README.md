@@ -154,7 +154,7 @@ Some assumptions made during the design of the project include:-
 - Logic for SummaryRepository (UserSummary and Reports) rewritten using raw Sql and Views. Views are created on first migration only or if there are any pending Migrations (i.e Migrations Update)
 - SQL Folder in Infrastructure Layer contains the various queries used in the project
 - AutoMapper included in the Infrastructure layer to map Dbreader to class properties.
-- space.SpacesAvailable removed from Logic to ensure thread safety. Available Spaces are now calculated, i.e ```SpaceCreated - existingBookings``
+- space.SpacesAvailable removed from Logic to ensure thread safety. Available Spaces are now calculated, i.e ```SpaceCreated - existingBookings```
 - Space Entity now has boolean property ```Closed```
 - Background Worker created that closes all previous spaces of past dates and their corresponding booking.It runs every midnight (12:00).
 - IWorker Interface and WorkerService created respectively
