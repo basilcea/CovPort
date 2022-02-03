@@ -156,7 +156,7 @@ Some assumptions made during the design of the project include:-
 - AutoMapper included in the Infrastructure layer to map Dbreader to class properties.
 - space.SpacesAvailable removed from Logic to ensure thread safety. Available Spaces are now calculated, i.e ```SpaceCreated - existingBookings```
 - Space Entity now has boolean property ```Closed```
-- Background Worker created that closes all previous spaces of past dates and their corresponding booking.It runs every midnight (12:00).
+- Background Worker created that closes all previous spaces of past dates and their corresponding booking.It runs every midnight (12:00). Worker runs on a new instance of Dbcontext to prevent DbContext threading issues for operations running in parallel.
 - IWorker Interface and WorkerService created respectively
 - To Start Worker 
 ```bash

@@ -34,7 +34,9 @@ namespace Infrastructure.Services
                 {
                     foreach (var space in spaces)
                     {
-                        var bookings = await _newContext.Bookings.Where(x => x.SpaceId == space.Id && x.Status != BookingStatus.CLOSED.ToString()).ToListAsync();
+                        var bookings = await _newContext.Bookings.
+                        Where(x => x.SpaceId == space.Id && x.Status != BookingStatus.CLOSED.ToString())
+                        .ToListAsync();
                         foreach (var booking in bookings)
                         {
                             booking.Status = BookingStatus.CLOSED.ToString();
